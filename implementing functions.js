@@ -72,11 +72,11 @@ function isEven2(n) {
 }
 //console.log(isEven2(n));
 
-// Prime number tester
+// Prime number tester using loops and if statement.
 
 function isPrime(n) {
     var keep;
-    for (let i = 2; i <= 11; i++) {
+    for (let i = 2; i <= 13; i++) {
         if (n == 1 || n == 0) {
             keep = false;
         }
@@ -93,6 +93,29 @@ function isPrime(n) {
     return keep;
 }
 //console.log(isPrime(15));
+
+//isPrime using if statements.
+function isPrime2(n){
+    if(n==2){return true;}
+    if(!isEven(n)) {
+        if(n==3||
+        n==5||
+        n==7||
+        n==11)
+        {return true;}
+
+        else if (n%3==0 ||
+                n%5== 0 ||
+                n%7 == 0 ||
+                n%11 == 0) {
+                    return false;
+                }
+                return true;
+     }
+     return false;
+}
+
+//console.log(isPrime2(47));
 
 // Implementing a setTimeOut.
 function delay(func, wait) {
@@ -324,3 +347,4 @@ var ok = pipe(addOne,mul);
 function convertNumberToDifferentBase(value,converTo) {
          return value.toString(converTo);
 }
+
