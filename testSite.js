@@ -352,3 +352,233 @@ class HashTable {
 
 // console.log(hashtable.remove("abc"));
 // console.log(hashtable);
+
+class Tree {
+  constructor(value) {
+    this.value = value;
+    this.children = [];
+  }
+  insertChild(value) {
+    const newTree = new Tree(value);
+    this.children.push(newTree);
+    return newTree;
+  }
+
+  // Uses a Depth-First Traversal
+  static traverse(tree, func = console.log) {}
+
+  contains(searchValue) {}
+
+  static size(tree) {}
+
+  static find(tree, value) {}
+
+  insert(parentTree, value) {}
+
+  remove(value) {
+    const search = this.children;
+    for (let i = 0; i < search.length; i++) {
+      if (search[i].value === value) {
+        var temp = search[i];
+        search.splice(1, i);
+        return temp;
+      }
+    }
+  }
+
+  reorder(node1, node2) {}
+}
+
+const tree = new Tree("Parent");
+// tree.insertChild("son");
+// // console.log(
+// const tree2 = tree.insertChild("Daughter");
+// // );
+// tree2.insertChild("Abduls");
+// console.log(tree);
+
+class BinaryTree {
+  constructor() {
+    this.value = null;
+    this.left = null;
+    this.right = null;
+  }
+  insert(value) {
+    if (this.value === null) this.value = value;
+    if (this.left === null && value < this.value) {
+      var left = new BinaryTree();
+      this.left = left;
+      this.left.insert(value);
+    } else if (this.right === null && value > this.value) {
+      var right = new BinaryTree();
+      this.right = right;
+      this.right.insert(value);
+    } else if (this.left !== null && value < this.value) {
+      this.left.insert(value);
+    } else if (this.right !== null && value > this.value) {
+      this.right.insert(value);
+    }
+  }
+  preTraverse() {
+    function preOrderTraverse(tree, arr) {
+      arr.push(tree.value);
+      if (tree.left !== null) preOrderTraverse(tree.left, arr);
+      if (tree.right !== null) preOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return preOrderTraverse(this, []);
+  }
+  sortedTraverse() {
+    function inOrderTraverse(tree, arr) {
+      if (tree.left !== null) inOrderTraverse(tree.left, arr);
+      arr.push(tree.value);
+      if (tree.right !== null) inOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return inOrderTraverse(this, []);
+  }
+  postTraverse() {
+    function postOrderTraverse(tree, arr) {
+      if (tree.left !== null) postOrderTraverse(tree.left, arr);
+      if (tree.right !== null) postOrderTraverse(tree.right, arr);
+      arr.push(tree.value);
+      return arr;
+    }
+    return postOrderTraverse(this, arr);
+  }
+
+  contains(value) {
+    var result = false;
+    function answer(tree) {
+      if (tree.value === value) return (result = true);
+      if (tree.left !== null) answer(tree.left);
+      if (tree.right !== null) answer(tree.right);
+    }
+    answer(this);
+    return result;
+  }
+}
+
+// const btree = new BinaryTree();
+// btree.insert(7);
+// btree.insert(9);
+// btree.insert(1);
+// btree.insert(10);
+// btree.insert(2);
+// btree.insert(0);
+// btree.insert(8);
+// btree.insert(11);
+// console.log(btree);
+// console.log(btree.contains(0));
+// console.log(btree.sortedTraverse());
+
+function preOrderTraverse(tree, arr) {
+  arr.push(tree.value);
+  if (tree.left !== null) preOrderTraverse(tree.left, arr);
+  if (tree.right !== null) preOrderTraverse(tree.right, arr);
+  return arr;
+}
+function inOrderTraverse(tree, arr) {
+  if (tree.left !== null) inOrderTraverse(tree.left, arr);
+  arr.push(tree.value);
+  if (tree.right !== null) inOrderTraverse(tree.right, arr);
+  return arr;
+}
+function postOrderTraverse(tree, arr) {
+  if (tree.left !== null) postOrderTraverse(tree.left, arr);
+  if (tree.right !== null) postOrderTraverse(tree.right, arr);
+  arr.push(tree.value);
+  return arr;
+}
+
+// var answer = preOrderTraverse(btree, []);
+// console.log(answer);
+
+class Graph {
+  constructor(value) {
+    this[value] = { value, connections: [] };
+  }
+  addNode(value) {
+    if (!(value in this)) {
+      this[value] = { value, connections: [] };
+    }
+  }
+  addEdge(nodeA, ...rest) {
+    const nodeB = [...rest];
+    for (let i = 0; i < nodeB.length; i++) {
+      if (nodeA in this && nodeB[i] in this) {
+        if (!this[nodeA].connections.includes(nodeB[i]))
+          this[nodeA].connections.push(nodeB[i]);
+        if (!this[nodeB[i]].connections.includes(nodeA))
+          this[nodeB[i]].connections.push(nodeA);
+      } else {
+        this.addNode(nodeA);
+        this.addNode(nodeB[i]);
+        this.addEdge(nodeA, nodeB[i]);
+      }
+    }
+  }
+  removeNode(node) {
+    var temp = { ...this[node] };
+    if (node in this) {
+      for (let i = 0; i < this[node].connections.length; i++) {
+        const nodeConnections = this[node].connections[i];
+        const connectedNodes = this[nodeConnections].connections;
+        const index = connectedNodes.indexOf(node);
+        connectedNodes.splice(index, 1);
+      }
+      delete this[node];
+      return temp;
+    }
+  }
+}
+
+const graph = new Graph(7);
+graph.addNode(8);
+graph.addEdge(7, 8, 10, 9, 11, 12, 13, 14);
+graph.removeNode(12);
+graph.addNode(10);
+graph.addEdge(7, 8);
+graph.addEdge(7, 9);
+graph.addEdge(8, 9);
+graph.addEdge(9, 100);
+graph.addEdge(10, 24);
+graph.addEdge(12, 25);
+console.log(graph);
+
+function depthFirstTraversal(value, graph) {
+  const visited = {};
+  function depthFirst(value, arr) {
+    if (!(value in visited)) {
+      visited[value] = true;
+      arr.push(value);
+      const connectedNodes = graph[value].connections;
+      for (let i = 0; i < connectedNodes.length; i++) {
+        depthFirst(connectedNodes[i], arr);
+      }
+    }
+    return arr;
+  }
+  return depthFirst(value, []);
+}
+
+// console.log(depthFirstTraversal(7, graph));
+
+function breadthFirstTraversal(value, graph) {
+  const visited = {};
+  const arr = [...graph[value].connections];
+  visited[value] = true;
+  const result = [value];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!(arr[i] in visited)) {
+      visited[arr[i]] = true;
+      var temp = arr[i];
+      result.push(arr[i]);
+      arr.push(...graph[temp].connections);
+    }
+  }
+  return result;
+}
+
+// console.log(breadthFirstTraversal(7, graph));

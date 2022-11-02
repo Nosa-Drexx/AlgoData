@@ -1197,7 +1197,7 @@ class BloomFilter {
   }
 }
 
-//These test uses hashing function found in the hashing functions.js file
+//These test uses hashing function found in the hashing functions.js file, they are just pesudohasing functions for the purpose of this test.
 //CHECK "https://codesandbox.io/s/algorithms-exercises-forked-q2hhq8?file=/specs/bloom-filters/bloom-filters.test.js" TO VIEW A TEST OF BLOOM FILTER. SAME CODE AS ABOVE.
 var bf = new BloomFilter();
 // console.log(bf.contains("Brian")); //false
@@ -1455,7 +1455,7 @@ var test23 = new Linkedlist();
 
 //-------------- HASHTABLE (DATA STRUCTURE) ALGORITHM -------------
 
-const { hash, hash2, _hash } = require("./hashing functions");
+const { _hash } = require("./hashing functions");
 
 class HashTable {
   constructor(range) {
@@ -1522,3 +1522,386 @@ class HashTable {
 
 // console.log(hashtable.remove("abc"));
 // console.log(hashtable);
+
+//-------------- BINARYTREE (DATA STRUCTURE) ALGORITHM -------------
+
+class BinaryTree {
+  constructor() {
+    this.value = null;
+    this.left = null;
+    this.right = null;
+  }
+  insert(value) {
+    if (this.value === null) this.value = value;
+    if (this.left === null && value < this.value) {
+      var left = new BinaryTree();
+      this.left = left;
+      this.left.insert(value);
+    } else if (this.right === null && value > this.value) {
+      var right = new BinaryTree();
+      this.right = right;
+      this.right.insert(value);
+    } else if (this.left !== null && value < this.value) {
+      this.left.insert(value);
+    } else if (this.right !== null && value > this.value) {
+      this.right.insert(value);
+    }
+  }
+  preTraverse() {
+    function preOrderTraverse(tree, arr) {
+      arr.push(tree.value);
+      if (tree.left !== null) preOrderTraverse(tree.left, arr);
+      if (tree.right !== null) preOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return preOrderTraverse(this, []);
+  }
+  sortedTraverse() {
+    function inOrderTraverse(tree, arr) {
+      if (tree.left !== null) inOrderTraverse(tree.left, arr);
+      arr.push(tree.value);
+      if (tree.right !== null) inOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return inOrderTraverse(this, []);
+  }
+  postTraverse() {
+    function postOrderTraverse(tree, arr) {
+      if (tree.left !== null) postOrderTraverse(tree.left, arr);
+      if (tree.right !== null) postOrderTraverse(tree.right, arr);
+      arr.push(tree.value);
+      return arr;
+    }
+    return postOrderTraverse(this, arr);
+  }
+
+  contains(value) {
+    var result = false;
+    function answer(tree) {
+      if (tree.value === value) return (result = true);
+      if (tree.left !== null) return answer(tree.left);
+      if (tree.right !== null) return answer(tree.right);
+    }
+    answer(this);
+    return result;
+  }
+}
+// tests
+const btree = new BinaryTree();
+// btree.insert(7);
+// btree.insert(9);
+// btree.insert(1);
+// btree.insert(10);
+// btree.insert(2);
+// btree.insert(0);
+// btree.insert(8);
+// btree.insert(11);
+// console.log(btree);
+// console.log(btree.contains(0));
+// console.log(btree.contains(1000));
+// console.log(btree.sortedTraverse());
+
+//-------------- DIFFERENT ALGORITHM TO TRAVERSE THROUGHT A TREE -------------
+
+function preOrderTraverse(tree, arr) {
+  arr.push(tree.value);
+  if (tree.left !== null) preOrderTraverse(tree.left, arr);
+  if (tree.right !== null) preOrderTraverse(tree.right, arr);
+  return arr;
+}
+function inOrderTraverse(tree, arr) {
+  if (tree.left !== null) inOrderTraverse(tree.left, arr);
+  arr.push(tree.value);
+  if (tree.right !== null) inOrderTraverse(tree.right, arr);
+  return arr;
+}
+function postOrderTraverse(tree, arr) {
+  if (tree.left !== null) postOrderTraverse(tree.left, arr);
+  if (tree.right !== null) postOrderTraverse(tree.right, arr);
+  arr.push(tree.value);
+  return arr;
+}
+
+//tests
+// console.log(preOrderTraverse(btree, []));
+// console.log(inOrderTraverse(btree, []));
+// console.log(postOrderTraverse(btree, []));
+
+//-------------- GRAPH (DATA STRUCTURE) ALGORITHM  -------------
+
+class Graph {
+  constructor(value) {
+    this[value] = { value, connections: [] };
+  }
+  addNode(value) {
+    if (!(value in this)) {
+      this[value] = { value, connections: [] };
+    }
+  }
+  addEdge(nodeA, ...rest) {
+    const nodeB = [...rest];
+    for (let i = 0; i < nodeB.length; i++) {
+      if (nodeA in this && nodeB[i] in this) {
+        if (!this[nodeA].connections.includes(nodeB[i]))
+          this[nodeA].connections.push(nodeB[i]);
+        if (!this[nodeB[i]].connections.includes(nodeA))
+          this[nodeB[i]].connections.push(nodeA);
+      } else {
+        this.addNode(nodeA);
+        this.addNode(nodeB[i]);
+        this.addEdge(nodeA, nodeB[i]);
+      }
+    }
+  }
+  removeNode(node) {
+    var temp = { ...this[node] };
+    if (node in this) {
+      for (let i = 0; i < this[node].connections.length; i++) {
+        const nodeConnections = this[node].connections[i];
+        const connectedNodes = this[nodeConnections].connections;
+        const index = connectedNodes.indexOf(node);
+        connectedNodes.splice(index, 1);
+      }
+      delete this[node];
+      return temp;
+    }
+  }
+
+  depthFirstTraversal(value) {
+    const visited = {};
+    const graph = this;
+    function depthFirst(value, arr) {
+      if (!(value in visited)) {
+        visited[value] = true;
+        arr.push(value);
+        const connectedNodes = graph[value].connections;
+        for (let i = 0; i < connectedNodes.length; i++) {
+          depthFirst(connectedNodes[i], arr);
+        }
+      }
+      return arr;
+    }
+    return depthFirst(value, []);
+  }
+
+  breadthFirstTraversal(value) {
+    const visited = {};
+    const arr = [...graph[value].connections];
+    visited[value] = true;
+    const result = [value];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (!(arr[i] in visited)) {
+        visited[arr[i]] = true;
+        var temp = arr[i];
+        result.push(arr[i]);
+        arr.push(...this[temp].connections);
+      }
+    }
+    return result;
+  }
+}
+
+const graph = new Graph(7);
+graph.addNode(8);
+graph.addEdge(7, 8, 10, 9, 11, 12, 13, 14);
+graph.removeNode(12);
+graph.addNode(10);
+graph.addEdge(7, 8);
+graph.addEdge(7, 9);
+graph.addEdge(8, 9);
+graph.addEdge(9, 100);
+graph.addEdge(10, 24);
+graph.addEdge(12, 25);
+console.log(graph);
+console.log(graph.depthFirstTraversal(7));
+console.log(graph.breadthFirstTraversal(7));
+
+//-------------- DEPTH FIRST TRAVERSAL  THROUGH ABOVE GRAPH ALGORITHM  -------------
+
+function depthFirstTraversal(value, graph) {
+  const visited = {};
+  function depthFirst(value, arr) {
+    if (!(value in visited)) {
+      visited[value] = true;
+      arr.push(value);
+      const connectedNodes = graph[value].connections;
+      for (let i = 0; i < connectedNodes.length; i++) {
+        depthFirst(connectedNodes[i], arr);
+      }
+    }
+    return arr;
+  }
+  return depthFirst(value, []);
+}
+
+// console.log(depthFirstTraversal(7, graph));
+
+//-------------- BREADTH FIRST TRAVERSAL  THROUGH ABOVE GRAPH ALGORITHM  -------------
+
+function breadthFirstTraversal(value, graph) {
+  const visited = {};
+  const arr = [...graph[value].connections];
+  visited[value] = true;
+  const result = [value];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!(arr[i] in visited)) {
+      visited[arr[i]] = true;
+      var temp = arr[i];
+      result.push(arr[i]);
+      arr.push(...graph[temp].connections);
+    }
+  }
+  return result;
+}
+
+// console.log(breadthFirstTraversal(7, graph));
+
+//-------------- ALGORITHM TO SORT AN ARRAY RANDOMLY -------------
+
+function sortArrayRandomly(array) {
+  const arr = [...array];
+  for (let i = 0; i < arr.length; i++) {
+    var temp = arr[i];
+    const randomPosition = Math.floor(Math.random() * (arr.length - 1));
+    arr[i] = arr[randomPosition];
+    arr[randomPosition] = temp;
+  }
+  return arr;
+}
+
+var randomArr = sortArrayRandomly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log(randomArr);
+
+//-------------- ALGORITHM TO VALIDATE SUBSEQUENCE OF AN ARRAY -------------
+console.log(":");
+
+function isValidSubsequence(array, sequence) {
+  var arrC = [...array];
+  var arr = [];
+
+  for (let i = 0; i < sequence.length; i++) {
+    if (arrC.includes(sequence[i])) {
+      arr.push(sequence[i]);
+      arrC = arrC.splice(arrC.indexOf(sequence[i]) + 1, arrC.length);
+    }
+  }
+
+  return arr.length === sequence.length ? true : false;
+}
+
+//tests
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])); // true
+console.log(
+  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 25, 6, -1, 8, 10])
+); //true
+console.log(
+  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 6, -1, 8, 10])
+); //true
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, 10])); //true
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 10])); //true
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, -1, 8, 10])); //true
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [25])); //true
+console.log(isValidSubsequence([1, 1, 1, 1, 1], [1, 1, 1])); //true
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [5, 1, 22, 25, 6, -1, 8, 10, 12]
+  )
+); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [4, 5, 1, 22, 25, 6, -1, 8, 10, 12]
+  )
+); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [5, 1, 22, 23, 6, -1, 8, 10, 12]
+  )
+); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [5, 1, 22, 22, 25, 6, -1, 8, 10, 12]
+  )
+); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [5, 1, 22, 22, 6, -1, 8, 10, 12]
+  )
+); //false
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1])); //false
+console.log(
+  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1, 10])
+); //false
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -2])); //false
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [26])); //false
+console.log(
+  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 25, 22, 6, -1, 8, 10])
+); //false
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 26, 22, 8])); //false
+console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6])); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [1, 6, -1, 10, 11, 11, 11, 11]
+  )
+); //false
+console.log(
+  isValidSubsequence(
+    [5, 1, 22, 25, 6, -1, 8, 10],
+    [5, 1, 22, 25, 6, -1, 8, 10, 10]
+  )
+); //false
+console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 5])); //false
+
+//-------------- ALGORITHM TO A RANDOM ID GENERATOR -------------
+
+function id() {
+  var randomId = "_";
+  const fakeIdGen = () => Math.floor(Math.random() * 9);
+  for (let i = 0; i < 5; i++) {
+    randomId += fakeIdGen();
+  }
+  return randomId;
+}
+
+// console.log(id());
+
+function randomNumberBetween(first, second) {
+  if (typeof first !== "number" && typeof second !== "number")
+    return "error expected type Number";
+  const firstVal = Number(first);
+  const secondVal = Number(second);
+  const diff = Math.abs(firstVal - secondVal) - 1;
+
+  const randomDiff = Math.floor(Math.random() * diff);
+  const bigger = firstVal > secondVal ? firstVal - 1 : secondVal - 1;
+  return Math.abs(bigger - randomDiff);
+}
+// console.log(randomNumberBetween(20, 10));
+
+//Optimized fibonacciSeries function
+function fibonacciSeries(value) {
+  const cache = {};
+  function fibHelper(value) {
+    if (value < 3) return 1;
+    const prev = cache[value - 1] ? cache[value - 1] : fibHelper(value - 1);
+    const secondPrev = cache[value - 2]
+      ? cache[value - 2]
+      : fibHelper(value - 2);
+    const result = prev + secondPrev;
+    if (!cache[value]) cache[value] = result;
+    return result;
+  }
+  const answer = fibHelper(value);
+  //console.log(cache);
+  return answer;
+}
+
+const answer = fibonacciSeries(1000);
+console.log(answer);
