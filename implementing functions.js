@@ -1905,3 +1905,17 @@ function fibonacciSeries(value) {
 
 const answer = fibonacciSeries(1000);
 console.log(answer);
+
+const randomPasswordGen = () => {
+  var use = "api-";
+  for (let i = 0; i < 5; i++) {
+    use += String.fromCharCode(randomNumberBetween(97, 122));
+  }
+  use += "-";
+  for (let i = 0; i < 5; i++) {
+    const randomNo = Math.floor(Math.random() * 10);
+    use += randomNo;
+  }
+  return use;
+};
+console.log(randomPasswordGen());
