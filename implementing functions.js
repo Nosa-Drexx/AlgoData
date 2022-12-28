@@ -1919,3 +1919,40 @@ const randomPasswordGen = () => {
   return use;
 };
 console.log(randomPasswordGen());
+
+function MostOccuringNumberInAnArray(arr) {
+  let answer = null;
+  let noOfRepeation = null;
+  let cache = {};
+
+  for (var i = 0; i < arr.length; i++) {
+    if (cache[arr[i]]) {
+      cache[arr[i]] = ++cache[arr[i]];
+    } else {
+      cache[arr[i]] = 1;
+    }
+  }
+
+  for (var key in cache) {
+    if (!noOfRepeation) {
+      noOfRepeation = cache[key];
+      answer = key;
+    } else if (cache[key] > noOfRepeation) {
+      noOfRepeation = cache[key];
+      answer = key;
+    } else if (cache[key] === noOfRepeation) {
+      if (typeof answer === "object") {
+        answer = { ...answer, [key]: noOfRepeation };
+      } else {
+        answer = { [answer]: noOfRepeation, [key]: noOfRepeation };
+      }
+    }
+  }
+
+  return answer;
+}
+
+// const testArray = [1, 9, 4, 9, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
+
+// const reply = MostOccuringNumberInAnArray(testArray);
+// console.log(reply);
