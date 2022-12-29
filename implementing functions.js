@@ -1953,6 +1953,8 @@ function MostOccuringNumberInAnArray(arr) {
 }
 
 // const testArray = [1, 9, 4, 9, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
+// const testArray2 = [1, 4, 9, 4, 5, 9, 5, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
+// const testArray2 = [1, 9, 4, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
 
 // const reply = MostOccuringNumberInAnArray(testArray);
 // console.log(reply);
