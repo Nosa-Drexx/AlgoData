@@ -1,4 +1,4 @@
-module.exports.hash1 = (range) => {
+export const hash1 = (range) => {
   var cache = {};
   return function h1(string) {
     var stringArr = string.split("");
@@ -27,7 +27,7 @@ module.exports.hash1 = (range) => {
   };
 };
 
-module.exports.hash2 = (range) => {
+export const hash2 = (range) => {
   var cache = {};
   return function hash3(string) {
     if (string in cache) {
@@ -39,7 +39,7 @@ module.exports.hash2 = (range) => {
   };
 };
 
-module.exports.hash3 = (range) => {
+export const hash3 = (range) => {
   var cache = {};
   return function hash3(string) {
     if (string in cache) {
@@ -51,7 +51,7 @@ module.exports.hash3 = (range) => {
   };
 };
 
-module.exports.hash = (string, range) => {
+export const hash = (string, range) => {
   var stringArr = string.split("");
   const alphabets = "abcdefghijklmnopqrstuvwxyz".split("");
   var calculate = new Array(26);
@@ -76,7 +76,7 @@ module.exports.hash = (string, range) => {
   return random;
 };
 
-module.exports._hash = (str, range) => {
+export const _hash = (str, range) => {
   let sum = 0;
   for (let i = 0; i < str.length; i++) {
     sum += str.charCodeAt(i) * 3;

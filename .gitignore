@@ -1,1 +1,3 @@
-.prettierrc
+*.env
+/dist
+/node_modules

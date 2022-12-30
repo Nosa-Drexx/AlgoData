@@ -14,7 +14,7 @@ function map(value, cb) {
       newArray.push(cb(value[key], key, value));
     }
   } else {
-    //console.log(`Please put in an array or an object`)
+    //// console.log(`Please put in an array or an object`)
   }
   return newArray;
 }
@@ -42,7 +42,7 @@ var test = map([9, 6, 9, 7, 7], function (value, index, array) {
 //     }
 // }
 // var kkk = filter(isEven, wholes);
-// //console.log(kkk);
+// //// console.log(kkk);
 
 // function that checkes if a number is even
 var n = 7;
@@ -64,7 +64,7 @@ function isEven2(n) {
     return false;
   }
 }
-////console.log(isEven2(n));
+////// console.log(isEven2(n));
 
 // Prime number tester using loops and if statement.
 
@@ -85,7 +85,7 @@ function isPrime(n) {
   }
   return keep;
 }
-////console.log(isPrime(15));
+////// console.log(isPrime(15));
 
 //isPrime using if statements.
 function isPrime2(n) {
@@ -103,7 +103,7 @@ function isPrime2(n) {
   return false;
 }
 
-////console.log(isPrime2(47));
+////// console.log(isPrime2(47));
 
 // Implementing a setTimeOut.
 function delay(func, wait) {
@@ -132,7 +132,7 @@ function reverse(arr) {
 
 var array = [1, 2, 3];
 reverse(array);
-////console.log(array);
+////// console.log(array);
 
 /*functions that input random numbers in an array and also sort the array in ascending
 order at the same time prevent reoccurence of numbers in the array. */
@@ -162,7 +162,7 @@ while (luckyLotteryNumbers.length < 6) {
   pickNumber();
 }
 
-////console.log(luckyLotteryNumbers);
+////// console.log(luckyLotteryNumbers);
 
 //A isPalindrome function that checks if the str is the same if called backwards
 function isPalindrome(str) {
@@ -174,17 +174,17 @@ function isPalindrome(str) {
   another === str ? true : false;
 }
 
-// //console.log( isPalindrome("") === true );
-// //console.log( isPalindrome("a") === true );
-// //console.log( isPalindrome("aa") === true );
-// //console.log( isPalindrome("aba") === true );
-// //console.log( isPalindrome("abba") === true );
-// //console.log( isPalindrome("abccba") === true );
+// //// console.log( isPalindrome("") === true );
+// //// console.log( isPalindrome("a") === true );
+// //// console.log( isPalindrome("aa") === true );
+// //// console.log( isPalindrome("aba") === true );
+// //// console.log( isPalindrome("abba") === true );
+// //// console.log( isPalindrome("abccba") === true );
 
-// //console.log( isPalindrome("ab") === false );
-// //console.log( isPalindrome("abc") === false );
-// //console.log( isPalindrome("abca") === false );
-// //console.log( isPalindrome("abcdba") === false );
+// //// console.log( isPalindrome("ab") === false );
+// //// console.log( isPalindrome("abc") === false );
+// //// console.log( isPalindrome("abca") === false );
+// //// console.log( isPalindrome("abcdba") === false );
 
 function pipe2(...args) {
   return function piped(input) {
@@ -207,14 +207,14 @@ function filterIn(cb, arr) {
   return newArr;
 }
 
-items = filterIn(
+var items = filterIn(
   function (value) {
     return value > 5;
   },
   [1, 2, 3, 4, 5, 6, 8]
 );
 
-//console.log(items);
+//// console.log(items);
 
 //A function that prevent duplications in an array.
 function uniqueElemArr(arr) {
@@ -240,8 +240,8 @@ function uniqueArr2(array) {
   return array.sort((a, b) => a - b);
 }
 
-////console.log( uniqueElemArr([1,2,3,1,1,2,3,4,5,]) );
-//console.log(uniqueArr2([1,2,3,1,1,2,3,4,5,])) // [1,2,3,4,5]
+////// console.log( uniqueElemArr([1,2,3,1,1,2,3,4,5,]) );
+//// console.log(uniqueArr2([1,2,3,1,1,2,3,4,5,])) // [1,2,3,4,5]
 
 /*Making a reduce function works for only arrays */
 function reduceArr(cb, acc, arr) {
@@ -268,7 +268,7 @@ var stringReduceTest = reduceObj(
   ["Nosa ", "Is ", "A ", "Genius"]
 );
 
-////console.log(stringReduceTest);
+////// console.log(stringReduceTest);
 
 //making a map function with explicitly implemented reduce function
 function mapWithExplicitReduceFunction(arr, mappingFn) {
@@ -322,7 +322,7 @@ function mul(int) {
 }
 
 var holder = curryN(3, addOneCurry);
-// //console.log(holder(7)(7)(7));
+// //// console.log(holder(7)(7)(7));
 
 /*Implimenting the compose untility */
 function compose(...args) {
@@ -337,7 +337,7 @@ function compose(...args) {
 
 //Test for compose
 var ok = compose(addOne, mul);
-////console.log(ok(7));
+////// console.log(ok(7));
 
 //Another implimentation of pipe in term of compose.
 function pipe(...args) {
@@ -347,7 +347,7 @@ function pipe(...args) {
 
 //Test for compose
 var ok = pipe(addOne, mul);
-////console.log(ok(7));
+////// console.log(ok(7));
 
 //convert Numbers to different base.
 function convertNumberToDifferentBase(value, converTo) {
@@ -390,7 +390,7 @@ var zipper = zip(
     return left + right;
   }
 );
-//console.log(zipper); //[1,2,3] + [4,5,6] = [5,7,9]
+//// console.log(zipper); //[1,2,3] + [4,5,6] = [5,7,9]
 
 /*
 
@@ -428,7 +428,7 @@ function bubbleSort(nums) {
 }
 
 //bubble sort test
-// //console.log(bubbleSort(nums)); //[1,2,3,4,5,6,7,8,9,10];
+// //// console.log(bubbleSort(nums)); //[1,2,3,4,5,6,7,8,9,10];
 
 //BUBBLE SORT TIME COMPLEXITY == NSQUARE -  QUADRATIC TIME COMPLEXITY  (Because it requires 2 loops)
 // Takes estimatively about 0.12seconds to sort through the "NUMS" array .
@@ -450,7 +450,7 @@ function insertionSort(nums) {
 }
 
 //Insertion sort test
-//console.log(insertionSort(nums)); //[1,2,3,4,5,6,7,8,9,10];
+//// console.log(insertionSort(nums)); //[1,2,3,4,5,6,7,8,9,10];
 
 //INSERTION SORT TIME COMPLEXITY == NSQUARE -  QUADRATIC TIME COMPLEXITY  (Because it requires 2 loops)
 // Takes estimatively about 0.12seconds to sort through the "NUMS" array .
@@ -485,10 +485,10 @@ function nestedAdd(array) {
   return nestedAdd([addUP, ...rest]);
 }
 
-//console.log(nestedAdd(nested)); //6
-//console.log(nestedAdd(nested2)); //6
-//console.log(nestedAdd(nested3)); //5
-//console.log(nestedAdd(nested4)); //94
+//// console.log(nestedAdd(nested)); //6
+//// console.log(nestedAdd(nested2)); //6
+//// console.log(nestedAdd(nested3)); //5
+//// console.log(nestedAdd(nested4)); //94
 
 //THE ABOVE FUNCTION "nestedAdd" WILL PROBABLY NOT RUN INTO A "STACK OVERLOAD PROBLEM" FOR A SYSTEM THAT SUPPORT TAIL CALL BECAUSE IT UTILIZES THE TAIL CALL SYSTEM, HENCE WHEN A RECURSION OCCURS IT DOESN'T BUBBLE UP(ADD TO THE CALL STACK) BUT INSTEAD REPLACES THE POSITION OF IT PREVIOUS FUNCTION THAT CALLED IT.
 
@@ -505,10 +505,10 @@ function nestedAdd2(array) {
   return sum;
 }
 
-//console.log(nestedAdd2(nested)); //6
-//console.log(nestedAdd2(nested2)); //6
-//console.log(nestedAdd2(nested3)); //5
-//console.log(nestedAdd2(nested4)); //94
+//// console.log(nestedAdd2(nested)); //6
+//// console.log(nestedAdd2(nested2)); //6
+//// console.log(nestedAdd2(nested3)); //5
+//// console.log(nestedAdd2(nested4)); //94
 //THE "nestedAdd2" FUCNTION WILL PROBABLY RUN IN A "STACK OVERLOAD PROBLEM" BECAUSE IT BUBBLES UP AND WILL TAKE MORE COMPUTATIONAL TIME IF THE INPUT HAVE A DIPPLY NESTED ARRAYS.
 
 //--------------RECURSION FACTORIAL ALGORITHM-------------
@@ -520,14 +520,14 @@ function factorial(fac) {
   }
   return sum;
 }
-//console.log(factorial(5)); //120
+//// console.log(factorial(5)); //120
 //THE FACTORIAL FUNCTION ABOVE WILL DEFINATELY RUN INTO A "STACK OVERLOAD PROBLEM" BECAUSE IT BUBBLES UP AND WILL TAKE MORE COMPUTATION TIME AND MORE SPACE ON THE STACK IF A LARGER NUMBER IS INPUTED I.E "10000 OR 10000000" (TRY USING THE FACTORIAL FUNCTION TO FIND THE FACTORIAL FOR THOSE NUMBER !WARNING: MIGHT CRASH YOUR CODE RUNNER, DO NOT RUN IN A BROWSER WILL DEFINATELY CRASH YOUR BROWSER).
 
 function factorial2(num) {
   if (num < 2) return 1;
   return num * factorial2(num - 1);
 }
-//console.log(factorial2(10000));
+//// console.log(factorial2(10000));
 // THE FACTORIAL2 FUNCTION IS NOT TAILED CALLED SO WILL RUN INTO A "STACK OVERLOAD" BUT NOT AS QUICKLY AS THE FIRST FUCNTION ABOVE "FACTORIAL" . TRY RUNNING BOTH FUNCTIONS WITH THE VALUE "10000" AND SEE THE DIFFERENCE
 
 //--------------MERGE SORT RECURSION ALGORITHM-------------
@@ -562,7 +562,7 @@ function mergeSort(array) {
   return array;
 }
 var keep = mergeSort([1, 5, 7, 4, 2, 3, 6]);
-//console.log(keep);
+//// console.log(keep);
 //THE MERGE SORT FUNCTION IS NOT TAIL CALL OPTIMIZED
 
 //--------------QUICK SORT RECURSION ALGORITHM-------------
@@ -587,7 +587,7 @@ function quickSort(arr) {
 
   return result.concat(...leftHolder, last, ...rightHolder);
 }
-//console.log(quickSort([4,9,3,5]));
+//// console.log(quickSort([4,9,3,5]));
 //FUNCTION "QUICK SORT" NOT TAIL CALL OPTIMIZED
 
 //--------------RADIX SORT RECURSION ALGORITHM-------------
@@ -640,15 +640,15 @@ function sortIntoBucket(elem, number, bucket) {
   return bucket;
 }
 
-//console.log(radixSort([109,224,58,901])) //[58,109,224,901]
+//// console.log(radixSort([109,224,58,901])) //[58,109,224,901]
 const fill = 99;
 const value = new Array(fill)
   .fill()
   .map(() => Math.floor(Math.random() * 500000));
-// //console.log(value.length); //99
-// //console.log(radixSort(value));// larger test sorts an array with 99 random numbers
-// //console.log(radixSort(value).length) //99
-//console.log(value.sort((a,b)=>a-b));
+// //// console.log(value.length); //99
+// //// console.log(radixSort(value));// larger test sorts an array with 99 random numbers
+// //// console.log(radixSort(value).length) //99
+//// console.log(value.sort((a,b)=>a-b));
 
 //OBSERVE THAT THE RADIX SORT FUNCITON DOES NOT COMPARE ANY ITEM TO ANOTHER RATHER SORT BY UNIT TEST OF EACH UNITS OF EACH NUMBERS IN THE INPUT ARRAY,
 //THE FUNCITON HAS AN N LEVEL SPARTIAL COMPLEXITY CAUSE IT CREATE A NEW ARRAY FOR EVERY UNIT TESTS ALSO HAS A TIME COMPLEXITY OF NSQUARE.
@@ -723,8 +723,8 @@ var findobj = binarySearch(3, [
 ]);
 
 var findnum = binarySearch(12, [0, 5, 10, 12, 15, 19, 21, 22, 24, 30]);
-// console.log(findnum);
-//console.log(findobj)
+// // console.log(findnum);
+//// console.log(findobj)
 
 var findobj = binarySearch2(3, [
   { id: 1, name: "Sam" },
@@ -743,9 +743,9 @@ var findobj = binarySearch2(3, [
 
 var findnum = binarySearch2(12, [0, 5, 10, 12, 15, 19, 21, 22, 24, 30]);
 
-//console.log(findobj);
+//// console.log(findobj);
 
-//console.log(findnum);
+//// console.log(findnum);
 
 /*THE BINARYSEARCH FUNCTION CAN ONLY WORK WHEN THE ITEM GIVEN IS ALREADY SORTED(ACCENDING ORDER)*/
 
@@ -786,8 +786,8 @@ var testobj = linearSearch(31, [
   { id: 14, name: "Ben" },
 ]);
 var testnum = linearSearch(6, [, 2, 3, 6, 5, 7]);
-// //console.log(testobj);
-// //console.log(testnum);
+// //// console.log(testobj);
+// //// console.log(testnum);
 
 //--------------ARRAY LIST ALGORITHM USING JAVASCRIPT OBJECT-------------
 
@@ -841,10 +841,10 @@ var test = new ArrayList();
 // test.push(4);
 // test.push(8);
 // test.push(9);
-// //console.log(test.length);
-// //console.log(test);
-// //console.log(test.delete(1));
-// //console.log(test);
+// //// console.log(test.length);
+// //// console.log(test);
+// //// console.log(test.delete(1));
+// //// console.log(test);
 
 //-------------- DIFFERENT ALGORITHM TO GET VALUES FROM A TREE IN DIFFERRENT ORDER (TRAVERSE) -------------
 
@@ -965,13 +965,13 @@ function inorder(tree, node) {
 
 //TESTS
 var fingerCrossed = preorder(tree, []);
-//console.log(fingerCrossed); // [8,4,3,2,5,7,6,12,10,9,11]
+//// console.log(fingerCrossed); // [8,4,3,2,5,7,6,12,10,9,11]
 
 var fingerCrossed2 = postorder(tree, []);
-//console.log(fingerCrossed2); // [2,3,4,5,6,7,8,9,10,11,12]
+//// console.log(fingerCrossed2); // [2,3,4,5,6,7,8,9,10,11,12]
 
 var fingerCrossed3 = inorder(tree, []);
-//console.log(fingerCrossed3); //[2,3,4,5,6,7,8,9,10,11,12]
+//// console.log(fingerCrossed3); //[2,3,4,5,6,7,8,9,10,11,12]
 
 //GET ELEMENT FROM THE CLOSE ELEMENT
 function breadth(tree, node) {
@@ -987,7 +987,7 @@ function breadth(tree, node) {
 }
 
 var fingerCrossed4 = breadth([tree], []);
-//console.log(fingerCrossed4) //[8,4,12,3,5,10,2,7,9,11,6]
+//// console.log(fingerCrossed4) //[8,4,12,3,5,10,2,7,9,11,6]
 
 //-------------- ALGORITHM TO CONVERT AN ARRAY TO A HEAP  AND SORT THE HEAPED ARRAY -------------
 
@@ -996,7 +996,7 @@ const heapSort = (array) => {
   for (let i = Math.floor(array.length / 2) - 1; i >= 0; i--) {
     array = heapify(array, i, array.length);
   }
-  //console.log(array) uncomment to view heaped array.
+  //// console.log(array) uncomment to view heaped array.
   // heaped array will be [  10, 9, 6, 8, 5, 3, 4, 7, 2, 1]
   for (let i = array.length - 1; i > 0; i--) {
     array = createMaxHeap(array, i);
@@ -1040,10 +1040,11 @@ const createMaxHeap = (array, i) => {
 };
 
 // var test = heapSort([2, 5, 3, 8, 10, 6, 4, 7, 9, 1]); //[1,2,3,4,5,6,7,8,9,10]
-// console.log(test);
+// // console.log(test);
 
 //-------------- ALGORITHM TO GRAPHS GETTING INFORMATION OUT GIVEN AN ID AND DEPTHS -------------
-const { list } = require("./testSite2"); // GETS GRAPH DATA STRUCTURE FROM TESTSITE2.JS FILE
+import list from "./testSite2.js";
+// GETS GRAPH DATA STRUCTURE FROM TESTSITE2.JS FILE
 
 function connect(id, depth) {
   var getMostPopularjob = [];
@@ -1102,11 +1103,11 @@ function connect(id, depth) {
 }
 
 // var popular = connect(306, 4);
-// console.log(popular);
+// // console.log(popular);
 
 //-------------- ALGORITHM TO BUILDING TRIES FOR MAKING SEARCHING AND AUTO COMPLETE BOXES RESTRICTING THE SEARCH TO ONLY 3 VALUES -------------
 // USING CLASSES
-const { CITY_NAMES } = require("./testSite2");
+import { CITY_NAMES } from "./testSite2.js";
 
 class Node {
   constructor(arr) {
@@ -1138,7 +1139,7 @@ const createTrie = (words) => {
 
 const root = createTrie(CITY_NAMES.slice(0, 200));
 const completions = root.complete("new");
-console.log(completions); //['new york', 'new orleans', 'newark']
+// console.log(completions); //['new york', 'new orleans', 'newark']
 
 //USING ONLY FUNCTIONS
 
@@ -1156,14 +1157,14 @@ function search(arr, string) {
   return answer;
 }
 var result = search(CITY_NAMES.slice(0, 200), "new");
-console.log(result); //['new york', 'new orleans', 'newark']
+// console.log(result); //['new york', 'new orleans', 'newark']
 
 //-------------- BLOOM FILTER ALGORITHM -------------
 //Used to test if a value have been added before without having to deal with add the value to an array
 //cause when so many values are added it might have performance issues on the system, bloom filter can really be effective though it is not some time correct but still effective it is a trade off between 100% certainty and (performance or memory).
 
 //Bloom filters works by passing a string through a hash function (functions that converts it string into a number i.e they are always consistent)  read more on bloom filter here "https://btholt.github.io/complete-intro-to-computer-science/bloom-filters"
-const { hash1, hash2, hash3 } = require("./hashing functions"); //personal coded hashing functions
+import { hash1, hash2, hash3 } from "./hashing-functions.js"; //personal coded hashing functions
 var h1 = hash1(100);
 var h2 = hash2(100);
 var h3 = hash3(100);
@@ -1200,13 +1201,13 @@ class BloomFilter {
 //These test uses hashing function found in the hashing functions.js file, they are just pesudohasing functions for the purpose of this test.
 //CHECK "https://codesandbox.io/s/algorithms-exercises-forked-q2hhq8?file=/specs/bloom-filters/bloom-filters.test.js" TO VIEW A TEST OF BLOOM FILTER. SAME CODE AS ABOVE.
 var bf = new BloomFilter();
-// console.log(bf.contains("Brian")); //false
-// console.log(bf.contains("semona")); //false
-// console.log(bf.contains("serah")); //false
+// // console.log(bf.contains("Brian")); //false
+// // console.log(bf.contains("semona")); //false
+// // console.log(bf.contains("serah")); //false
 // bf.add("Brian");
-// console.log(bf.contains("Brian")); //true
-// console.log(bf.contains("semona")); //false
-// console.log(bf.contains("serah")); //false
+// // console.log(bf.contains("Brian")); //true
+// // console.log(bf.contains("semona")); //false
+// // console.log(bf.contains("serah")); //false
 
 /*
 
@@ -1242,8 +1243,8 @@ function uniqueArr3(array) {
   return array.sort((a, b) => a - b);
 }
 
-////console.log( uniqueArr([1,2,3,1,1,2,3,4,5,]) ); [1,2,3,4,5]
-//console.log(uniqueArr2([1,2,3,1,1,2,3,4,5,])) // [1,2,3,4,5]
+////// console.log( uniqueArr([1,2,3,1,1,2,3,4,5,]) ); [1,2,3,4,5]
+//// console.log(uniqueArr2([1,2,3,1,1,2,3,4,5,])) // [1,2,3,4,5]
 
 //THE FIRST UNIQUEARR FUNCTION ("uniqueArr") HAS A TIME COMPLEXITY OF NSQUARE (QUADRATIC) BECAUSE IT USES THE .INCULDES METHOD WHICH UNDER THE HOOD LOOPS THROUGH EVERY ELEMENT IN THE ARRAY AT WORST CASE SENERIO THEREFORE TWO NESTED LOOPS CREATING A TIME COMPLEXITY OF NSQUARE . IT ALSO HAS A SPATIAL COMPLEXITY OF N (LINEAR) CAUSE IT CREATE AND RETURNS A NEW ARRAY MAKING A NEW SPACE IN MEMORY.
 
@@ -1284,8 +1285,8 @@ class Queue {
 // queue.enqueue(78);
 // queue.dequeue();
 
-// console.log(queue.peek());
-// console.log(queue);
+// // console.log(queue.peek());
+// // console.log(queue);
 
 //ALL ABOVE METHODS IN THE QUEUE OBJ ALL HAVE A CONSTANT TIME COMPLEXITY
 
@@ -1312,7 +1313,7 @@ class Linkedlist {
         value: elem,
         next: null,
       };
-      // console.log(this.previous);
+      // // console.log(this.previous);
       this._pointer = this._pointer.next;
     }
   }
@@ -1443,19 +1444,19 @@ var test23 = new Linkedlist();
 // test23.insert(7);
 // test23.InsertNewHead(3);
 // test23.insert(99);
-// console.log(test23.get(2));
+// // console.log(test23.get(2));
 // test23.reverseList();
 // test23.remove(10);
 // test23.insertIn(2, 76);
-// console.log(test23.removeTail());
-// console.log(test23.contains(10));
-// console.log(test23.removeTail());
+// // console.log(test23.removeTail());
+// // console.log(test23.contains(10));
+// // console.log(test23.removeTail());
 // test23.insert(100);
-// console.log(test23);
+// // console.log(test23);
 
 //-------------- HASHTABLE (DATA STRUCTURE) ALGORITHM -------------
 
-const { _hash } = require("./hashing functions");
+import { _hash } from "./hashing-functions.js";
 
 class HashTable {
   constructor(range) {
@@ -1517,11 +1518,11 @@ class HashTable {
 // hashtable.insert("advise");
 // hashtable.insert("compromise");
 // hashtable.insert("abc");
-// console.log(hashtable.retrieve(8));
-// console.log(hashtable);
+// // console.log(hashtable.retrieve(8));
+// // console.log(hashtable);
 
-// console.log(hashtable.remove("abc"));
-// console.log(hashtable);
+// // console.log(hashtable.remove("abc"));
+// // console.log(hashtable);
 
 //-------------- BINARYTREE (DATA STRUCTURE) ALGORITHM -------------
 
@@ -1596,10 +1597,10 @@ const btree = new BinaryTree();
 // btree.insert(0);
 // btree.insert(8);
 // btree.insert(11);
-// console.log(btree);
-// console.log(btree.contains(0));
-// console.log(btree.contains(1000));
-// console.log(btree.sortedTraverse());
+// // console.log(btree);
+// // console.log(btree.contains(0));
+// // console.log(btree.contains(1000));
+// // console.log(btree.sortedTraverse());
 
 //-------------- DIFFERENT ALGORITHM TO TRAVERSE THROUGHT A TREE -------------
 
@@ -1623,9 +1624,9 @@ function postOrderTraverse(tree, arr) {
 }
 
 //tests
-// console.log(preOrderTraverse(btree, []));
-// console.log(inOrderTraverse(btree, []));
-// console.log(postOrderTraverse(btree, []));
+// // console.log(preOrderTraverse(btree, []));
+// // console.log(inOrderTraverse(btree, []));
+// // console.log(postOrderTraverse(btree, []));
 
 //-------------- GRAPH (DATA STRUCTURE) ALGORITHM  -------------
 
@@ -1713,9 +1714,9 @@ graph.addEdge(8, 9);
 graph.addEdge(9, 100);
 graph.addEdge(10, 24);
 graph.addEdge(12, 25);
-console.log(graph);
-console.log(graph.depthFirstTraversal(7));
-console.log(graph.breadthFirstTraversal(7));
+// console.log(graph);
+// console.log(graph.depthFirstTraversal(7));
+// console.log(graph.breadthFirstTraversal(7));
 
 //-------------- DEPTH FIRST TRAVERSAL  THROUGH ABOVE GRAPH ALGORITHM  -------------
 
@@ -1735,7 +1736,7 @@ function depthFirstTraversal(value, graph) {
   return depthFirst(value, []);
 }
 
-// console.log(depthFirstTraversal(7, graph));
+// // console.log(depthFirstTraversal(7, graph));
 
 //-------------- BREADTH FIRST TRAVERSAL  THROUGH ABOVE GRAPH ALGORITHM  -------------
 
@@ -1756,7 +1757,7 @@ function breadthFirstTraversal(value, graph) {
   return result;
 }
 
-// console.log(breadthFirstTraversal(7, graph));
+// // console.log(breadthFirstTraversal(7, graph));
 
 //-------------- ALGORITHM TO SORT AN ARRAY RANDOMLY -------------
 
@@ -1772,10 +1773,10 @@ function sortArrayRandomly(array) {
 }
 
 var randomArr = sortArrayRandomly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-console.log(randomArr);
+// console.log(randomArr);
 
 //-------------- ALGORITHM TO VALIDATE SUBSEQUENCE OF AN ARRAY -------------
-console.log(":");
+// console.log(":");
 
 function isValidSubsequence(array, sequence) {
   var arrC = [...array];
@@ -1791,73 +1792,73 @@ function isValidSubsequence(array, sequence) {
   return arr.length === sequence.length ? true : false;
 }
 
-//tests
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])); // true
-console.log(
-  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 25, 6, -1, 8, 10])
-); //true
-console.log(
-  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 6, -1, 8, 10])
-); //true
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, 10])); //true
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 10])); //true
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, -1, 8, 10])); //true
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [25])); //true
-console.log(isValidSubsequence([1, 1, 1, 1, 1], [1, 1, 1])); //true
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [5, 1, 22, 25, 6, -1, 8, 10, 12]
-  )
-); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [4, 5, 1, 22, 25, 6, -1, 8, 10, 12]
-  )
-); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [5, 1, 22, 23, 6, -1, 8, 10, 12]
-  )
-); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [5, 1, 22, 22, 25, 6, -1, 8, 10, 12]
-  )
-); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [5, 1, 22, 22, 6, -1, 8, 10, 12]
-  )
-); //false
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1])); //false
-console.log(
-  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1, 10])
-); //false
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -2])); //false
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [26])); //false
-console.log(
-  isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 25, 22, 6, -1, 8, 10])
-); //false
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 26, 22, 8])); //false
-console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6])); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [1, 6, -1, 10, 11, 11, 11, 11]
-  )
-); //false
-console.log(
-  isValidSubsequence(
-    [5, 1, 22, 25, 6, -1, 8, 10],
-    [5, 1, 22, 25, 6, -1, 8, 10, 10]
-  )
-); //false
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 5])); //false
+// tests;
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])); // true
+// console.log(
+//   isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 25, 6, -1, 8, 10])
+// ); //true
+// console.log(
+//   isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 6, -1, 8, 10])
+// ); //true
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, 10])); //true
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 22, 10])); //true
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, -1, 8, 10])); //true
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [25])); //true
+// console.log(isValidSubsequence([1, 1, 1, 1, 1], [1, 1, 1])); //true
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [5, 1, 22, 25, 6, -1, 8, 10, 12]
+//   )
+// ); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [4, 5, 1, 22, 25, 6, -1, 8, 10, 12]
+//   )
+// ); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [5, 1, 22, 23, 6, -1, 8, 10, 12]
+//   )
+// ); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [5, 1, 22, 22, 25, 6, -1, 8, 10, 12]
+//   )
+// ); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [5, 1, 22, 22, 6, -1, 8, 10, 12]
+//   )
+// ); //false
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1])); //false
+// console.log(
+//   isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -1, 10])
+// ); //false
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, -2])); //false
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [26])); //false
+// console.log(
+//   isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 1, 25, 22, 6, -1, 8, 10])
+// ); //false
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 26, 22, 8])); //false
+// console.log(isValidSubsequence([1, 1, 6, 1], [1, 1, 1, 6])); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [1, 6, -1, 10, 11, 11, 11, 11]
+//   )
+// ); //false
+// console.log(
+//   isValidSubsequence(
+//     [5, 1, 22, 25, 6, -1, 8, 10],
+//     [5, 1, 22, 25, 6, -1, 8, 10, 10]
+//   )
+// ); //false
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 5])); //false
 
 //-------------- ALGORITHM TO A RANDOM ID GENERATOR -------------
 
@@ -1870,7 +1871,7 @@ function id() {
   return randomId;
 }
 
-// console.log(id());
+// // console.log(id());
 
 function randomNumberBetween(first, second) {
   if (typeof first !== "number" && typeof second !== "number")
@@ -1883,10 +1884,11 @@ function randomNumberBetween(first, second) {
   const bigger = firstVal > secondVal ? firstVal - 1 : secondVal - 1;
   return Math.abs(bigger - randomDiff);
 }
-// console.log(randomNumberBetween(20, 10));
+// // console.log(randomNumberBetween(20, 10));
 
 //Optimized fibonacciSeries function
-function fibonacciSeries(value) {
+export function fibonacciSeries(value) {
+  if (value > 1500) return Infinity;
   const cache = {};
   function fibHelper(value) {
     if (value < 3) return 1;
@@ -1899,12 +1901,12 @@ function fibonacciSeries(value) {
     return result;
   }
   const answer = fibHelper(value);
-  //console.log(cache);
+  //// console.log(cache);
   return answer;
 }
 
-const answer = fibonacciSeries(1000);
-console.log(answer);
+const answer = fibonacciSeries(5);
+// console.log(answer);
 
 const randomPasswordGen = () => {
   var use = "api-";
@@ -1918,9 +1920,9 @@ const randomPasswordGen = () => {
   }
   return use;
 };
-console.log(randomPasswordGen());
+// console.log(randomPasswordGen());
 
-function MostOccuringNumberInAnArray(arr) {
+export function MostOccuringNumberInAnArray(arr) {
   let answer = null;
   let noOfRepeation = null;
   let cache = {};
@@ -1936,10 +1938,10 @@ function MostOccuringNumberInAnArray(arr) {
   for (var key in cache) {
     if (!noOfRepeation) {
       noOfRepeation = cache[key];
-      answer = key;
+      answer = Number(key);
     } else if (cache[key] > noOfRepeation) {
       noOfRepeation = cache[key];
-      answer = key;
+      answer = Number(key);
     } else if (cache[key] === noOfRepeation) {
       if (typeof answer === "object") {
         answer = { ...answer, [key]: noOfRepeation };
@@ -1952,9 +1954,11 @@ function MostOccuringNumberInAnArray(arr) {
   return answer;
 }
 
-// const testArray = [1, 9, 4, 9, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
+// const testArray = [
+//   1, 9, 4, 9, 4, 5, 4, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6, 4,
+// ];
 // const testArray2 = [1, 4, 9, 4, 5, 9, 5, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
-// const testArray2 = [1, 9, 4, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
+const testArray2 = [1, 9, 4, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
 
-// const reply = MostOccuringNumberInAnArray(testArray);
+const reply = MostOccuringNumberInAnArray(testArray2);
 // console.log(reply);
