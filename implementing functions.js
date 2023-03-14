@@ -1962,3 +1962,18 @@ const testArray2 = [1, 9, 4, 4, 5, 5, 9, 5, 9, 7, 4, 6, 7, 9, 7, 6, 6, 6, 6];
 
 const reply = MostOccuringNumberInAnArray(testArray2);
 // console.log(reply);
+
+function staircase(n) {
+  // Write your code here
+  var result = "";
+  for (let data = 1; data <= n; data++) {
+    let hash = new Array(n).fill(` `);
+    for (let hashCount = 0; hashCount < data; hashCount++) {
+      hash[n - 1 - hashCount] = "#";
+    }
+    result = `${result}${hash.join("")}${"\n"}`;
+  }
+  return result;
+}
+
+//console.log(6)
