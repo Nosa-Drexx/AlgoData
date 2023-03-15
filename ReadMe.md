@@ -1,6 +1,6 @@
 # 👋 Datastructures and Algorithms
 
-A list datastructures and algorithms I've personally written in <b style="background: gray; padding: 2px 4px; border-radius: 5px">Javascript</b> over the my years of programming including:
+A list datastructures and algorithms I've personally written in ***JavaScript*** over the my years of programming including:
 
 - Algorithms to some javascript Inbuilt functions.
 - Algorithms to some lodash functions.
@@ -23,12 +23,10 @@ See full content below
 
 This repo is open source, feel free to star, fork or contribute.
 
-<!-- If you prefer badge instead of icon checkout [Badges4-README.md-Profile](https://github.com/alexandresanlim/Badges4-README.md-Profile) -->
-<br />
 
 ### 📋 List of Content:
 
-- ➡️ 🖨️ <b style="font-size: 1.3rem">Algorithms</b>
+- ➡️ 🖨️ ***Algorithms***
 
   - ➡️ Map
   - ➡️ isEven
@@ -89,9 +87,9 @@ This repo is open source, feel free to star, fork or contribute.
   - ➡️ MostOccuringNumberInAnArray
   - ➡️ staircase
 
-- ➡️ <b style="font-size: 1.3rem">DataStructures</b>
+- ➡️ ***DataStructures***
 
-  All dataStructures were implemented using <b style="background: gray; padding: 2px 4px; border-radius: 5px">Javascript</b> classes
+  All dataStructures were implemented using ***JavaScript*** classes
 
   - ➡️ ArrayList
   - ➡️ Node
