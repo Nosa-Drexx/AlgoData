@@ -16,7 +16,7 @@ See full content below
 
 ## ❗ Disclaimer
 
-Links referenced in files are courtsery of <a href="https://frontendmasters.com/" target="_blank">Frontend Masters</a> instructors
+Links referenced in files are courtesy of <a href="https://frontendmasters.com/" target="_blank">Frontend Masters</a> instructors
 
 ### 📌 status
 
