@@ -13,15 +13,15 @@ Nb: All code can be found in the "implementing functions.js" and "hashing-functi
 
 See full content below
 
-<!-- ### ➡️ Visit here to generate: **https://marwin1991.github.io/profile-technology-icons/** -->
 
-<!-- <div align="center">
-  <img src="https://github.com/marwin1991/profile-technology-icons/raw/main/static/demo.gif" />
-</div> -->
+## ❗ Disclaimer
+
+Links referenced in files are courtsery of <a href="https://frontendmasters.com/" target="_blank">Frontend Masters</a> instructors
 
 ### 📌 status
 
 This repo is open source, feel free to star, fork or contribute.
+
 
 
 ### 📋 List of Content:
