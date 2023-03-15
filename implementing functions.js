@@ -141,7 +141,7 @@ function lotteryNum() {
   return (Math.round(Math.random() * 100) % 58) + 1;
 }
 
-function pickNumber() {
+function pickNumber(luckyLotteryNumbers) {
   var num = 0;
   var k = 1;
   var keep = lotteryNum();
@@ -156,13 +156,18 @@ function pickNumber() {
   });
   luckyLotteryNumbers.splice(k, num); //only removes a value if it reoccures hence (a-b) = 0
 }
-var luckyLotteryNumbers = [];
 
-while (luckyLotteryNumbers.length < 6) {
-  pickNumber();
+function lottery() {
+  let luckyLotteryNumbers = [];
+
+  while (luckyLotteryNumbers.length < 6) {
+    pickNumber(luckyLotteryNumbers);
+  }
+
+  return luckyLotteryNumbers;
 }
 
-////// console.log(luckyLotteryNumbers);
+// console.log(lottery());
 
 //A isPalindrome function that checks if the str is the same if called backwards
 function isPalindrome(str) {
@@ -395,11 +400,11 @@ var zipper = zip(
 /*
 
                                 COMPUTER SCIENCE ALGORITHMS (BRIAN HOLT CLASS)
-         check--- https://btholt.github.io/complete-intro-to-computer-science/quick-sort for detailed info
+         check--- https://btholt.github.io/complete-intro-to-computer-science            for detailed info
                     more information about all algorithms can be found on the link above.
 
 */
-///DIFFERENT WAYS TO SORT NUMBER :FOR THE SAKE OF HAVING A "CONSTANT SPATIAL COMPLEXITY" ('MOST OF THE ALGORITHM MUTATES THEIR INITIAL VALUE')
+///MY PERSONAL ALGORITHMS: DIFFERENT WAYS TO SORT NUMBER :FOR THE SAKE OF HAVING A "CONSTANT SPATIAL COMPLEXITY" ('MOST OF THE ALGORITHM MUTATES THEIR INITIAL VALUE')
 
 var nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1]; // GLOBAL ARRAY FOR ALL SORT FUNCTIONS
 
@@ -1212,10 +1217,12 @@ var bf = new BloomFilter();
 /*
 
                                 COMPUTER SCIENCE ALGORITHMS (BIANCA GANDOLFO CLASS)
-         check--- https://slides.com/bgando/intro-to-algorithms#/2/3  for detailed info
+         check--- https://slides.com/bgando/intro-to-algorithms#/ for detailed info
                     more information about all algorithms can be found on the link above.
 
 */
+
+//Personal Algorithms
 
 //-------------- UNIQUE ARR ALGORITHM -------------
 
