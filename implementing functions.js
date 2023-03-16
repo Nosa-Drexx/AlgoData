@@ -1984,3 +1984,41 @@ function staircase(n) {
 }
 
 //console.log(6)
+
+/* A function that takes 3 argument
+--------
+first argument: First sorted array with blank spaces for addition of other array
+
+second argument: Length of first sorted array
+
+third argument: Second sorted array
+
+forth argument: Length of second sorted array
+----------
+merges two sorted array into one big sorted array, and mutates  the first array.to answer. */
+
+//Time Complexity: O(n)
+const mergeMutate = function (firstArray, m, secondArray, n) {
+  const copyOfFirstArray = firstArray.splice(0, m);
+  const copyOfSecondArray = [...secondArray];
+  let arrayLocationCounter = 0;
+
+  while (copyOfFirstArray.length && copyOfSecondArray.length) {
+    if (copyOfFirstArray[0] < copyOfSecondArray[0]) {
+      firstArray[arrayLocationCounter] = copyOfFirstArray.shift();
+    } else {
+      firstArray[arrayLocationCounter] = copyOfSecondArray.shift();
+    }
+    arrayLocationCounter += 1;
+  }
+
+  //In case of any remaining element in array
+  firstArray.push(...copyOfFirstArray, ...copyOfSecondArray);
+};
+
+let nums1 = [25, 40, 50, 55, 65, 0, 0, 0];
+let nums2 = [2, 10, 100];
+
+mergeMutate(nums1, 5, nums2, 3);
+
+console.log(nums1); //expected anser:  [2, 10, 25,  40, 50, 55, 65, 100]
