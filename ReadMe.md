@@ -1,6 +1,6 @@
 # 👋 Datastructures and Algorithms
 
-A list datastructures and algorithms I've personally written in ***JavaScript*** over the my years of programming including:
+A list datastructures and algorithms I've personally written in **_JavaScript_** over the my years of programming including:
 
 - Algorithms to some javascript Inbuilt functions.
 - Algorithms to some lodash functions.
@@ -13,7 +13,6 @@ Nb: All code can be found in the "implementing functions.js" and "hashing-functi
 
 See full content below
 
-
 ## ❗ Disclaimer
 
 Links referenced in files are courtesy of <a href="https://frontendmasters.com/" target="_blank">Frontend Masters</a> instructors
@@ -22,11 +21,9 @@ Links referenced in files are courtesy of <a href="https://frontendmasters.com/"
 
 This repo is open source, feel free to star, fork or contribute.
 
-
-
 ### 📋 List of Content:
 
-- ➡️ 🖨️ ***Algorithms***
+- ➡️ 🖨️ **_Algorithms_**
 
   - ➡️ Map
   - ➡️ isEven
@@ -86,10 +83,11 @@ This repo is open source, feel free to star, fork or contribute.
   - ➡️ randomPasswordGen
   - ➡️ MostOccuringNumberInAnArray
   - ➡️ staircase
+  - ➡️ mergeMutate
 
-- ➡️ ***DataStructures***
+- ➡️ **_DataStructures_**
 
-  All dataStructures were implemented using ***JavaScript*** classes
+  All dataStructures were implemented using **_JavaScript_** classes
 
   - ➡️ ArrayList
   - ➡️ Node
