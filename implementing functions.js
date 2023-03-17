@@ -2022,3 +2022,41 @@ let nums2 = [2, 10, 100];
 mergeMutate(nums1, 5, nums2, 3);
 
 console.log(nums1); //expected anser:  [2, 10, 25,  40, 50, 55, 65, 100]
+
+
+/*A function that takes 3 arguments 
+n: length of array,
+k: number combinations should be divisible by 
+ar: array
+
+Finds the possible number of pairs/combinations  for  which can be divisible by argument k.
+*/
+
+function divisibleSumPairs(n, k, ar) {
+  // Write your code here
+  let noOfRepeatation = 0;
+
+  for (let i = 0; i < ar.length; i++) {
+    let mutateableArray = ar.slice(i + 1, ar.length);
+    for (let j = 0; j < mutateableArray.length; j++) {
+      (ar[i] + mutateableArray[j]) % k === 0 && ++noOfRepeatation;
+    }
+  }
+  return noOfRepeatation;
+}
+
+/*
+ Test 
+n = 6, k = 3  ar = [1, 3, 2, 6, 1, 2];
+possible combinations divisible by k = 3 are:
+ar[0] + ar[2] = 1 + 2 = 3
+ar[0] + ar[5] = 1 + 2 = 3
+ar[1] + ar[3] = 3 + 6 = 9
+ar[2] + ar[4] = 2 + 1 = 3
+ar[4] + ar[5] = 1 + 2 = 3
+
+Therefore ther are 5 possible combinations divisible by k = 3
+answer = 5
+*/
+
+console.log(divisibleSumPairs(6, 3, [1, 3, 2, 6, 1, 2])); //Answer:  5

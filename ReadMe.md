@@ -84,6 +84,7 @@ This repo is open source, feel free to star, fork or contribute.
   - ➡️ MostOccuringNumberInAnArray
   - ➡️ staircase
   - ➡️ mergeMutate
+  - ➡️ divisibleSumPairs
 
 - ➡️ **_DataStructures_**
 
