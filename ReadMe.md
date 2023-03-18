@@ -23,6 +23,20 @@ This repo is open source, feel free to star, fork or contribute.
 
 To contribute please read the CONTRIBUTING.md files on the root of this repo
 
+#### Clone project
+
+```sh
+git clone https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git # or 'git@github.com:Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git' for ssh
+cd Personal-Built-FunctionHelpers-and-DataStructure
+```
+
+#### Setup
+
+```sh
+npm i            # install packages
+npm test         # run tests
+```
+
 ### 📋 List of Content:
 
 - ➡️ 🖨️ **_Algorithms_**
