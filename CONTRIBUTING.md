@@ -11,11 +11,11 @@ Contributing to a project on Github is pretty straight forward. If this is you'r
 
 Create and issue or take up and open issue, 
 
-And that's it!, create a new branch and Read the code available and change the part you don't like! You're change should not break the existing code and should pass the tests.
+And that's it!, create a new branch and Read the code available and change the part you don't like! Your change should not break the existing code and should pass the tests.
 
 If you're adding a new algorithm or datastructure, start from the branch **main**. It would be a better practice to create a new branch and work in there.
 
-When you're done, submit a pull request to *Personal-Built-FunctionHelpers-and-DataStructure/main** branch and for one of the maintainers to check it out. We would let you know if there is any problem or any changes that should be considered.
+When you're done, submit a pull request to *Personal-Built-FunctionHelpers-and-DataStructure/main** branch for one of the maintainers to check it out. We would let you know if there is any problem or any changes that should be considered.
 
 ### Documentation
 
