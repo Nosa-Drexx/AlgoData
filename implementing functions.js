@@ -2023,7 +2023,6 @@ mergeMutate(nums1, 5, nums2, 3);
 
 console.log(nums1); //expected anser:  [2, 10, 25,  40, 50, 55, 65, 100]
 
-
 /*A function that takes 3 arguments 
 n: length of array,
 k: number combinations should be divisible by 
@@ -2060,3 +2059,23 @@ answer = 5
 */
 
 console.log(divisibleSumPairs(6, 3, [1, 3, 2, 6, 1, 2])); //Answer:  5
+
+//Algorithm to Inbuilt Javascript slice array methos
+function sliceJS(arr, startFrom, NoOfElements) {
+  const errorCheck = startFrom + NoOfElements;
+  if (errorCheck > arr.length) throw new Error(`Error in input values`);
+  let countCheck = 0;
+  const resultArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i >= startFrom && countCheck !== NoOfElements) {
+      resultArr.push(arr[i]);
+      countCheck++;
+    }
+  }
+  return resultArr;
+}
+const sliceArrTest = [0, 2, 3];
+console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length)); //[0, 2, 3]
+console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length - 1)); //[0, 2]
+console.log(sliceJS(sliceArrTest, 0, 1)); //[0,]
+console.log(sliceJS(sliceArrTest, 1, 3)); //Error
