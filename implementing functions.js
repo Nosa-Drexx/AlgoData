@@ -2074,8 +2074,58 @@ function sliceJS(arr, startFrom, NoOfElements) {
   }
   return resultArr;
 }
-const sliceArrTest = [0, 2, 3];
-console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length)); //[0, 2, 3]
-console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length - 1)); //[0, 2]
-console.log(sliceJS(sliceArrTest, 0, 1)); //[0,]
-console.log(sliceJS(sliceArrTest, 1, 3)); //Error
+// const sliceArrTest = [0, 2, 3];
+// console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length)); //[0, 2, 3]
+// console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length - 1)); //[0, 2]
+// console.log(sliceJS(sliceArrTest, 0, 1)); //[0,]
+// console.log(sliceJS(sliceArrTest, 1, 3)); //Error
+
+//Javascript inbuilt join string method
+function joinJS(arr, joinBy) {
+  let accumulator = "";
+  for (let i = 0; i < arr.length; i++) {
+    //Error handling
+    if (typeof arr[i] !== "string")
+      throw new Error(`can only work on strings;
+      value input:  ${arr[i]}`);
+
+    if (i !== arr.length - 1) {
+      accumulator = `${accumulator}${arr[i]}${joinBy}`;
+    } else {
+      accumulator = `${accumulator}${arr[i]}`;
+    }
+  }
+  return accumulator;
+}
+const joinJSArrTest = ["me", "she"];
+console.log(joinJS(joinJSArrTest, "")); //meshe
+console.log(joinJS(joinJSArrTest, " ")); //me she
+console.log(joinJS(joinJSArrTest, "|")); //me|she
+
+//Javascript inbuilt split string method
+function splitJS(string, splitBy) {
+  //Error handler
+  if (typeof string !== "string" || typeof splitBy !== "string")
+    throw new Error(`can only work on strings;
+value input:  ${string}`);
+  const resultArr = [];
+  let concatString = "";
+  for (let i = 0; i < string.length; i++) {
+    if (splitBy === "") {
+      resultArr.push(string[i]);
+    } else if (string[i] === splitBy) {
+      resultArr.push(concatString);
+      concatString = "";
+    } else {
+      concatString = `${concatString}${string[i]}`;
+    }
+  }
+  //push in what is left in concatString
+  resultArr.push(concatString);
+  return resultArr;
+}
+
+console.log(splitJS("me|she|me", "|")); //['me', 'she', 'me']
+console.log(splitJS("me she me", " ")); //['me', 'she', 'me']
+console.log(splitJS("me she me", "|")); //['me she me']
+console.log(splitJS("me she me", "")); //['m', 'e' ' ', 's', 'h', 'e', ' ', 'm', 'e']
