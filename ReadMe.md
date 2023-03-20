@@ -19,7 +19,7 @@ Links referenced in files are courtesy of <a href="https://frontendmasters.com/"
 
 ### 📌 status
 
-This repo is open source, feel free to star, fork or contribute. 
+This repo is open source, feel free to star, fork or contribute.
 
 To contribute please read the CONTRIBUTING.md files on the root of this repo
 
@@ -101,6 +101,9 @@ npm test         # run tests
   - ➡️ staircase
   - ➡️ mergeMutate
   - ➡️ divisibleSumPairs
+  - ➡️ sliceJS
+  - ➡️ joinJS
+  - ➡️ splitJS
 
 - ➡️ **_DataStructures_**
 
