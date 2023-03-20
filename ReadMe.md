@@ -103,6 +103,7 @@ npm test         # run tests
   - ➡️ divisibleSumPairs
   - ➡️ sliceJS
   - ➡️ joinJS
+  - ➡️ splitJS
 
 - ➡️ **_DataStructures_**
 
