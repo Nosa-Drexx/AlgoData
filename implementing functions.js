@@ -2074,8 +2074,27 @@ function sliceJS(arr, startFrom, NoOfElements) {
   }
   return resultArr;
 }
-const sliceArrTest = [0, 2, 3];
-console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length)); //[0, 2, 3]
-console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length - 1)); //[0, 2]
-console.log(sliceJS(sliceArrTest, 0, 1)); //[0,]
-console.log(sliceJS(sliceArrTest, 1, 3)); //Error
+// const sliceArrTest = [0, 2, 3];
+// console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length)); //[0, 2, 3]
+// console.log(sliceJS(sliceArrTest, 0, sliceArrTest.length - 1)); //[0, 2]
+// console.log(sliceJS(sliceArrTest, 0, 1)); //[0,]
+// console.log(sliceJS(sliceArrTest, 1, 3)); //Error
+
+//Javascript inbuilt join string method
+function joinJS(arr, joinBy) {
+  let accumulator = "";
+  for (let i = 0; i < arr.length; i++) {
+    //Error handling
+    if (typeof arr[i] !== "string")
+      throw new Error(`can only work on string -- ${arr[i]}`);
+
+    if (i !== arr.length - 1) {
+      accumulator = `${accumulator}${arr[i]}${joinBy}`;
+    } else {
+      accumulator = `${accumulator}${arr[i]}`;
+    }
+  }
+  return accumulator;
+}
+const joinJSArrTest = ["me", "she"];
+console.log(joinJS(joinJSArrTest, ""));
