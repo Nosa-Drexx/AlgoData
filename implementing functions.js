@@ -2086,7 +2086,8 @@ function joinJS(arr, joinBy) {
   for (let i = 0; i < arr.length; i++) {
     //Error handling
     if (typeof arr[i] !== "string")
-      throw new Error(`can only work on string -- ${arr[i]}`);
+      throw new Error(`can only work on strings;
+      value input:  ${arr[i]}`);
 
     if (i !== arr.length - 1) {
       accumulator = `${accumulator}${arr[i]}${joinBy}`;
@@ -2097,4 +2098,34 @@ function joinJS(arr, joinBy) {
   return accumulator;
 }
 const joinJSArrTest = ["me", "she"];
-console.log(joinJS(joinJSArrTest, ""));
+console.log(joinJS(joinJSArrTest, "")); //meshe
+console.log(joinJS(joinJSArrTest, " ")); //me she
+console.log(joinJS(joinJSArrTest, "|")); //me|she
+
+//Javascript inbuilt split string method
+function splitJS(string, splitBy) {
+  //Error handler
+  if (typeof string !== "string" || typeof splitBy !== "string")
+    throw new Error(`can only work on strings;
+value input:  ${string}`);
+  const resultArr = [];
+  let concatString = "";
+  for (let i = 0; i < string.length; i++) {
+    if (splitBy === "") {
+      resultArr.push(string[i]);
+    } else if (string[i] === splitBy) {
+      resultArr.push(concatString);
+      concatString = "";
+    } else {
+      concatString = `${concatString}${string[i]}`;
+    }
+  }
+  //push in what is left in concatString
+  resultArr.push(concatString);
+  return resultArr;
+}
+
+console.log(splitJS("me|she|me", "|")); //['me', 'she', 'me']
+console.log(splitJS("me she me", " ")); //['me', 'she', 'me']
+console.log(splitJS("me she me", "|")); //['me she me']
+console.log(splitJS("me she me", "")); //['m', 'e' ' ', 's', 'h', 'e', ' ', 'm', 'e']
