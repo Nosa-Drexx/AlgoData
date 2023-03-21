@@ -105,6 +105,18 @@ function isPrime2(n) {
 
 ////// console.log(isPrime2(47));
 
+
+// Prime Number testing in sqrt(n) time - Suitable for numbers upto <= 10^16
+export function isPrime3(n) {
+
+	for(let i = 2; i * i <= n; i++) {
+		if(n % i == 0) return false;
+	}
+
+	return true;
+}
+// console.log(isPrime3(15));
+
 // Implementing a setTimeOut.
 function delay(func, wait) {
   var d = Date.now();
