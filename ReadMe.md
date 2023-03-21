@@ -118,3 +118,4 @@ npm test         # run tests
   - ➡️ HashTable
   - ➡️ BinaryTree
   - ➡️ Graph
+  - ➡️ Stack
