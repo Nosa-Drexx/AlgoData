@@ -1,7 +1,7 @@
 import {
   MostOccuringNumberInAnArray,
   fibonacciSeries,
-  isPrime3
+  isPrime3,
 } from "../implementing functions";
 
 describe("Test MostOccuringNumberInAnArray", () => {
@@ -62,17 +62,24 @@ describe("Test Fibonanci Series", () => {
 });
 
 describe("Test Prime Number", () => {
-	test("Expects answer to be true", () => {
-		const n = 17;
-		const answer = isPrime3(n);
+  test("Expects answer to be true", () => {
+    const n = 17;
+    const answer = isPrime3(n);
 
-		expect(answer).toBe(true);
-	});
+    expect(answer).toBe(true);
+  });
 
-	test("Expects answer to be false", () => {
-		const n = 18;
-		const answer = isPrime3(n);
+  test("Expects answer to be false", () => {
+    const n = 18;
+    const answer = isPrime3(n);
 
-		expect(answer).toBe(false);
-	});
+    expect(answer).toBe(false);
+  });
+
+  test("Expects answer to be false", () => {
+    const n = 15;
+    const answer = isPrime3(n);
+
+    expect(answer).toBe(false);
+  });
 });
