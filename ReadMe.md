@@ -46,6 +46,7 @@ npm test         # run tests
   - ➡️ isEven2
   - ➡️ isPrime
   - ➡️ isPrime2
+  - ➡️ isPrime3
   - ➡️ delay
   - ➡️ reverse
   - ➡️ lottery
