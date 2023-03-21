@@ -105,15 +105,13 @@ function isPrime2(n) {
 
 ////// console.log(isPrime2(47));
 
-
 // Prime Number testing in sqrt(n) time - Suitable for numbers upto <= 10^16
 export function isPrime3(n) {
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i == 0) return false;
+  }
 
-	for(let i = 2; i * i <= n; i++) {
-		if(n % i == 0) return false;
-	}
-
-	return true;
+  return true;
 }
 // console.log(isPrime3(15));
 
@@ -2141,3 +2139,40 @@ console.log(splitJS("me|she|me", "|")); //['me', 'she', 'me']
 console.log(splitJS("me she me", " ")); //['me', 'she', 'me']
 console.log(splitJS("me she me", "|")); //['me she me']
 console.log(splitJS("me she me", "")); //['m', 'e' ' ', 's', 'h', 'e', ' ', 'm', 'e']
+
+//Stack Datastructure
+
+class Stack {
+  #length;
+  constructor() {
+    this.#length = 0;
+  }
+  push(item) {
+    this[this.#length] = item;
+    this.#length++;
+    return item;
+  }
+  pop() {
+    if (this.#length === 0) {
+      return "Empty Stack; There is nothing in this Stack, push first";
+    }
+    const result = this[this.#length - 1];
+    delete this[this.#length - 1];
+    this.#length--;
+    return result;
+  }
+  get length() {
+    return this.#length;
+  }
+}
+
+const stackDS = new Stack();
+console.log(stackDS.push({ trial: "okay" })); //{ trial: "okay" }
+console.log(stackDS.push(["cool"])); //["cool"]
+console.log(stackDS.push("working")); //"working"
+console.log(stackDS.length); //3
+console.log(stackDS.pop()); //"working"
+console.log(stackDS.length); //2
+console.log(stackDS.pop()); //["cool"]
+console.log(stackDS.pop()); //{ trial: "okay" }
+console.log(stackDS.pop()); //  "Empty Stack; There is nothing in this Stack, push first"
