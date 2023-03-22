@@ -105,6 +105,7 @@ npm test         # run tests
   - ➡️ sliceJS
   - ➡️ joinJS
   - ➡️ splitJS
+  - ➡️ factorsOf
 
 - ➡️ **_DataStructures_**
 

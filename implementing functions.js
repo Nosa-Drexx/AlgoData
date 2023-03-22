@@ -2167,12 +2167,40 @@ class Stack {
 }
 
 const stackDS = new Stack();
-console.log(stackDS.push({ trial: "okay" })); //{ trial: "okay" }
-console.log(stackDS.push(["cool"])); //["cool"]
-console.log(stackDS.push("working")); //"working"
-console.log(stackDS.length); //3
-console.log(stackDS.pop()); //"working"
-console.log(stackDS.length); //2
-console.log(stackDS.pop()); //["cool"]
-console.log(stackDS.pop()); //{ trial: "okay" }
-console.log(stackDS.pop()); //  "Empty Stack; There is nothing in this Stack, push first"
+// console.log(stackDS.push({ trial: "okay" })); //{ trial: "okay" }
+// console.log(stackDS.push(["cool"])); //["cool"]
+// console.log(stackDS.push("working")); //"working"
+// console.log(stackDS.length); //3
+// console.log(stackDS.pop()); //"working"
+// console.log(stackDS.length); //2
+// console.log(stackDS.pop()); //["cool"]
+// console.log(stackDS.pop()); //{ trial: "okay" }
+// console.log(stackDS.pop()); //  "Empty Stack; There is nothing in this Stack, push first"
+
+//factors of a number
+
+function factorsOf(number) {
+  if (typeof number !== "number")
+    throw new Error(`Expected a number
+  received: 
+  ${typeof number} : ${number}`);
+  const resultOBJ = {};
+  let counter = 1;
+  while (counter <= number) {
+    if (!resultOBJ[counter]) {
+      if (number % counter === 0) {
+        const factorKey = number / counter;
+        resultOBJ[counter] = `${counter} * ${factorKey}`;
+        resultOBJ[factorKey] = `${factorKey} * ${counter}`;
+      }
+    }
+    counter++;
+  }
+  return resultOBJ;
+}
+
+// console.log(factorsOf(6)); //{ '1': '1 * 6', '2': '2 * 3', '3': '3 * 2', '6': '6 * 1' }
+// console.log(factorsOf(4)); //{ '1': '1 * 4', '2': '2 * 2', '4': '4 * 1' }
+// console.log(factorsOf(7)); //{ '1': '1 * 7', '7': '7 * 1' }
+// console.log(factorsOf(100)); //{'1': '1 * 100','2': '2 * 50','4': '4 * 25','5': '5 * 20','10': '10 * 10','20': '20 * 5'25': '25 * 4','50': '50 * 2','100': '100 * 1'}
+// console.log(factorsOf("50")); //Throws and Error
