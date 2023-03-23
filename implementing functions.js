@@ -2204,3 +2204,135 @@ function factorsOf(number) {
 // console.log(factorsOf(7)); //{ '1': '1 * 7', '7': '7 * 1' }
 // console.log(factorsOf(100)); //{'1': '1 * 100','2': '2 * 50','4': '4 * 25','5': '5 * 20','10': '10 * 10','20': '20 * 5'25': '25 * 4','50': '50 * 2','100': '100 * 1'}
 // console.log(factorsOf("50")); //Throws and Error
+
+//A function that takes an infinite number of arguments of with type number or an array of numbers and returns the LCM (lowerst common mutiple) of those numbers.
+function LCM(...arr) {
+  if (!typeof arr[0] === "number" && !Array.isArray(arr[0]))
+    throw new Error(`Expected numbers or an array
+  received: 
+  ${typeof arr[0]} : ${arr[0]}`);
+
+  let arrClone = null;
+
+  if (Array.isArray(arr[0])) {
+    arrClone = [...arr[0]];
+  } else {
+    arrClone = [...arr];
+  }
+
+  let accumulator = 1;
+  let highestNumber = Math.max(...arrClone);
+  let counter = 2;
+  while (counter <= highestNumber) {
+    let currentDivisor = null;
+    //Loop through number in array.
+    for (let i = 0; i < arrClone.length; i++) {
+      //type check
+      if (typeof arrClone[i] !== "number")
+        throw new Error(`Expected a number
+      received: 
+      ${typeof arrClone[i]} : ${arrClone[i]}`);
+      arrClone[i] = Math.floor(arrClone[i]);
+
+      if (
+        counter <= arrClone[i] &&
+        arrClone[i] % counter === 0 &&
+        arrClone[i] !== 0
+      ) {
+        let divident = arrClone[i] / counter;
+        arrClone[i] = divident;
+        if (!currentDivisor) {
+          currentDivisor = counter;
+          accumulator *= currentDivisor;
+        }
+      }
+    }
+    counter++;
+    const highestNumberPlus = highestNumber + 1;
+    if (
+      counter === highestNumberPlus &&
+      !arrClone.every((elem) => elem === 1)
+    ) {
+      counter = 2;
+      highestNumber = Math.max(...arrClone);
+    }
+  }
+  return accumulator === 1 ? NaN : accumulator;
+}
+
+// console.log(LCM([1, 2, 5])); //10
+// console.log(LCM(1, 2, 5)); //10
+// console.log(LCM([1, 2, 5, 6, 7])); //210
+// console.log(LCM(1, 2, 5, 6, 7)); //210
+// console.log(LCM(1, 2, 5, 6, 7, [44, 6])); //NaN
+// console.log(LCM(1, 2, 5, 6, 7, "6")); //Throws an Error
+
+//A function that takes an infinite number of arguments of with type number or an array of numbers and returns the HCF(highest common factor) of those numbers.
+function HCF(...arr) {
+  if (!typeof arr[0] === "number" && !Array.isArray(arr[0]))
+    throw new Error(`Expected numbers or an array
+  received: 
+  ${typeof arr[0]} : ${arr[0]}`);
+
+  let arrClone = null;
+  let finalCheckArr = [];
+
+  if (Array.isArray(arr[0])) {
+    arrClone = [...arr[0]];
+  } else {
+    arrClone = [...arr];
+  }
+
+  const hcfArrClone = [...arrClone];
+  let accumulator = 1;
+  let highestNumber = Math.max(...arrClone);
+  let counter = 2;
+  while (counter <= highestNumber) {
+    // let currentDivisor = null;
+    let hcfCheck = true;
+    //Loop through number in array.
+    for (let i = 0; i < arrClone.length; i++) {
+      //type check
+      if (typeof arrClone[i] !== "number")
+        throw new Error(`Expected a number
+      received: 
+      ${typeof arrClone[i]} : ${arrClone[i]}`);
+
+      arrClone[i] = Math.floor(arrClone[i]);
+      if (arrClone[i] % counter !== 0) {
+        hcfCheck = false;
+      }
+
+      if (counter <= arrClone[i] && arrClone[i] !== 0 && hcfCheck) {
+        let divident = arrClone[i] / counter;
+        hcfArrClone[i] = divident;
+        if (i === arrClone.length - 1) {
+          arrClone = [...hcfArrClone];
+          accumulator *= counter;
+        }
+      } else {
+        break;
+      }
+    }
+    counter++;
+    const highestNumberPlus = highestNumber + 1;
+
+    if (counter === highestNumberPlus) {
+      highestNumber = Math.max(...arrClone);
+      if (JSON.stringify(arrClone) !== JSON.stringify(finalCheckArr)) {
+        counter = 2;
+        finalCheckArr = [...arrClone];
+      }
+    }
+  }
+  return accumulator === 1 ? 0 : accumulator;
+}
+
+// console.log(HCF([12, 16])); //4
+// console.log(HCF(12, 16)); //4
+// console.log(HCF([12, 18])); //6
+// console.log(HCF(12, 18)); //6
+// console.log(HCF([1, 2])); //0
+// console.log(HCF([2, 4])); //2
+// console.log(HCF([1, 2])); //0
+// console.log(HCF([2, 4, 8, 16, 10])); //2
