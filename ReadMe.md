@@ -1,6 +1,6 @@
 # 👋 Datastructures and Algorithms
 
-A list datastructures and algorithms I've personally written in **_JavaScript_** over the my years of programming including:
+A list of datastructures and algorithms I've personally written in **_JavaScript_** over my years of programming including:
 
 - Algorithms to some javascript Inbuilt functions.
 - Algorithms to some lodash functions.
@@ -85,6 +85,7 @@ npm test         # run tests
   - ➡️ hash1 (hashing functions)
   - ➡️ hash2 (hashing functions)
   - ➡️ hash3 (hashing functions)
+  - ➡️ _hash (hashing functions)
   - ➡️ uniqueArr
   - ➡️ uniqueArr3
   - ➡️ preOrderTraverse
