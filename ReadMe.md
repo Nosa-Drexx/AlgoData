@@ -109,6 +109,8 @@ npm test         # run tests
   - ➡️ factorsOf
   - ➡️ LCM
   - ➡️ HCF
+  - ➡️ someJS
+  - ➡️ everyJS
 
 - ➡️ **_DataStructures_**
 
