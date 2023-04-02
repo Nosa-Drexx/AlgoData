@@ -2337,7 +2337,7 @@ function HCF(...arr) {
 // console.log(HCF([1, 2])); //0
 // console.log(HCF([2, 4, 8, 16, 10])); //2
 
-//algorithm to javascript some arr method, 
+//algorithm to javascript some arr method,
 /*
 Takes two arguments,
 Argument 1  --- Array
@@ -2347,18 +2347,19 @@ Return a boolean either true of false, return true if arr contains item and fals
 */
 
 function someJS(arr, item) {
-  const answer = false
-  for(let i = 0; i< arr.length; i++) {
-    if(arr[i] === item) {answer = true
-    break;
+  let answer = false;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === item) {
+      answer = true;
+      break;
     }
   }
   return item;
 }
 
-console.log(someJS([1, 2, 3, 4, 6], 3)) //true
+console.log(someJS([1, 2, 3, 4, 6], 3)); //true
 
-//algorithm to javascript every arr method, 
+//algorithm to javascript every arr method,
 /*
 Takes two arguments,
 Argument 1  --- Array
@@ -2368,14 +2369,41 @@ Return a boolean either true of false, return true if all elemens in the arr are
 */
 
 function everyJS(arr, item) {
-  const answer = true
-  for(let i = 0; i< arr.length; i++) {
-    if(arr[i] !== item) {answer = false
-    break;
+  let answer = true;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== item) {
+      answer = false;
+      break;
     }
   }
   return item;
 }
 
-console.log(everyJS([1, 2, 3, 4, 6], 3)) //false
+console.log(everyJS([1, 2, 3, 4, 6], 3)); //false
 
+/*Takes two argument
+Argument 1 -- The array to push into
+Argument 2 -- The value to push into the array
+Returns the mutated version of the array containining with the second argument pushed into the last entery of the array.
+*/
+function pushJS(arr, item) {
+  arr[arr.length] = item;
+  return arr;
+}
+
+// console.log(pushJS([1, 2, 3], 4)); //[1, 2, 3, 4]
+
+
+/*Takes two argument
+Argument 1 -- The array to push into
+Argument 2 --  The value to fill the array with
+Returns the mutated version of the array containining 
+*/
+function fillJS(arr, item) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = item;
+  }
+  return arr;
+}
+
+console.log(fillJS([1, 2, 3, 4], 3)); //[3, 3, 3, 3]
