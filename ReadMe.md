@@ -85,7 +85,7 @@ npm test         # run tests
   - ➡️ hash1 (hashing functions)
   - ➡️ hash2 (hashing functions)
   - ➡️ hash3 (hashing functions)
-  - ➡️ _hash (hashing functions)
+  - ➡️ \_hash (hashing functions)
   - ➡️ uniqueArr
   - ➡️ uniqueArr3
   - ➡️ preOrderTraverse
@@ -111,6 +111,8 @@ npm test         # run tests
   - ➡️ HCF
   - ➡️ someJS
   - ➡️ everyJS
+  - ➡️ pushJS
+  - ➡️ fillJS
 
 - ➡️ **_DataStructures_**
 
