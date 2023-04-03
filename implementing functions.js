@@ -1,4 +1,4 @@
-function map(value, cb) {
+export function map(value, cb) {
   var newArray = [];
   var index;
   if (Array.isArray(value) == true) {
@@ -19,9 +19,10 @@ function map(value, cb) {
   return newArray;
 }
 
-var test = map([9, 6, 9, 7, 7], function (value, index, array) {
+var test100 = map([9, 6, 9, 7, 7], function (value, index, array) {
   return index;
 });
+// console.log(test100);
 /////
 
 // function filter(predicateFn, array) {
@@ -33,20 +34,9 @@ var test = map([9, 6, 9, 7, 7], function (value, index, array) {
 
 // var wholes = [0, 1 , 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// function isEven(n) {
-//     var check = n/2;
-//     if(check.isInterger()){
-//         return true;
-//     }else {
-//         return false;
-//     }
-// }
-// var kkk = filter(isEven, wholes);
-// //// console.log(kkk);
-
 // function that checkes if a number is even
 var n = 7;
-function isEven(n) {
+export function isEven(n) {
   var keep = n / 2;
   if (Number.isInteger(keep)) {
     return true;
@@ -56,7 +46,7 @@ function isEven(n) {
 }
 
 /// Or
-function isEven2(n) {
+export function isEven2(n) {
   var keep = n % 2;
   if (keep === 0) {
     return true;
@@ -68,7 +58,7 @@ function isEven2(n) {
 
 // Prime number tester using loops and if statement.
 
-function isPrime(n) {
+export function isPrime(n) {
   var keep;
   for (let i = 2; i <= 13; i++) {
     if (n == 1 || n == 0) {
@@ -88,7 +78,7 @@ function isPrime(n) {
 ////// console.log(isPrime(15));
 
 //isPrime using if statements.
-function isPrime2(n) {
+export function isPrime2(n) {
   if (n == 2) {
     return true;
   }
@@ -126,7 +116,7 @@ function delay(func, wait) {
   return func();
 }
 
-function reverse(arr) {
+export function reverse(arr) {
   var temp = [];
   for (let item of arr) {
     temp.unshift(item);
@@ -138,11 +128,20 @@ function reverse(arr) {
     arr.pop();
     arr.unshift(temp[item]);
   }
+  return arr;
 }
 
-var array = [1, 2, 3];
-reverse(array);
-////// console.log(array);
+export function reverse2(arr) {
+  var tempArr = [...arr];
+  for (let data of tempArr) {
+    arr.pop();
+    arr.unshift(data);
+  }
+  return arr;
+}
+
+// console.log(reverse([1, 2, 3, 4, 5])); //[3, 2, 1]
+// console.log(reverse2([1, 2, 3])); //[3, 2, 1]
 
 /*functions that input random numbers in an array and also sort the array in ascending
 order at the same time prevent reoccurence of numbers in the array. */
@@ -2393,11 +2392,10 @@ function pushJS(arr, item) {
 
 // console.log(pushJS([1, 2, 3], 4)); //[1, 2, 3, 4]
 
-
 /*Takes two argument
 Argument 1 -- The array to push into
 Argument 2 --  The value to fill the array with
-Returns the mutated version of the array containining 
+Returns the mutated version of the array with all enteries filled with the second argument
 */
 function fillJS(arr, item) {
   for (let i = 0; i < arr.length; i++) {
