@@ -2,7 +2,62 @@ import {
   MostOccuringNumberInAnArray,
   fibonacciSeries,
   isPrime3,
+  isEven,
+  isEven2,
+  map,
+  isPrime,
+  isPrime2,
+  reverse,
+  reverse2,
 } from "../implementing functions";
+
+describe("Test map function", () => {
+  const testArray = [3, 4, 6, 89, 10];
+  test("Expect result array to be [0, 1, 2, 3, 4] ", () => {
+    const answer = map(testArray, (value, index, array) => index);
+
+    expect(answer).toEqual([0, 1, 2, 3, 4]);
+  });
+  test("Expect result array to be [4, 5, 7, 90, 11] ", () => {
+    const answer = map(testArray, (value) => value + 1);
+
+    expect(answer).toEqual([4, 5, 7, 90, 11]);
+  });
+  test("Expect result array to be [[3], [4], [6], [89], [10]] ", () => {
+    const answer = map(testArray, (value, index, array) =>
+      array.slice(index, index + 1)
+    );
+
+    expect(answer).toEqual([[3], [4], [6], [89], [10]]);
+  });
+});
+
+describe("Test Even number", () => {
+  test("Expect 6 to an even number", () => {
+    const testValue = 6;
+    const answer = isEven(testValue);
+    const answer2 = isEven2(testValue);
+
+    expect(answer).toBe(true);
+    expect(answer2).toBe(true);
+  });
+  test("Expect 7 to an even number", () => {
+    const testValue = 7;
+    const answer = isEven(testValue);
+    const answer2 = isEven2(testValue);
+
+    expect(answer).toBe(false);
+    expect(answer2).toBe(false);
+  });
+  test("Expect 4 to an even number", () => {
+    const testValue = 4;
+    const answer = isEven(testValue);
+    const answer2 = isEven2(testValue);
+
+    expect(answer).toBe(true);
+    expect(answer2).toBe(true);
+  });
+});
 
 describe("Test MostOccuringNumberInAnArray", () => {
   test("Expect most occuring number to be 6", () => {
@@ -64,22 +119,43 @@ describe("Test Fibonanci Series", () => {
 describe("Test Prime Number", () => {
   test("Expects answer to be true", () => {
     const n = 17;
-    const answer = isPrime3(n);
+    const answer = isPrime(n);
+    const answer2 = isPrime2(n);
+    const answer3 = isPrime3(n);
 
-    expect(answer).toBe(true);
+    expect(answer2).toBe(true);
+    expect(answer3).toBe(true);
   });
 
   test("Expects answer to be false", () => {
     const n = 18;
-    const answer = isPrime3(n);
+    const answer = isPrime(n);
+    const answer2 = isPrime2(n);
+    const answer3 = isPrime3(n);
 
     expect(answer).toBe(false);
+    expect(answer2).toBe(false);
+    expect(answer3).toBe(false);
   });
 
   test("Expects answer to be false", () => {
     const n = 15;
-    const answer = isPrime3(n);
+    const answer = isPrime(n);
+    const answer2 = isPrime2(n);
+    const answer3 = isPrime3(n);
 
     expect(answer).toBe(false);
+    expect(answer2).toBe(false);
+    expect(answer3).toBe(false);
+  });
+});
+
+describe("Test reverse array", () => {
+  test("Expects reversed array to be [5, 4, 3, 2, 1]", () => {
+    const answer = reverse([1, 2, 3, 4, 5]);
+    const answer2 = reverse2([1, 2, 3, 4, 5]);
+
+    expect(answer).toEqual([5, 4, 3, 2, 1]);
+    expect(answer2).toEqual([5, 4, 3, 2, 1]);
   });
 });
