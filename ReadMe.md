@@ -49,6 +49,7 @@ npm test         # run tests
   - ➡️ isPrime3
   - ➡️ delay
   - ➡️ reverse
+  - ➡️ reverse2
   - ➡️ lottery
   - ➡️ isPalindrome
   - ➡️ pipe2
