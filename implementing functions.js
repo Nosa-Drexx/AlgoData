@@ -2423,5 +2423,24 @@ function combination(n, r) {
   return nFactorial / (nMinusRFactorial * rFactorial);
 }
 
-console.log(combination(2, 2)); //1
-console.log(combination(5, 3)); //10
+// console.log(combination(2, 2)); //1
+// console.log(combination(5, 3)); //10
+
+function permutation(n, r) {
+  if (typeof n !== "number" || typeof r !== "number")
+    throw new Error(`Expect type of ${n} and ${r} as number 
+  Received
+  n as ${typeof n}
+  r as ${typeof r}
+  `);
+  if (n < r)
+    throw new Error(`
+  Expect ${n} to be greater than ${r}`);
+  const nFactorial = factorial2(n);
+  const nMinusRFactorial = factorial2(n - r);
+
+  return nFactorial / nMinusRFactorial;
+}
+
+// console.log(permutation(2, 2)); //2
+// console.log(permutation(5, 3)); //60
