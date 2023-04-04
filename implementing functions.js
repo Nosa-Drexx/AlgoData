@@ -2406,6 +2406,10 @@ function fillJS(arr, item) {
 
 console.log(fillJS([1, 2, 3, 4], 3)); //[3, 3, 3, 3]
 
+/* 
+A funciton that takes two argument n and r computating maths combination calculation
+*/
+
 function combination(n, r) {
   if (typeof n !== "number" || typeof r !== "number")
     throw new Error(`Expect type of ${n} and ${r} as number 
@@ -2426,6 +2430,9 @@ function combination(n, r) {
 // console.log(combination(2, 2)); //1
 // console.log(combination(5, 3)); //10
 
+/* 
+A funciton that takes two argument n and r computating maths permutation calculation
+*/
 function permutation(n, r) {
   if (typeof n !== "number" || typeof r !== "number")
     throw new Error(`Expect type of ${n} and ${r} as number 
