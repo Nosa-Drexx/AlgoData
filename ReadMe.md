@@ -114,6 +114,8 @@ npm test         # run tests
   - ➡️ everyJS
   - ➡️ pushJS
   - ➡️ fillJS
+  - ➡️ combination
+  - ➡️ permutation
 
 - ➡️ **_DataStructures_**
 

@@ -2405,3 +2405,49 @@ function fillJS(arr, item) {
 }
 
 console.log(fillJS([1, 2, 3, 4], 3)); //[3, 3, 3, 3]
+
+/* 
+A funciton that takes two argument n and r computating maths combination calculation
+*/
+
+function combination(n, r) {
+  if (typeof n !== "number" || typeof r !== "number")
+    throw new Error(`Expect type of ${n} and ${r} as number 
+  Received
+  n as ${typeof n}
+  r as ${typeof r}
+  `);
+  if (n < r)
+    throw new Error(`
+  Expect ${n} to be greater than ${r}`);
+  const nFactorial = factorial2(n);
+  const nMinusRFactorial = factorial2(n - r);
+  const rFactorial = factorial2(r);
+
+  return nFactorial / (nMinusRFactorial * rFactorial);
+}
+
+// console.log(combination(2, 2)); //1
+// console.log(combination(5, 3)); //10
+
+/* 
+A funciton that takes two argument n and r computating maths permutation calculation
+*/
+function permutation(n, r) {
+  if (typeof n !== "number" || typeof r !== "number")
+    throw new Error(`Expect type of ${n} and ${r} as number 
+  Received
+  n as ${typeof n}
+  r as ${typeof r}
+  `);
+  if (n < r)
+    throw new Error(`
+  Expect ${n} to be greater than ${r}`);
+  const nFactorial = factorial2(n);
+  const nMinusRFactorial = factorial2(n - r);
+
+  return nFactorial / nMinusRFactorial;
+}
+
+// console.log(permutation(2, 2)); //2
+// console.log(permutation(5, 3)); //60
