@@ -1,4 +1,4 @@
-# 👋 Datastructures and Algorithms
+# 👋 AlgoData -- Datastructures and Algorithms
 
 A list of datastructures and algorithms I've personally written in **_JavaScript_** over my years of programming including:
 
