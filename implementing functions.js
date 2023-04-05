@@ -2451,3 +2451,39 @@ function permutation(n, r) {
 
 // console.log(permutation(2, 2)); //2
 // console.log(permutation(5, 3)); //60
+
+function allLetters(string) {
+  if (typeof string !== "string")
+    throw new Error(`Expected value of input ${string} to be a string
+  Received
+  ${string} as a ${typeof string}`);
+  let result = true;
+  for (let i = 0; i < string.length; i++) {
+    const charCode = string.charCodeAt(i);
+    let upperCaseLetter = true;
+    let lowerCaseLetter = true;
+
+    if (charCode < 65 || charCode > 90) {
+      upperCaseLetter = false;
+    }
+    if (charCode < 97 || charCode > 122) {
+      lowerCaseLetter = false;
+    }
+
+    if (!upperCaseLetter && !lowerCaseLetter) {
+      result = false;
+      break;
+    }
+  }
+  return result;
+}
+
+// console.log(allLetters("me")); //true
+// console.log(allLetters("Me")); //true
+// console.log(allLetters("MeTHIS")); //true
+// console.log(allLetters("Me THIS")); //false
+// console.log(allLetters("Me)")); //false
+// console.log(allLetters("Me78")); //false
+// console.log(allLetters("Me]")); //false
+// console.log(allLetters("Me-")); //false
+// console.log(allLetters(10)); //Throws error
