@@ -9,6 +9,8 @@ import {
   isPrime2,
   reverse,
   reverse2,
+  isPalindrome,
+  filterIn,
 } from "../implementing functions";
 
 describe("Test map function", () => {
@@ -157,5 +159,52 @@ describe("Test reverse array", () => {
 
     expect(answer).toEqual([5, 4, 3, 2, 1]);
     expect(answer2).toEqual([5, 4, 3, 2, 1]);
+  });
+});
+
+describe("Test isPalindrome", () => {
+  test("Expects be '' to be true", () => {
+    const answer = isPalindrome("");
+
+    expect(answer).toBe(true);
+  });
+
+  test("Expects be 'aa' to be true", () => {
+    const answer = isPalindrome("aa");
+
+    expect(answer).toBe(true);
+  });
+
+  test("Expects be 'abba' to be true", () => {
+    const answer = isPalindrome("abba");
+
+    expect(answer).toBe(true);
+  });
+
+  test("Expects be 'abccba' to be true", () => {
+    const answer = isPalindrome("abba");
+
+    expect(answer).toBe(true);
+  });
+});
+
+describe("Test for filterIn", () => {
+  const testArray = [1, 2, 3, 4, 5, 6, 8];
+  test("Expects [1, 2, 3, 4, 5, 6, 8] filters greater than 5 to be [6, 8]", () => {
+    const answer = filterIn((value) => value > 5, testArray);
+
+    expect(answer).toEqual([6, 8]);
+  });
+
+  test("Expects [1, 2, 3, 4, 5, 6, 8] filters greater than or equals 5 to be [5,6, 8]", () => {
+    const answer = filterIn((value) => value >= 5, testArray);
+
+    expect(answer).toEqual([5, 6, 8]);
+  });
+
+  test("Expects [1, 2, 3, 4, 5, 6, 8] filters less than 5 to be [1, 2, 3, 4]", () => {
+    const answer = filterIn((value) => value < 5, testArray);
+
+    expect(answer).toEqual([1, 2, 3, 4]);
   });
 });
