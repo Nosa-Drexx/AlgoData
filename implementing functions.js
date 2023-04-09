@@ -179,13 +179,13 @@ function lottery() {
 // console.log(lottery());
 
 //A isPalindrome function that checks if the str is the same if called backwards
-function isPalindrome(str) {
+export function isPalindrome(str) {
   var another = "";
   for (let i = str.length - 1; i >= 0; i--) {
     // a loop to loop through the str parameter from the back.
     another += str[i];
   }
-  another === str ? true : false;
+  return another === str ? true : false;
 }
 
 // //// console.log( isPalindrome("") === true );
@@ -210,7 +210,7 @@ function pipe2(...args) {
 }
 
 /*Same functionality as the filter method on arrays */
-function filterIn(cb, arr) {
+export function filterIn(cb, arr) {
   var newArr = [];
   for (let elem of arr) {
     if (cb(elem)) {
@@ -2451,3 +2451,39 @@ function permutation(n, r) {
 
 // console.log(permutation(2, 2)); //2
 // console.log(permutation(5, 3)); //60
+
+function allLetters(string) {
+  if (typeof string !== "string")
+    throw new Error(`Expected value of input ${string} to be a string
+  Received
+  ${string} as a ${typeof string}`);
+  let result = true;
+  for (let i = 0; i < string.length; i++) {
+    const charCode = string.charCodeAt(i);
+    let upperCaseLetter = true;
+    let lowerCaseLetter = true;
+
+    if (charCode < 65 || charCode > 90) {
+      upperCaseLetter = false;
+    }
+    if (charCode < 97 || charCode > 122) {
+      lowerCaseLetter = false;
+    }
+
+    if (!upperCaseLetter && !lowerCaseLetter) {
+      result = false;
+      break;
+    }
+  }
+  return result;
+}
+
+// console.log(allLetters("me")); //true
+// console.log(allLetters("Me")); //true
+// console.log(allLetters("MeTHIS")); //true
+// console.log(allLetters("Me THIS")); //false
+// console.log(allLetters("Me)")); //false
+// console.log(allLetters("Me78")); //false
+// console.log(allLetters("Me]")); //false
+// console.log(allLetters("Me-")); //false
+// console.log(allLetters(10)); //Throws error

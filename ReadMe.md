@@ -116,6 +116,7 @@ npm test         # run tests
   - ➡️ fillJS
   - ➡️ combination
   - ➡️ permutation
+  - ➡️ allLetters
 
 - ➡️ **_DataStructures_**
 
