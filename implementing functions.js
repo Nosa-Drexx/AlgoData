@@ -179,13 +179,13 @@ function lottery() {
 // console.log(lottery());
 
 //A isPalindrome function that checks if the str is the same if called backwards
-function isPalindrome(str) {
+export function isPalindrome(str) {
   var another = "";
   for (let i = str.length - 1; i >= 0; i--) {
     // a loop to loop through the str parameter from the back.
     another += str[i];
   }
-  another === str ? true : false;
+  return another === str ? true : false;
 }
 
 // //// console.log( isPalindrome("") === true );
@@ -210,7 +210,7 @@ function pipe2(...args) {
 }
 
 /*Same functionality as the filter method on arrays */
-function filterIn(cb, arr) {
+export function filterIn(cb, arr) {
   var newArr = [];
   for (let elem of arr) {
     if (cb(elem)) {
