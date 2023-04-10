@@ -15,7 +15,7 @@ And that's it!, create a new branch and Read the code available and change the p
 
 If you're adding a new algorithm or datastructure, start from the branch **main**. It would be a better practice to create a new branch and work in there.
 
-When you're done, submit a pull request to *Personal-Built-FunctionHelpers-and-DataStructure/main** branch for one of the maintainers to check it out. We would let you know if there is any problem or any changes that should be considered.
+When you're done, submit a pull request to *AlgoData/main** branch for one of the maintainers to check it out. We would let you know if there is any problem or any changes that should be considered.
 
 ### Documentation
 
