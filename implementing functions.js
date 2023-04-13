@@ -231,7 +231,7 @@ var items = filterIn(
 //// console.log(items);
 
 //A function that prevent duplications in an array.
-function uniqueElemArr(arr) {
+export function uniqueElemArr(arr) {
   let item = [];
   for (let value of arr) {
     if (!item.includes(value)) {
@@ -241,7 +241,7 @@ function uniqueElemArr(arr) {
   return item;
 }
 
-function uniqueArr2(array) {
+export function uniqueArr2(array) {
   var breadCrums = {};
   var arr = [];
   array.forEach((elem) => {
