@@ -11,6 +11,8 @@ import {
   reverse2,
   isPalindrome,
   filterIn,
+  uniqueElemArr,
+  uniqueArr2,
 } from "../implementing functions";
 
 describe("Test map function", () => {
@@ -206,5 +208,17 @@ describe("Test for filterIn", () => {
     const answer = filterIn((value) => value < 5, testArray);
 
     expect(answer).toEqual([1, 2, 3, 4]);
+  });
+});
+
+describe("Test for unique elements in array", () => {
+  test("Expects [1,2,3,1,1,2,3,4,5,] to be reduces to  [1,2,3,4,5]", () => {
+    const testArray1 = [1, 2, 3, 1, 1, 2, 3, 4, 5];
+    const testArray2 = [1, 2, 3, 1, 1, 2, 3, 4, 5];
+    const answer1 = uniqueElemArr(testArray1);
+    const answer2 = uniqueArr2(testArray2);
+
+    expect(answer1).toEqual([1, 2, 3, 4, 5]);
+    expect(answer2).toEqual([1, 2, 3, 4, 5]);
   });
 });
