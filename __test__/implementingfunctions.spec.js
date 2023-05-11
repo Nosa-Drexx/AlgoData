@@ -13,6 +13,7 @@ import {
   filterIn,
   uniqueElemArr,
   uniqueArr2,
+  reduceObj,
 } from "../implementing functions";
 
 describe("Test map function", () => {
@@ -220,5 +221,19 @@ describe("Test for unique elements in array", () => {
 
     expect(answer1).toEqual([1, 2, 3, 4, 5]);
     expect(answer2).toEqual([1, 2, 3, 4, 5]);
+  });
+});
+
+describe("Test for reduce function", () => {
+  test("Expects ['Nosa ' , 'Is ', 'A ', 'Genius'] to be Nosa Is A Genius", () => {
+    let stringReduceTest = reduceObj(
+      function (one, two) {
+        return one + two;
+      },
+      "",
+      ["Nosa ", "Is ", "A ", "Genius"]
+    );
+
+    expect(stringReduceTest).toEqual("Nosa Is A Genius");
   });
 });
