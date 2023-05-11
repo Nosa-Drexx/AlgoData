@@ -267,7 +267,7 @@ function reduceArr(cb, acc, arr) {
 }
 
 //reduce for both obj and arrays
-function reduceObj(reducerFn, initialValue, o) {
+export function reduceObj(reducerFn, initialValue, o) {
   for (let key in o) {
     initialValue = reducerFn(initialValue, o[key]);
   }
