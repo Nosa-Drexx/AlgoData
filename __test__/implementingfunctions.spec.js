@@ -14,6 +14,7 @@ import {
   uniqueElemArr,
   uniqueArr2,
   reduceObj,
+  prefixCalc,
 } from "../implementing functions";
 
 describe("Test map function", () => {
@@ -235,5 +236,23 @@ describe("Test for reduce function", () => {
     );
 
     expect(stringReduceTest).toEqual("Nosa Is A Genius");
+  });
+});
+
+describe("Test for postfix calculator", () => {
+  test("Test postfix expressions", () => {
+    const result1 = prefixCalc("0"); // 0
+    const result2 = prefixCalc("+ 3 4"); // 7
+    const result3 = prefixCalc("- 3 * 4 5"); //-17
+    const result4 = prefixCalc("* + 3 4 5"); //35
+    const result5 = prefixCalc("+ - 4 6 * 9 / 10 50"); //48.2
+    const result6 = prefixCalc("+ * * + 2 3 4 5 + 6 7"); //113
+
+    expect(result1).toBe(0);
+    expect(result2).toBe(7);
+    expect(result3).toBe(-17);
+    expect(result4).toBe(35);
+    expect(result5).toBe(48.2);
+    expect(result6).toBe(113);
   });
 });
