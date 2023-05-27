@@ -117,6 +117,7 @@ npm test         # run tests
   - ➡️ combination
   - ➡️ permutation
   - ➡️ allLetters
+  - ➡️ prefixCalc
 
 - ➡️ **_DataStructures_**
 
