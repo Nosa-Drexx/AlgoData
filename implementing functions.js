@@ -2487,3 +2487,74 @@ function allLetters(string) {
 // console.log(allLetters("Me]")); //false
 // console.log(allLetters("Me-")); //false
 // console.log(allLetters(10)); //Throws error
+
+/* 
+A function that takes in a postfix expression as string and calculate the infix value
+
+*/
+
+function calcHelper(first, symbol, second) {
+  //Postfix calc helper
+  if (symbol === "-") {
+    return first - second;
+  }
+  if (symbol === "+") {
+    return first + second;
+  }
+  if (symbol === "*") {
+    return first * second;
+  }
+  if (symbol === "/") {
+    return first / second;
+  }
+  if (symbol === "%") {
+    return first % second;
+  }
+}
+
+export function prefixCalc(expression) {
+  const expressionAsArray = expression.split(" "); // array of data and symbols
+  const symbols = []; //intialize array of symbols
+  const store = [];
+  let accumulateCal = false;
+  for (let i = 0; i < expressionAsArray.length; i++) {
+    if (Number(expressionAsArray[i])) {
+      if (!accumulateCal) {
+        //do not assign if next element is a symbol
+        if (Number(expressionAsArray[i + 1])) {
+          accumulateCal = expressionAsArray[i];
+        } else {
+          store.push(expressionAsArray[i]);
+        }
+      } else {
+        if (symbols.length > 0) {
+          accumulateCal = calcHelper(
+            Number(accumulateCal),
+            symbols.pop(),
+            Number(expressionAsArray[i])
+          );
+        } else {
+          accumulateCal = expressionAsArray[i];
+        }
+      }
+    } else {
+      symbols.push(expressionAsArray[i]);
+    }
+  }
+
+  //Check for remainder
+  for (let i = 0; i < store.length; i++) {
+    accumulateCal = calcHelper(
+      Number(store[i]),
+      symbols.pop(),
+      Number(accumulateCal)
+    );
+  }
+
+  return accumulateCal === false ? 0 : accumulateCal;
+}
+
+console.log(prefixCalc("0")); //0
+console.log(prefixCalc("+ 3 4")); //7
+console.log(prefixCalc("- 3 * 4 5")); //-17
+console.log(prefixCalc("* + 3 4 5")); //35
