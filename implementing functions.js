@@ -2489,7 +2489,7 @@ function allLetters(string) {
 // console.log(allLetters(10)); //Throws error
 
 /* 
-A function that takes in a postfix expression as string and calculate the infix value
+A function that takes in a pretfix expression as string and calculate the infix value
 
 */
 
@@ -2558,3 +2558,50 @@ console.log(prefixCalc("0")); //0
 console.log(prefixCalc("+ 3 4")); //7
 console.log(prefixCalc("- 3 * 4 5")); //-17
 console.log(prefixCalc("* + 3 4 5")); //35
+
+/* 
+A function that takes in a postfix expression as string and calculate the infix value
+
+*/
+
+export function postfixCalc(expresssion) {
+  if (typeof expresssion !== "string") {
+    throw `
+      Expected typeof expression to be string
+      Received: ${typeof expresssion}
+    `;
+  }
+  const expressionArr = expresssion.split(" ");
+  const numbers = [];
+
+  for (let elem of expressionArr) {
+    const convertToNum = Number(elem);
+    if (!Number.isNaN(convertToNum)) {
+      numbers.push(convertToNum);
+    } else {
+      const removeLastNum = numbers.pop();
+      const removeLastNum2 = numbers.pop();
+
+      const calculate = calcHelper(removeLastNum, elem, removeLastNum2);
+      numbers.push(calculate);
+    }
+  }
+
+  return numbers[0];
+}
+
+console.log(postfixCalc("2 3 4 + * 5 6 7 8 + * + +")); //109
+console.log(postfixCalc("2 3 4 * 6 / +")); //2.5
+console.log(postfixCalc("5 7 + 1 *")); //12
+
+export function prefixCalc2(expression) {
+  let expressionRev = "";
+  for (let i = expression.length - 1; i >= 0; i--) {
+    expressionRev += expression[i];
+  }
+
+  return postfixCalc(expressionRev);
+}
+
+console.log(prefixCalc2("- 3 * 4 5")); //-17
+console.log(prefixCalc2("* + 3 4 5")); //35

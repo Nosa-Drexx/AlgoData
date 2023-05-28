@@ -15,6 +15,8 @@ import {
   uniqueArr2,
   reduceObj,
   prefixCalc,
+  postfixCalc,
+  prefixCalc2,
 } from "../implementing functions";
 
 describe("Test map function", () => {
@@ -239,8 +241,8 @@ describe("Test for reduce function", () => {
   });
 });
 
-describe("Test for postfix calculator", () => {
-  test("Test postfix expressions", () => {
+describe("Test for prefix calculator", () => {
+  test("Test prefix expressions", () => {
     const result1 = prefixCalc("0"); // 0
     const result2 = prefixCalc("+ 3 4"); // 7
     const result3 = prefixCalc("- 3 * 4 5"); //-17
@@ -254,5 +256,35 @@ describe("Test for postfix calculator", () => {
     expect(result4).toBe(35);
     expect(result5).toBe(48.2);
     expect(result6).toBe(113);
+  });
+});
+
+describe("Test for second prefix calculator", () => {
+  test("Test prefix expressions", () => {
+    const result1 = prefixCalc2("0"); // 0
+    const result2 = prefixCalc2("+ 3 4"); // 7
+    const result3 = prefixCalc2("- 3 * 4 5"); //-17
+    const result4 = prefixCalc2("* + 3 4 5"); //35
+    const result6 = prefixCalc2("+ * * + 2 3 4 5 + 6 7"); //113
+
+    expect(result1).toBe(0);
+    expect(result2).toBe(7);
+    expect(result3).toBe(-17);
+    expect(result4).toBe(35);
+    expect(result6).toBe(113);
+  });
+});
+
+describe("Test for postfix calculator", () => {
+  test("Test postfix expressions", () => {
+    const result1 = postfixCalc("0"); // 0
+    const result2 = postfixCalc("2 3 4 + * 5 6 7 8 + * + +"); // 109
+    const result3 = postfixCalc("2 3 4 * 6 / +"); // 2.5
+    const result4 = postfixCalc("5 7 + 1 *"); // 12
+
+    expect(result1).toBe(0);
+    expect(result2).toBe(109);
+    expect(result3).toBe(2.5);
+    expect(result4).toBe(12);
   });
 });
