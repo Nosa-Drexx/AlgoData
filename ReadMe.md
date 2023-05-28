@@ -118,6 +118,8 @@ npm test         # run tests
   - ➡️ permutation
   - ➡️ allLetters
   - ➡️ prefixCalc
+  - ➡️ postfixCalc
+  - ➡️ prefixCalc2
 
 - ➡️ **_DataStructures_**
 
