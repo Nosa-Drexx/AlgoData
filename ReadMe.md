@@ -9,7 +9,7 @@ A list of datastructures and algorithms I've personally written in **_JavaScript
 
 Some algorithms have different variant which will be listed below
 
-Nb: All code can be found in the "implementing functions.js" and "hashing-functions.js" files on the root of this repo, check file for more info and uses of algorithms
+Nb: All code can be found in the src folder "algorithms.js, "datastructure.js", "hashing-functions.js" files on the root of this repo, check file for more info and uses of algorithms
 
 See full content below
 
@@ -26,8 +26,8 @@ To contribute please read the CONTRIBUTING.md files on the root of this repo
 #### Clone project
 
 ```sh
-git clone https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git # or 'git@github.com:Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git' for ssh
-cd Personal-Built-FunctionHelpers-and-DataStructure
+git clone https://github.com/Nosa-Drexx/AlgoData.git # or 'git@github.com:Nosa-Drexx/AlgoData.git' for ssh
+cd AlgoData
 ```
 
 #### Setup
