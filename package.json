@@ -1,22 +1,22 @@
 {
-  "name": "implementing-functions",
+  "name": "AlgoData",
   "version": "1.0.0",
   "description": "",
-  "main": "implementing functions.js",
+  "main": "./src/algorithms.js",
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git"
+    "url": "git+https://github.com/Nosa-Drexx/AlgoData.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure/issues"
+    "url": "https://github.com/Nosa-Drexx/AlgoData/issues"
   },
-  "homepage": "https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure#readme",
+  "homepage": "https://github.com/Nosa-Drexx/AlgoData#readme",
   "devDependencies": {
     "jest": "^29.3.1"
   }

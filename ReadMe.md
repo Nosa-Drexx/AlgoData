@@ -26,8 +26,8 @@ To contribute please read the CONTRIBUTING.md files on the root of this repo
 #### Clone project
 
 ```sh
-git clone https://github.com/Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git # or 'git@github.com:Nosa-Drexx/Personal-Built-FunctionHelpers-and-DataStructure.git' for ssh
-cd Personal-Built-FunctionHelpers-and-DataStructure
+git clone https://github.com/Nosa-Drexx/AlgoData.git # or 'git@github.com:Nosa-Drexx/AlgoData.git' for ssh
+cd AlgoData
 ```
 
 #### Setup
