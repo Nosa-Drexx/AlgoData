@@ -9,7 +9,7 @@ A list of datastructures and algorithms I've personally written in **_JavaScript
 
 Some algorithms have different variant which will be listed below
 
-Nb: All code can be found in the "implementing functions.js" and "hashing-functions.js" files on the root of this repo, check file for more info and uses of algorithms
+Nb: All code can be found in the src folder "algorithms.js, "datastructure.js", "hashing-functions.js" files on the root of this repo, check file for more info and uses of algorithms
 
 See full content below
 
