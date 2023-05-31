@@ -17,7 +17,7 @@ import {
   prefixCalc,
   postfixCalc,
   prefixCalc2,
-} from "../implementing functions";
+} from "../src/algorithms";
 
 describe("Test map function", () => {
   const testArray = [3, 4, 6, 89, 10];
