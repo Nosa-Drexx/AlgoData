@@ -311,7 +311,7 @@ function filterWithExplicitReduceFunction(arr, filterFn) {
 }
 
 // Implimenting the curry function
-function curryN(no, fn) {
+export function curryN(no, fn) {
   var newArrHolder = [];
   var i = 1;
   return function curryHolder(v) {
@@ -339,7 +339,7 @@ var holder = curryN(3, addOneCurry);
 // //// console.log(holder(7)(7)(7));
 
 /*Implimenting the compose untility */
-function compose(...args) {
+export function compose(...args) {
   const arr = [...args.reverse()];
   return function composeHelper(input) {
     for (let elem of arr) {
@@ -354,7 +354,7 @@ var ok = compose(addOne, mul);
 ////// console.log(ok(7));
 
 //Another implimentation of pipe in term of compose.
-function pipe(...args) {
+export function pipe(...args) {
   const arr = [...args];
   return compose(...arr.reverse());
 }
@@ -364,14 +364,14 @@ var ok = pipe(addOne, mul);
 ////// console.log(ok(7));
 
 //convert Numbers to different base.
-function convertNumberToDifferentBase(value, converTo) {
+export function convertNumberToDifferentBase(value, converTo) {
   return value.toString(converTo);
 }
 
 //concatAll that flatens 2 dimentionsal array in to a single dimensional array
 var arr = [[1], [2, 3], [], [4]];
 
-function concatAll(arr) {
+export function concatAll(arr) {
   var emp = [];
   arr.forEach((x) => {
     return x.forEach((x) => {
@@ -383,7 +383,7 @@ function concatAll(arr) {
 concatAll(arr);
 
 // zips an two array and combine them
-var zip = function (left, right, combinerFunction) {
+export var zip = function (left, right, combinerFunction) {
   var counter,
     results = [];
 

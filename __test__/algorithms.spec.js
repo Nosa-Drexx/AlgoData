@@ -17,6 +17,12 @@ import {
   prefixCalc,
   postfixCalc,
   prefixCalc2,
+  curryN,
+  compose,
+  pipe,
+  convertNumberToDifferentBase,
+  concatAll,
+  zip,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -288,3 +294,84 @@ describe("Test for postfix calculator", () => {
     expect(result4).toBe(12);
   });
 });
+
+describe('Test for curry function', ()=> {
+  test("Test curry", ()=> {
+    const addOneCurry = (x, y ,z) => {
+      return x + y + z
+    }
+
+    const curryHolder = curryN(3, addOneCurry);
+    expect(curryHolder(7)(7)(7)).toBe(21)
+  })
+})
+
+describe("Test for compose function", ()=> {
+  test('compose function test', ()=> {
+    const add = (num) =>  num + 2
+    const mul = (num) => num * 2
+    
+
+    const composed  = compose(add, mul);
+
+    expect(composed(9)).toBe(20);
+  })
+});
+
+
+describe('Test for pipe function', ()=>{
+  test('compose function test', ()=> {
+    const add = (num) =>  num + 2
+    const mul = (num) => num * 2
+    
+
+    const piped  = pipe(add, mul);
+
+    expect(piped(9)).toBe(22);
+  })
+})
+
+describe("Test convetToDifferentBase", ()=> {
+  test('convert Number to base 2', ()=>{
+    const TwoToBase2 = convertNumberToDifferentBase(2, 2)
+    const ThreeToBase2 = convertNumberToDifferentBase(3, 2)
+    const EightToBase2 = convertNumberToDifferentBase(8, 2)
+
+    expect(TwoToBase2).toEqual('10')
+    expect(ThreeToBase2).toEqual('11')
+    expect(EightToBase2).toEqual('1000')
+  })
+  test('convert Number to base 8', ()=>{
+    const TwoToBase8 = convertNumberToDifferentBase(2, 8)
+    const ThreeToBase8 = convertNumberToDifferentBase(10, 8)
+    const EightToBase8 = convertNumberToDifferentBase(20, 8)
+
+    expect(TwoToBase8).toEqual('2')
+    expect(ThreeToBase8).toEqual('12')
+    expect(EightToBase8).toEqual('24')
+  })
+})
+
+describe('Test concatAll function', ()=> {
+  test("Test concatAll Two dimenstional array", ()=> {
+    const arr = [[1], [2, 3], [], [4]];
+
+    const result = concatAll(arr);
+    expect(result).toEqual([1, 2, 3, 4]);
+  })
+});
+
+describe('Test zip function', ()=> {
+  test('test zip function', () => {
+
+    const zipper = zip(
+      [1, 2, 3],
+      [4, 5, 6],
+      function addElemOfBothArray(left, right) {
+        return left + right;
+      }
+    );
+
+    expect(zipper).toEqual([5, 7, 9]);
+  })
+})
