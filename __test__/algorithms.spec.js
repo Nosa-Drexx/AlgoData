@@ -23,6 +23,22 @@ import {
   convertNumberToDifferentBase,
   concatAll,
   zip,
+  bubbleSort,
+  insertionSort,
+  nestedAdd,
+  mergeSort,
+  factorial,
+  factorial2,
+  quickSort,
+  radixSort,
+  binarySearch,
+  nestedAdd2,
+  linearSearch,
+  preorder,
+  postorder,
+  inorder,
+  tree,
+  breadth,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -373,5 +389,112 @@ describe('Test zip function', ()=> {
     );
 
     expect(zipper).toEqual([5, 7, 9]);
+  })
+});
+
+describe("Test sort algorithm", () => {
+  const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+  const supposedAnswer  = [...nums].sort((a, b) => a- b)
+
+  //Bubble sort test
+  test("Test for bubble sort algorithm", ()=> {
+    expect(bubbleSort(nums)).toEqual(supposedAnswer)
+  })
+
+  //insertion sort test 
+  test("Test for insertion sort", ()=> {
+    expect(insertionSort(nums)).toEqual(supposedAnswer)
+  })
+
+  //merge sort test 
+  test("Test for merge sort",()=> {
+    expect(mergeSort(nums)).toEqual(supposedAnswer)
+  });
+
+  //quick sort test
+  // test("Test for quick sort", ()=> {
+  //   expect(quickSort(nums)).toEqual(supposedAnswer)
+  // });
+
+  // //radix sort test
+  // test("Test for radix sort", ()=> {
+  //   expect(radixSort(nums)).toEqual(supposedAnswer)
+  // })
+});
+
+describe("Test for nested array", ()=> {
+  test("Test nested function", ()=> {
+    const nested = [1, 2, 3];
+    const nested2 = [1, [2], 3];
+    const nested3 = [[[[[[[[[[[[[[[[[[[[5]]]]]]]]]]]]]]]]]]]];
+    const nested4 = [10, [12, 14, [1], [16, [20]]], 10, 11];
+
+    expect(nestedAdd(nested)).toBe(6)
+    expect(nestedAdd(nested2)).toBe(6)
+    expect(nestedAdd(nested3)).toBe(5)
+    expect(nestedAdd(nested4)).toBe(94)
+    //nestedAdd2 function
+    expect(nestedAdd2(nested)).toBe(6)
+    expect(nestedAdd2(nested2)).toBe(6)
+    expect(nestedAdd2(nested3)).toBe(5)
+    expect(nestedAdd2(nested4)).toBe(94)
+  })
+});
+
+describe("Test for factorial function", ()=> {
+  test("factorial function test", ()=> {
+     expect(factorial(5)).toBe(120);
+     expect(factorial2(5)).toBe(120);
+  })
+});
+
+describe("Test for  search algorithms", ()=> {
+  const data = [0, 5, 10, 12, 15, 19, 21, 22, 24, 30];
+  const dataObj = [
+    { id: 1, name: "Sam" },
+    { id: 3, name: "Sarah" },
+    { id: 5, name: "John" },
+    { id: 6, name: "Burke" },
+    { id: 10, name: "Simona" },
+    { id: 12, name: "Asim" },
+    { id: 13, name: "Niki" },
+    { id: 15, name: "Aysegul" },
+    { id: 17, name: "Kyle" },
+    { id: 18, name: "Jem" },
+    { id: 19, name: "Marc" },
+    { id: 21, name: "Chris" },
+  ]
+  test("binary search test",()=> {
+    expect(binarySearch(12, data)).toBe(12);
+    expect(binarySearch(3, dataObj)).toEqual({ id: 3, name: "Sarah" });
+    expect(binarySearch(100, data)).toBe('not found')
+  });
+
+  test("linear search test", ()=> {
+    expect(linearSearch(12, data)).toBe(12);
+    expect(linearSearch(3, dataObj)).toEqual({id: 3, name: "Sarah"});
+    expect(linearSearch(100, data)).toBe("not found")
+  });
+})
+
+describe("Test for tree trevarsa algorithms", ()=> {
+  //Test for preorder
+  test("Test for preorder algorithm", ()=> {
+    expect(preorder(tree, [])).toEqual([8,4,3,2,5,7,6,12,10,9,11])
+  })
+
+  //Test postorder 
+  test("Test for postorder algorithm", () => {
+    expect(postorder(tree, [])).toEqual([2,3,6,7, 5,4, 9, 11, 10, 12, 8])
+  });
+
+  //Test inorder
+  test("Test for inorder algorithm", () => {
+    expect(inorder(tree, [])).toEqual([2,3,4,5,6,7, 6, 8,9,10,11,12]);
+  });
+
+  //Test breadth
+  test("Test for breadth algorithm", ()=> {
+    expect(breadth([tree], [])).toEqual([8,4,12,3,5,10,2,7,9,11,6])
   })
 })
