@@ -419,7 +419,7 @@ var nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1]; // GLOBAL ARRAY FOR ALL SORT FUNCTIO
 
 //--------------BUBBLE SORT ALGORITHM-------------
 
-function bubbleSort(nums) {
+export function bubbleSort(nums) {
   // code goes here
   var swap = true;
   while (swap) {
@@ -449,7 +449,7 @@ function bubbleSort(nums) {
 
 //--------------iNSERTION SORT ALGORITHM-------------
 
-function insertionSort(nums) {
+export function insertionSort(nums) {
   // code goes here
   for (let i = 1; i < nums.length; i++) {
     for (let k = i; k >= 0; k--) {
@@ -476,7 +476,7 @@ var nested2 = [1, [2], 3];
 var nested3 = [[[[[[[[[[[[[[[[[[[[5]]]]]]]]]]]]]]]]]]]];
 var nested4 = [10, [12, 14, [1], [16, [20]]], 10, 11];
 
-function nestedAdd(array) {
+export function nestedAdd(array) {
   if (array.length === 1) {
     if (Array.isArray(array[0])) {
       return nestedAdd(...array);
@@ -506,7 +506,7 @@ function nestedAdd(array) {
 
 //THE ABOVE FUNCTION "nestedAdd" WILL PROBABLY NOT RUN INTO A "STACK OVERLOAD PROBLEM" FOR A SYSTEM THAT SUPPORT TAIL CALL BECAUSE IT UTILIZES THE TAIL CALL SYSTEM, HENCE WHEN A RECURSION OCCURS IT DOESN'T BUBBLE UP(ADD TO THE CALL STACK) BUT INSTEAD REPLACES THE POSITION OF IT PREVIOUS FUNCTION THAT CALLED IT.
 
-function nestedAdd2(array) {
+export function nestedAdd2(array) {
   let sum = 0;
   for (let i = 0; i < array.length; i++) {
     const current = array[i];
@@ -527,7 +527,7 @@ function nestedAdd2(array) {
 
 //--------------RECURSION FACTORIAL ALGORITHM-------------
 
-function factorial(fac) {
+export function factorial(fac) {
   var sum = fac;
   if (sum > 1) {
     sum *= factorial(fac - 1);
@@ -537,7 +537,7 @@ function factorial(fac) {
 //// console.log(factorial(5)); //120
 //THE FACTORIAL FUNCTION ABOVE WILL DEFINATELY RUN INTO A "STACK OVERLOAD PROBLEM" BECAUSE IT BUBBLES UP AND WILL TAKE MORE COMPUTATION TIME AND MORE SPACE ON THE STACK IF A LARGER NUMBER IS INPUTED I.E "10000 OR 10000000" (TRY USING THE FACTORIAL FUNCTION TO FIND THE FACTORIAL FOR THOSE NUMBER !WARNING: MIGHT CRASH YOUR CODE RUNNER, DO NOT RUN IN A BROWSER WILL DEFINATELY CRASH YOUR BROWSER).
 
-function factorial2(num) {
+export function factorial2(num) {
   if (num < 2) return 1;
   return num * factorial2(num - 1);
 }
@@ -545,7 +545,7 @@ function factorial2(num) {
 // THE FACTORIAL2 FUNCTION IS NOT TAILED CALLED SO WILL RUN INTO A "STACK OVERLOAD" BUT NOT AS QUICKLY AS THE FIRST FUCNTION ABOVE "FACTORIAL" . TRY RUNNING BOTH FUNCTIONS WITH THE VALUE "10000" AND SEE THE DIFFERENCE
 
 //--------------MERGE SORT RECURSION ALGORITHM-------------
-function mergeSort(array) {
+export function mergeSort(array) {
   var firstHolder;
   var secondHolder;
 
@@ -581,7 +581,7 @@ var keep = mergeSort([1, 5, 7, 4, 2, 3, 6]);
 
 //--------------QUICK SORT RECURSION ALGORITHM-------------
 
-function quickSort(arr) {
+export function quickSort(arr) {
   var result = [];
   if (arr.length < 2) {
     return arr;
@@ -606,7 +606,7 @@ function quickSort(arr) {
 
 //--------------RADIX SORT RECURSION ALGORITHM-------------
 
-function radixSort(array) {
+export function radixSort(array) {
   var arr = [...array];
 
   function getLongestNumber(array) {
@@ -670,7 +670,7 @@ const value = new Array(fill)
 //--------------BINARY SEARCH ALGORITHM-------------
 /*THE BINARYSEARCH FUNCTION CAN ONLY WORK WHEN THE ITEM GIVEN IS ALREADY SORTED(ACCENDING ORDER)*/
 
-function binarySearch(num, array) {
+export function binarySearch(num, array) {
   var arr = [...array];
   var splitArray = Math.floor(arr.length / 2);
   var result = "not found";
@@ -693,7 +693,7 @@ function binarySearch(num, array) {
   }
 }
 
-function binarySearch2(num, array) {
+export function binarySearch2(num, array) {
   var arr = [...array];
   var found = false;
   var result = "not found";
@@ -769,7 +769,7 @@ var findnum = binarySearch2(12, [0, 5, 10, 12, 15, 19, 21, 22, 24, 30]);
 //--------------LINEAR SEARCH ALGORITHM-------------
 /*THE LINEARSEARCH FUNCTION CAN WORK WITH ELEMENTS IN ANY ORDER (IT DOES ALMOST THE SAME THING AS THE ARRAY.INCLUDES() METHOD)*/
 
-function linearSearch(num, array) {
+export function linearSearch(num, array) {
   var arr = [...array];
   var result = "not found";
   for (let counter = 0; counter < arr.length; counter++) {
@@ -805,7 +805,7 @@ var testnum = linearSearch(6, [, 2, 3, 6, 5, 7]);
 
 //-------------- DIFFERENT ALGORITHM TO GET VALUES FROM A TREE IN DIFFERRENT ORDER (TRAVERSE) -------------
 
-const tree = {
+export const tree = {
   value: 8,
   left: {
     value: 4,
@@ -850,7 +850,7 @@ const tree = {
 };
 
 // //GET ALL ELEMENTS IN THE LEFT OF EACH NODES STARTING FROM THE NODE ITSELF FIRST BEFOR GETTING THE ELEMENT IN THE RIGHT
-function preorder(tree, node) {
+export function preorder(tree, node) {
   var current = tree;
   node.push(current.value);
   var leftHolder = current.left;
@@ -871,7 +871,7 @@ function preorder(tree, node) {
 }
 
 // //GET ALL ELEMENTS IN THE LEFT OF EACH NODES STARTING FROM THE LAST ELEMENT IN NODE ITSELF FIRST BEFOR GETTING THE ELEMENT IN THE RIGHT
-function postorder(tree, node) {
+export function postorder(tree, node) {
   var current = tree;
   var leftHolder = current.left;
   var rightHolder = current.right;
@@ -894,7 +894,7 @@ function postorder(tree, node) {
 }
 
 //GET ELEMENTS FROM THE TREE IN ACCEDING ORDER
-function inorder(tree, node) {
+export function inorder(tree, node) {
   var current = tree;
   var leftHolder = current.left;
   var rightHolder = current.right;
@@ -931,7 +931,7 @@ var fingerCrossed3 = inorder(tree, []);
 //// console.log(fingerCrossed3); //[2,3,4,5,6,7,8,9,10,11,12]
 
 //GET ELEMENT FROM THE CLOSE ELEMENT
-function breadth(tree, node) {
+export function breadth(tree, node) {
   tree.forEach((elem) => {
     node.push(elem.value);
 
