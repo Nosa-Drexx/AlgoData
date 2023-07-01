@@ -119,7 +119,7 @@ var bf = new BloomFilter();
 
 //-------------- QUEUE (DATA STRUCTURE) ALGORITHM -------------
 
-class Queue {
+export class Queue {
   constructor() {
     this._length = 0;
     this._track = 0;

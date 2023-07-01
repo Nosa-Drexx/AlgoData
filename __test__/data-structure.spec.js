@@ -1,4 +1,4 @@
-import { ArrayList, BloomFilter } from "../src/datastructures";
+import { ArrayList, BloomFilter, Queue } from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
   const arrayDS = new ArrayList();
@@ -38,5 +38,39 @@ describe("Test for BloomFilter", () => {
     expect(bloomFilterDS.contains("Nosa")).toBe(false);
     bloomFilterDS.add("Nosa");
     expect(bloomFilterDS.contains("Nosa")).toBe(true);
+  });
+});
+
+describe("Test for Queue", () => {
+  const queueDS = new Queue();
+  test("Test enqueue", () => {
+    queueDS.enqueue(1);
+    queueDS.enqueue(9);
+    queueDS.enqueue(7);
+
+    expect(queueDS).toEqual({
+      0: 1,
+      1: 9,
+      2: 7,
+      _length: 3,
+      _track: 0,
+    });
+  });
+
+  test("Test dequeue", () => {
+    queueDS.dequeue();
+    queueDS.dequeue();
+
+    expect(queueDS).toEqual({
+      2: 7,
+      _length: 1,
+      _track: 2,
+    });
+  });
+
+  test("Test peek", () => {
+    const value = queueDS.peek();
+
+    expect(value).toBe(7);
   });
 });
