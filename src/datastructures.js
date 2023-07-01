@@ -1,6 +1,6 @@
 //--------------ARRAY LIST ALGORITHM USING JAVASCRIPT OBJECT-------------
 
-class ArrayList {
+export class ArrayList {
   constructor() {
     this.length = 0;
   }
@@ -79,7 +79,7 @@ var h1 = hash1(100);
 var h2 = hash2(100);
 var h3 = hash3(100);
 
-class BloomFilter {
+export class BloomFilter {
   constructor() {
     this.array = new Array(100).fill(0); // makes an array of 100 elements and fill them all up with 0 i.e [0,0, 0,...]
     this.h1 = h1;
@@ -119,7 +119,7 @@ var bf = new BloomFilter();
 
 //-------------- QUEUE (DATA STRUCTURE) ALGORITHM -------------
 
-class Queue {
+export class Queue {
   constructor() {
     this._length = 0;
     this._track = 0;
