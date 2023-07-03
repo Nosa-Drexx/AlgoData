@@ -1,9 +1,11 @@
 import {
   ArrayList,
   BloomFilter,
+  Graph,
   HashTable,
   Linkedlist,
   Queue,
+  Stack,
 } from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
@@ -197,5 +199,55 @@ describe("Test for HashTable", () => {
 
     expect(randomKeySearch).toThrow(Error);
     expect(validKeySearch).toEqual("Nosa");
+  });
+});
+
+describe("Test for Graph", () => {
+  const graphDS = new Graph(7);
+  test("Test AddNode", () => {
+    graphDS.addNode(8);
+
+    expect(graphDS[8]).toEqual({
+      connections: [],
+      value: 8,
+    });
+  });
+
+  test("Test addEdge", () => {
+    graphDS.addEdge(7, 8, 10, 9, 11, 12, 13, 14);
+
+    expect(graphDS[7].connections).toEqual([8, 10, 9, 11, 12, 13, 14]);
+  });
+
+  test("Test removeNode", () => {
+    const removed = graphDS.removeNode(8);
+    const removed2 = () => {
+      graphDS.removeNode(8);
+    };
+
+    expect(removed.value).toBe(8);
+    expect(removed2).toThrow(Error);
+  });
+});
+
+describe("Test for Stack", () => {
+  const stackDS = new Stack();
+
+  test("Test push", () => {
+    const push = stackDS.push({ trial: "okay" });
+    const push2 = stackDS.push(["cool"]);
+
+    expect(push).toEqual({ trial: "okay" });
+    expect(push2).toEqual(["cool"]);
+  });
+
+  test("Test pop", () => {
+    const remove = stackDS.pop();
+
+    expect(remove).toEqual(["cool"]);
+  });
+
+  test("Test get", () => {
+    expect(stackDS.length).toBe(1);
   });
 });
