@@ -1,4 +1,9 @@
-import { ArrayList, BloomFilter, Queue } from "../src/datastructures";
+import {
+  ArrayList,
+  BloomFilter,
+  Linkedlist,
+  Queue,
+} from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
   const arrayDS = new ArrayList();
@@ -72,5 +77,91 @@ describe("Test for Queue", () => {
     const value = queueDS.peek();
 
     expect(value).toBe(7);
+  });
+});
+
+describe("Test for LinkedList Datastructure", () => {
+  const linkedListDS = new Linkedlist();
+  test("Test Insert", () => {
+    linkedListDS.insert(2);
+    linkedListDS.insert(7);
+
+    expect(linkedListDS.head.value).toBe(2);
+    expect(linkedListDS.head.next.value).toBe(7);
+  });
+
+  test("Test InsertNewHead", () => {
+    linkedListDS.InsertNewHead(3);
+
+    expect(linkedListDS.head.value).toBe(3);
+  });
+
+  test("Test get", () => {
+    const node = linkedListDS.get(2);
+    //must be made a function because an error is been thrown "Jest rule"
+    const node2 = () => {
+      linkedListDS.get(10);
+    };
+
+    expect(node.value).toBe(2);
+    expect(node2).toThrow(Error); //expect to error out
+  });
+
+  test("Test reverse", () => {
+    linkedListDS.reverseList();
+    expect(linkedListDS.head).toEqual({
+      next: {
+        next: {
+          next: null,
+          value: 3,
+        },
+        value: 2,
+      },
+      value: 7,
+    });
+
+    //reverse back to previous state.
+    linkedListDS.reverseList();
+    expect(linkedListDS.head).toEqual({
+      next: {
+        next: {
+          next: null,
+          value: 7,
+        },
+        value: 2,
+      },
+      value: 3,
+    });
+  });
+
+  test("Test remove", () => {
+    const removed = linkedListDS.remove(2);
+    const removed2 = () => {
+      linkedListDS.remove(100);
+    };
+
+    expect(removed.value).toBe(2);
+    expect(removed2).toThrow(Error);
+  });
+
+  test("Test insertIn", () => {
+    linkedListDS.insertIn(3, 76);
+
+    const node2 = linkedListDS.get(76);
+
+    expect(node2.value).toEqual(76);
+  });
+
+  test("Test removeTail", () => {
+    const node = linkedListDS.removeTail();
+
+    expect(node.value).toBe(7);
+  });
+  test("Test contains", () => {
+    const value = linkedListDS.contains(76);
+    const value2 = linkedListDS.contains(0);
+
+    expect(value).toEqual(true);
+    expect(value2).toEqual(false);
   });
 });
