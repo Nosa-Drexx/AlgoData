@@ -430,6 +430,8 @@ export class Graph {
       delete this[node];
       return temp;
     }
+    throw new Error(`requested node does not exist!
+    Expected to find ${node}`);
   }
 
   depthFirstTraversal(value) {
@@ -484,7 +486,7 @@ graph.addEdge(12, 25);
 
 //Stack Datastructure
 
-class Stack {
+export class Stack {
   #length;
   constructor() {
     this.#length = 0;
@@ -496,7 +498,9 @@ class Stack {
   }
   pop() {
     if (this.#length === 0) {
-      return "Empty Stack; There is nothing in this Stack, push first";
+      throw new Error(
+        "Empty Stack; There is nothing in this Stack, push first"
+      );
     }
     const result = this[this.#length - 1];
     delete this[this.#length - 1];
