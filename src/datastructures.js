@@ -157,7 +157,7 @@ export class Queue {
 
 //-------------- LINKED LIST (DATA STRUCTURE) ALGORITHM -------------
 
-class Linkedlist {
+export class Linkedlist {
   constructor() {
     this.head = null;
     this._pointer = this.head;
@@ -185,11 +185,12 @@ class Linkedlist {
   insertIn(position, value) {
     var currentNode = this.head;
     if (!this.contains(position))
-      return "position to be inserted doesn't exist";
+      throw new Error(`${position}: position to be inserted doesn't exist`);
     if (position === this._pointer.value) {
       this.insert(value);
     } else {
-      if (this.contains(value)) return "value already exist"; // Avoid duplicated values
+      if (this.contains(value))
+        throw new Error(`${value}: value already exist`); // Avoid duplicated values
       while (currentNode.value !== position) {
         currentNode = currentNode.next;
       }
@@ -217,7 +218,8 @@ class Linkedlist {
     node === this._pointer ? true : false;
   }
   get(value) {
-    if (!this.contains(value)) return "value doesn't exist";
+    if (!this.contains(value))
+      throw new Error(`${value} : value doesn't exist`);
     var currentNode = this.head;
     if (currentNode.value === value) {
       return currentNode;
@@ -249,7 +251,8 @@ class Linkedlist {
     var currentNode = this.head;
     var temp = null;
 
-    if (!this.contains(value)) return "value do not exit";
+    if (!this.contains(value))
+      throw new Error(`${value} : value doesn't exist`);
     if (value === this._pointer.value) {
       this.removeTail();
     } else if (this.head.value === value) {
