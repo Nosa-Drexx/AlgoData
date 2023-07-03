@@ -157,7 +157,7 @@ export class Queue {
 
 //-------------- LINKED LIST (DATA STRUCTURE) ALGORITHM -------------
 
-class Linkedlist {
+export class Linkedlist {
   constructor() {
     this.head = null;
     this._pointer = this.head;
@@ -185,11 +185,12 @@ class Linkedlist {
   insertIn(position, value) {
     var currentNode = this.head;
     if (!this.contains(position))
-      return "position to be inserted doesn't exist";
+      throw new Error(`${position}: position to be inserted doesn't exist`);
     if (position === this._pointer.value) {
       this.insert(value);
     } else {
-      if (this.contains(value)) return "value already exist"; // Avoid duplicated values
+      if (this.contains(value))
+        throw new Error(`${value}: value already exist`); // Avoid duplicated values
       while (currentNode.value !== position) {
         currentNode = currentNode.next;
       }
@@ -217,7 +218,8 @@ class Linkedlist {
     node === this._pointer ? true : false;
   }
   get(value) {
-    if (!this.contains(value)) return "value doesn't exist";
+    if (!this.contains(value))
+      throw new Error(`${value} : value doesn't exist`);
     var currentNode = this.head;
     if (currentNode.value === value) {
       return currentNode;
@@ -249,7 +251,8 @@ class Linkedlist {
     var currentNode = this.head;
     var temp = null;
 
-    if (!this.contains(value)) return "value do not exit";
+    if (!this.contains(value))
+      throw new Error(`${value} : value doesn't exist`);
     if (value === this._pointer.value) {
       this.removeTail();
     } else if (this.head.value === value) {
@@ -323,7 +326,7 @@ var test23 = new Linkedlist();
 
 import { _hash } from "./hashing-functions.js";
 
-class HashTable {
+export class HashTable {
   constructor(range) {
     this._storage = {};
     this._range = range;
@@ -349,7 +352,7 @@ class HashTable {
     var answer;
     for (let keys in this._storage) {
       if (this._storage[keys] === string) {
-        answer = `key: ${keys} value: ${string}`;
+        answer = `key: ${keys} | value: ${string}`;
         delete this._storage[keys];
         this._length--;
         return answer;
@@ -358,7 +361,7 @@ class HashTable {
         this._storage[keys].forEach((elem, index) => {
           if (elem === string) {
             this._storage[keys].splice(index, 1);
-            answer = `key: ${keys} value: ${elem}`;
+            answer = `key: ${keys} | value: ${elem}`;
           }
         });
       }
@@ -370,7 +373,7 @@ class HashTable {
     if (key in this._storage) {
       return this._storage[key];
     }
-    return "not found";
+    throw new Error(`${key} not found`);
   }
 }
 

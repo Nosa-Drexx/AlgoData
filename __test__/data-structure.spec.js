@@ -1,4 +1,10 @@
-import { ArrayList, BloomFilter, Queue } from "../src/datastructures";
+import {
+  ArrayList,
+  BloomFilter,
+  HashTable,
+  Linkedlist,
+  Queue,
+} from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
   const arrayDS = new ArrayList();
@@ -72,5 +78,124 @@ describe("Test for Queue", () => {
     const value = queueDS.peek();
 
     expect(value).toBe(7);
+  });
+});
+
+describe("Test for LinkedList Datastructure", () => {
+  const linkedListDS = new Linkedlist();
+  test("Test Insert", () => {
+    linkedListDS.insert(2);
+    linkedListDS.insert(7);
+
+    expect(linkedListDS.head.value).toBe(2);
+    expect(linkedListDS.head.next.value).toBe(7);
+  });
+
+  test("Test InsertNewHead", () => {
+    linkedListDS.InsertNewHead(3);
+
+    expect(linkedListDS.head.value).toBe(3);
+  });
+
+  test("Test get", () => {
+    const node = linkedListDS.get(2);
+    //must be made a function because an error is been thrown "Jest rule"
+    const node2 = () => {
+      linkedListDS.get(10);
+    };
+
+    expect(node.value).toBe(2);
+    expect(node2).toThrow(Error); //expect to error out
+  });
+
+  test("Test reverse", () => {
+    linkedListDS.reverseList();
+    expect(linkedListDS.head).toEqual({
+      next: {
+        next: {
+          next: null,
+          value: 3,
+        },
+        value: 2,
+      },
+      value: 7,
+    });
+
+    //reverse back to previous state.
+    linkedListDS.reverseList();
+    expect(linkedListDS.head).toEqual({
+      next: {
+        next: {
+          next: null,
+          value: 7,
+        },
+        value: 2,
+      },
+      value: 3,
+    });
+  });
+
+  test("Test remove", () => {
+    const removed = linkedListDS.remove(2);
+    const removed2 = () => {
+      linkedListDS.remove(100);
+    };
+
+    expect(removed.value).toBe(2);
+    expect(removed2).toThrow(Error);
+  });
+
+  test("Test insertIn", () => {
+    linkedListDS.insertIn(3, 76);
+
+    const node2 = linkedListDS.get(76);
+
+    expect(node2.value).toEqual(76);
+  });
+
+  test("Test removeTail", () => {
+    const node = linkedListDS.removeTail();
+
+    expect(node.value).toBe(7);
+  });
+  test("Test contains", () => {
+    const value = linkedListDS.contains(76);
+    const value2 = linkedListDS.contains(0);
+
+    expect(value).toEqual(true);
+    expect(value2).toEqual(false);
+  });
+});
+
+describe("Test for HashTable", () => {
+  const hashTableDS = new HashTable(100);
+  test("Test insert", () => {
+    hashTableDS.insert("Nosa");
+    hashTableDS.insert("Henry");
+    hashTableDS.insert("Fubar");
+    hashTableDS.insert(
+      "The hungry lions went to play on an empty stomach, it ended up eating it's friends, such an irony it is, now the lion has no one to play with"
+    );
+
+    expect(hashTableDS._length).toBe(4);
+  });
+
+  test("Test remove", () => {
+    const removed = hashTableDS.remove("Henry");
+    expect(removed).toContain("Henry");
+  });
+
+  test("Test retrieve", () => {
+    const randomKeySearch = () => {
+      //random number from one to five
+      const random = Math.floor(Math.random * 6);
+
+      hashTableDS.retrieve(random);
+    };
+
+    const validKeySearch = hashTableDS.retrieve(3);
+
+    expect(randomKeySearch).toThrow(Error);
+    expect(validKeySearch).toEqual("Nosa");
   });
 });
