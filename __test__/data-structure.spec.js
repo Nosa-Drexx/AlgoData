@@ -1,6 +1,7 @@
 import {
   ArrayList,
   BloomFilter,
+  HashTable,
   Linkedlist,
   Queue,
 } from "../src/datastructures";
@@ -163,5 +164,38 @@ describe("Test for LinkedList Datastructure", () => {
 
     expect(value).toEqual(true);
     expect(value2).toEqual(false);
+  });
+});
+
+describe("Test for HashTable", () => {
+  const hashTableDS = new HashTable(100);
+  test("Test insert", () => {
+    hashTableDS.insert("Nosa");
+    hashTableDS.insert("Henry");
+    hashTableDS.insert("Fubar");
+    hashTableDS.insert(
+      "The hungry lions went to play on an empty stomach, it ended up eating it's friends, such an irony it is, now the lion has no one to play with"
+    );
+
+    expect(hashTableDS._length).toBe(4);
+  });
+
+  test("Test remove", () => {
+    const removed = hashTableDS.remove("Henry");
+    expect(removed).toContain("Henry");
+  });
+
+  test("Test retrieve", () => {
+    const randomKeySearch = () => {
+      //random number from one to five
+      const random = Math.floor(Math.random * 6);
+
+      hashTableDS.retrieve(random);
+    };
+
+    const validKeySearch = hashTableDS.retrieve(3);
+
+    expect(randomKeySearch).toThrow(Error);
+    expect(validKeySearch).toEqual("Nosa");
   });
 });
