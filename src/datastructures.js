@@ -326,7 +326,7 @@ var test23 = new Linkedlist();
 
 import { _hash } from "./hashing-functions.js";
 
-class HashTable {
+export class HashTable {
   constructor(range) {
     this._storage = {};
     this._range = range;
@@ -352,7 +352,7 @@ class HashTable {
     var answer;
     for (let keys in this._storage) {
       if (this._storage[keys] === string) {
-        answer = `key: ${keys} value: ${string}`;
+        answer = `key: ${keys} | value: ${string}`;
         delete this._storage[keys];
         this._length--;
         return answer;
@@ -361,7 +361,7 @@ class HashTable {
         this._storage[keys].forEach((elem, index) => {
           if (elem === string) {
             this._storage[keys].splice(index, 1);
-            answer = `key: ${keys} value: ${elem}`;
+            answer = `key: ${keys} | value: ${elem}`;
           }
         });
       }
@@ -373,7 +373,7 @@ class HashTable {
     if (key in this._storage) {
       return this._storage[key];
     }
-    return "not found";
+    throw new Error(`${key} not found`);
   }
 }
 
