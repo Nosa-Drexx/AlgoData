@@ -582,3 +582,19 @@ function breadthFirstTraversal(value, graph) {
 }
 
 // console.log(breadthFirstTraversal(7, graph));
+
+const episodes = new Array(12).fill(1).map((e) => {
+  return { e: e };
+});
+const countBy = episodes.length / 3;
+const episodeSplitedArr = [];
+
+for (let i = 0; i < episodes.length; i + countBy) {
+  let sliceTo = i + countBy;
+  if (i + countBy > episodes.length - i) {
+    sliceTo = episodes.length;
+  }
+  episodeSplitedArr.push(episodes.slice(i, sliceTo));
+}
+
+console.log(episodeSplitedArr);

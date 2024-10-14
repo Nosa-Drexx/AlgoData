@@ -522,3 +522,81 @@ const stackDS = new Stack();
 // console.log(stackDS.pop()); //["cool"]
 // console.log(stackDS.pop()); //{ trial: "okay" }
 // console.log(stackDS.pop()); //  "Empty Stack; There is nothing in this Stack, push first"
+
+//-------------- BINARYTREE (DATA STRUCTURE) ALGORITHM -------------
+
+export class BinaryTree {
+  constructor() {
+    this.value = null;
+    this.left = null;
+    this.right = null;
+  }
+  insert(value) {
+    if (this.value === null) this.value = value;
+    if (this.left === null && value < this.value) {
+      var left = new BinaryTree();
+      this.left = left;
+      this.left.insert(value);
+    } else if (this.right === null && value > this.value) {
+      var right = new BinaryTree();
+      this.right = right;
+      this.right.insert(value);
+    } else if (this.left !== null && value < this.value) {
+      this.left.insert(value);
+    } else if (this.right !== null && value > this.value) {
+      this.right.insert(value);
+    }
+  }
+  preTraverse() {
+    function preOrderTraverse(tree, arr) {
+      arr.push(tree.value);
+      if (tree.left !== null) preOrderTraverse(tree.left, arr);
+      if (tree.right !== null) preOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return preOrderTraverse(this, []);
+  }
+  sortedTraverse() {
+    function inOrderTraverse(tree, arr) {
+      if (tree.left !== null) inOrderTraverse(tree.left, arr);
+      arr.push(tree.value);
+      if (tree.right !== null) inOrderTraverse(tree.right, arr);
+      return arr;
+    }
+    return inOrderTraverse(this, []);
+  }
+  postTraverse() {
+    function postOrderTraverse(tree, arr) {
+      if (tree.left !== null) postOrderTraverse(tree.left, arr);
+      if (tree.right !== null) postOrderTraverse(tree.right, arr);
+      arr.push(tree.value);
+      return arr;
+    }
+    return postOrderTraverse(this, arr);
+  }
+
+  contains(value) {
+    var result = false;
+    function answer(tree) {
+      if (tree.value === value) return (result = true);
+      if (tree.left !== null) answer(tree.left);
+      if (tree.right !== null) answer(tree.right);
+    }
+    answer(this);
+    return result;
+  }
+}
+// tests
+const btree = new BinaryTree();
+// btree.insert(7);
+// btree.insert(9);
+// btree.insert(1);
+// btree.insert(10);
+// btree.insert(2);
+// btree.insert(0);
+// btree.insert(8);
+// btree.insert(11);
+// // console.log(btree);
+// // console.log(btree.contains(0));
+// // console.log(btree.contains(1000));
+// // console.log(btree.sortedTraverse());

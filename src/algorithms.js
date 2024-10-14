@@ -1157,84 +1157,6 @@ function uniqueArr3(array) {
 
 //HENCE THE SECOND FUNCTION ("uniqueArr2") MIGHT BE BETTER FOR PERFORMANCE. BUT THE SECOND MIGHT BE BETTER FOR READABILITY.
 
-//-------------- BINARYTREE (DATA STRUCTURE) ALGORITHM -------------
-
-class BinaryTree {
-  constructor() {
-    this.value = null;
-    this.left = null;
-    this.right = null;
-  }
-  insert(value) {
-    if (this.value === null) this.value = value;
-    if (this.left === null && value < this.value) {
-      var left = new BinaryTree();
-      this.left = left;
-      this.left.insert(value);
-    } else if (this.right === null && value > this.value) {
-      var right = new BinaryTree();
-      this.right = right;
-      this.right.insert(value);
-    } else if (this.left !== null && value < this.value) {
-      this.left.insert(value);
-    } else if (this.right !== null && value > this.value) {
-      this.right.insert(value);
-    }
-  }
-  preTraverse() {
-    function preOrderTraverse(tree, arr) {
-      arr.push(tree.value);
-      if (tree.left !== null) preOrderTraverse(tree.left, arr);
-      if (tree.right !== null) preOrderTraverse(tree.right, arr);
-      return arr;
-    }
-    return preOrderTraverse(this, []);
-  }
-  sortedTraverse() {
-    function inOrderTraverse(tree, arr) {
-      if (tree.left !== null) inOrderTraverse(tree.left, arr);
-      arr.push(tree.value);
-      if (tree.right !== null) inOrderTraverse(tree.right, arr);
-      return arr;
-    }
-    return inOrderTraverse(this, []);
-  }
-  postTraverse() {
-    function postOrderTraverse(tree, arr) {
-      if (tree.left !== null) postOrderTraverse(tree.left, arr);
-      if (tree.right !== null) postOrderTraverse(tree.right, arr);
-      arr.push(tree.value);
-      return arr;
-    }
-    return postOrderTraverse(this, arr);
-  }
-
-  contains(value) {
-    var result = false;
-    function answer(tree) {
-      if (tree.value === value) return (result = true);
-      if (tree.left !== null) return answer(tree.left);
-      if (tree.right !== null) return answer(tree.right);
-    }
-    answer(this);
-    return result;
-  }
-}
-// tests
-const btree = new BinaryTree();
-// btree.insert(7);
-// btree.insert(9);
-// btree.insert(1);
-// btree.insert(10);
-// btree.insert(2);
-// btree.insert(0);
-// btree.insert(8);
-// btree.insert(11);
-// // console.log(btree);
-// // console.log(btree.contains(0));
-// // console.log(btree.contains(1000));
-// // console.log(btree.sortedTraverse());
-
 //-------------- DIFFERENT ALGORITHM TO TRAVERSE THROUGHT A TREE -------------
 
 function preOrderTraverse(tree, arr) {
@@ -1260,20 +1182,6 @@ function postOrderTraverse(tree, arr) {
 // // console.log(preOrderTraverse(btree, []));
 // // console.log(inOrderTraverse(btree, []));
 // // console.log(postOrderTraverse(btree, []));
-
-import { Graph } from "./datastructures.js";
-
-const graph = new Graph(7);
-graph.addNode(8);
-graph.addEdge(7, 8, 10, 9, 11, 12, 13, 14);
-graph.removeNode(12);
-graph.addNode(10);
-graph.addEdge(7, 8);
-graph.addEdge(7, 9);
-graph.addEdge(8, 9);
-graph.addEdge(9, 100);
-graph.addEdge(10, 24);
-graph.addEdge(12, 25);
 
 //-------------- DEPTH FIRST TRAVERSAL  THROUGH ABOVE GRAPH ALGORITHM  -------------
 
@@ -2020,7 +1928,7 @@ export function prefixCalc(expression) {
   const expressionAsArray = expression.split(" "); // array of data and symbols
   const symbols = []; //intialize array of symbols
   const store = [];
-  let accumulateCal = false;
+  let accumulateCal = null;
   for (let i = 0; i < expressionAsArray.length; i++) {
     if (Number(expressionAsArray[i])) {
       if (!accumulateCal) {
@@ -2055,7 +1963,7 @@ export function prefixCalc(expression) {
     );
   }
 
-  return accumulateCal === false ? 0 : accumulateCal;
+  return accumulateCal === null ? 0 : accumulateCal;
 }
 
 console.log(prefixCalc("0")); //0
@@ -2075,7 +1983,7 @@ export function postfixCalc(expresssion) {
       Received: ${typeof expresssion}
     `;
   }
-  const expressionArr = expresssion.split(" ");
+  const expressionArr = expresssion.split(" ").reverse();
   const numbers = [];
 
   for (let elem of expressionArr) {

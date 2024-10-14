@@ -174,24 +174,24 @@ function formingMagicSquare(s) {
   return result;
 }
 
-const threeBythreeArray = [
-  [5, 3, 4],
-  [1, 5, 8],
-  [6, 4, 2],
-];
+// const threeBythreeArray = [
+//   [5, 3, 4],
+//   [1, 5, 8],
+//   [6, 4, 2],
+// ];
 
-const threeBythreeArray2 = [
-  [4, 9, 2],
-  [3, 5, 7],
-  [8, 1, 5],
-];
+// const threeBythreeArray2 = [
+//   [4, 9, 2],
+//   [3, 5, 7],
+//   [8, 1, 5],
+// ];
 
-const threeBythreeArray3 = [
-  [4, 8, 2],
-  [4, 5, 7],
-  [6, 1, 6],
-];
+// const threeBythreeArray3 = [
+//   [4, 8, 2],
+//   [4, 5, 7],
+//   [6, 1, 6],
+// ];
 
-console.log(formingMagicSquare(threeBythreeArray3));
+// console.log(formingMagicSquare(threeBythreeArray3));
 
-console.log(threeBythreeArray3);
+// console.log(threeBythreeArray3);

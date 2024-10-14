@@ -1,5 +1,6 @@
 import {
   ArrayList,
+  BinaryTree,
   BloomFilter,
   Graph,
   HashTable,
@@ -249,5 +250,66 @@ describe("Test for Stack", () => {
 
   test("Test get", () => {
     expect(stackDS.length).toBe(1);
+  });
+});
+
+describe("Test for Binary Tree", () => {
+  const binaryTreeDS = new BinaryTree();
+  test("Test to insert in binary tree", () => {
+    binaryTreeDS.insert(7);
+    binaryTreeDS.insert(9);
+    binaryTreeDS.insert(1);
+    binaryTreeDS.insert(10);
+    binaryTreeDS.insert(2);
+    binaryTreeDS.insert(0);
+    binaryTreeDS.insert(8);
+    binaryTreeDS.insert(11);
+
+    expect(binaryTreeDS).toEqual({
+      left: {
+        left: {
+          left: null,
+          right: null,
+          value: 0,
+        },
+        right: {
+          left: null,
+          right: null,
+          value: 2,
+        },
+        value: 1,
+      },
+      right: {
+        left: {
+          left: null,
+          right: null,
+          value: 8,
+        },
+        right: {
+          left: null,
+          right: {
+            left: null,
+            right: null,
+            value: 11,
+          },
+          value: 10,
+        },
+        value: 9,
+      },
+      value: 7,
+    });
+  });
+
+  test("Test contains function in binary tree", () => {
+    const doesNotExist = binaryTreeDS.contains(100);
+    expect(doesNotExist).toBe(false);
+
+    const exist = binaryTreeDS.contains(11);
+    expect(exist).toBe(true);
+  });
+
+  test("Test sortedTraverse function in binary Tree ", () => {
+    const sortedArray = binaryTreeDS.sortedTraverse();
+    expect(sortedArray).toEqual([0, 1, 2, 7, 8, 9, 10, 11]);
   });
 });
