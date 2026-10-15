@@ -48,6 +48,7 @@ import {
   chunk,
   groupAnagrams,
   lengthOfLongestSubstring,
+  containsDuplicate,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -757,5 +758,25 @@ describe("Test for lengthOfLongestSubstring algorithm", () => {
   });
   test("all unique characters -> full length", () => {
     expect(lengthOfLongestSubstring("abcdef")).toBe(6);
+  });
+});
+
+describe("Test for containsDuplicate algorithm", () => {
+  test("[1,2,3,1] -> true", () => {
+    expect(containsDuplicate([1, 2, 3, 1])).toBe(true);
+  });
+  test("[1,2,3,4] -> false", () => {
+    expect(containsDuplicate([1, 2, 3, 4])).toBe(false);
+  });
+  test("[1,1,1,3,3,4,3,2,4,2] -> true", () => {
+    expect(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])).toBe(true);
+  });
+  test("empty and single element arrays -> false", () => {
+    expect(containsDuplicate([])).toBe(false);
+    expect(containsDuplicate([7])).toBe(false);
+  });
+  test("handles negative numbers", () => {
+    expect(containsDuplicate([-1, 2, -1])).toBe(true);
+    expect(containsDuplicate([-1, 1])).toBe(false);
   });
 });
