@@ -121,6 +121,7 @@ npm test         # run tests
   - ➡️ postfixCalc
   - ➡️ prefixCalc2
   - ➡️ twoSum
+  - ➡️ isAnagram
 
 - ➡️ **_DataStructures_**
 

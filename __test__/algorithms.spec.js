@@ -40,6 +40,7 @@ import {
   tree,
   breadth,
   twoSum,
+  isAnagram,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -520,5 +521,29 @@ describe("Test for twoSum algorithm", () => {
   });
   test("handles zeros", () => {
     expect(sorted(twoSum([0, 4, 3, 0], 0))).toEqual([0, 3]);
+  });
+});
+
+describe("Test for isAnagram algorithm", () => {
+  test('"anagram", "nagaram" -> true', () => {
+    expect(isAnagram("anagram", "nagaram")).toBe(true);
+  });
+  test('"rat", "car" -> false', () => {
+    expect(isAnagram("rat", "car")).toBe(false);
+  });
+  test("different lengths -> false", () => {
+    expect(isAnagram("a", "ab")).toBe(false);
+  });
+  test("same letters but different counts -> false", () => {
+    expect(isAnagram("aacc", "ccac")).toBe(false);
+  });
+  test("two empty strings -> true", () => {
+    expect(isAnagram("", "")).toBe(true);
+  });
+  test("identical strings -> true", () => {
+    expect(isAnagram("listen", "listen")).toBe(true);
+  });
+  test('"listen", "silent" -> true', () => {
+    expect(isAnagram("listen", "silent")).toBe(true);
   });
 });
