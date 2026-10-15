@@ -45,6 +45,7 @@ import {
   isValidParentheses,
   maxProfit,
   flatten,
+  chunk,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -667,5 +668,31 @@ describe("Test for flatten algorithm", () => {
     } finally {
       Array.prototype.flat = original;
     }
+  });
+});
+
+describe("Test for chunk algorithm", () => {
+  test("[1,2,3,4,5], 2 -> [[1,2],[3,4],[5]]", () => {
+    expect(chunk([1, 2, 3, 4, 5], 2)).toEqual([[1, 2], [3, 4], [5]]);
+  });
+  test('["a","b","c","d"], 2 -> [["a","b"],["c","d"]]', () => {
+    expect(chunk(["a", "b", "c", "d"], 2)).toEqual([["a", "b"], ["c", "d"]]);
+  });
+  test("size bigger than the array -> one chunk", () => {
+    expect(chunk([1, 2, 3], 5)).toEqual([[1, 2, 3]]);
+  });
+  test("empty array -> []", () => {
+    expect(chunk([], 3)).toEqual([]);
+  });
+  test("size 1 -> every element in its own chunk", () => {
+    expect(chunk([1, 2, 3], 1)).toEqual([[1], [2], [3]]);
+  });
+  test("size equal to the length -> one chunk", () => {
+    expect(chunk([1, 2, 3], 3)).toEqual([[1, 2, 3]]);
+  });
+  test("does not modify the input", () => {
+    const input = [1, 2, 3, 4];
+    chunk(input, 2);
+    expect(input).toEqual([1, 2, 3, 4]);
   });
 });

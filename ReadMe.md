@@ -126,6 +126,7 @@ npm test         # run tests
   - ➡️ isValidParentheses
   - ➡️ maxProfit
   - ➡️ flatten
+  - ➡️ chunk
 
 - ➡️ **_DataStructures_**
 
