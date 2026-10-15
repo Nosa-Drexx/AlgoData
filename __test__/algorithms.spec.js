@@ -49,6 +49,7 @@ import {
   groupAnagrams,
   lengthOfLongestSubstring,
   containsDuplicate,
+  productExceptSelf,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -778,5 +779,23 @@ describe("Test for containsDuplicate algorithm", () => {
   test("handles negative numbers", () => {
     expect(containsDuplicate([-1, 2, -1])).toBe(true);
     expect(containsDuplicate([-1, 1])).toBe(false);
+  });
+});
+
+describe("Test for productExceptSelf algorithm", () => {
+  test("[1,2,3,4] -> [24,12,8,6]", () => {
+    expect(productExceptSelf([1, 2, 3, 4])).toEqual([24, 12, 8, 6]);
+  });
+  test("two elements swap", () => {
+    expect(productExceptSelf([2, 3])).toEqual([3, 2]);
+  });
+  test("one zero -> only the zero's position is non-zero", () => {
+    expect(productExceptSelf([1, 2, 0, 4])).toEqual([0, 0, 8, 0]);
+  });
+  test("two zeros -> all zeros", () => {
+    expect(productExceptSelf([0, 0, 2])).toEqual([0, 0, 0]);
+  });
+  test("handles negative numbers", () => {
+    expect(productExceptSelf([-1, 2, -3])).toEqual([-6, 3, -2]);
   });
 });
