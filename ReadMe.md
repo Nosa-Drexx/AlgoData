@@ -152,3 +152,4 @@ npm test         # run tests
   - ➡️ Graph
   - ➡️ Stack
   - ➡️ MinHeap
+  - ➡️ Trie

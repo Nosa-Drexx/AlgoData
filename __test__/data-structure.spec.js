@@ -7,6 +7,7 @@ import {
   Queue,
   Stack,
   MinHeap,
+  Trie,
 } from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
@@ -275,5 +276,27 @@ describe("Test for MinHeap", () => {
   test("extractMin on an empty heap throws", () => {
     const heap = new MinHeap();
     expect(() => heap.extractMin()).toThrow();
+  });
+});
+
+describe("Test for Trie", () => {
+  const trie = new Trie();
+  trie.insert("apple");
+  trie.insert("app");
+  trie.insert("bat");
+
+  test("search finds whole words only", () => {
+    expect(trie.search("apple")).toBe(true);
+    expect(trie.search("app")).toBe(true);
+    expect(trie.search("ap")).toBe(false);
+    expect(trie.search("bath")).toBe(false);
+  });
+  test("startsWith matches prefixes", () => {
+    expect(trie.startsWith("ap")).toBe(true);
+    expect(trie.startsWith("ba")).toBe(true);
+    expect(trie.startsWith("c")).toBe(false);
+  });
+  test("empty prefix matches everything", () => {
+    expect(trie.startsWith("")).toBe(true);
   });
 });
