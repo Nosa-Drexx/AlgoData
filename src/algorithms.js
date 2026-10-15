@@ -2122,3 +2122,21 @@ export function twoSum(nums, target) {
 
   return [];
 }
+
+// Valid Anagram: check if t is an anagram of s
+export function isAnagram(s, t) {
+  if (s.length !== t.length) return false;
+
+  const TasArray = Object.values(t);
+
+  for (let i = 0; i < s.length; i++) {
+    const SValue = s[i];
+
+    const indexOfValueInT = TasArray.indexOf(SValue);
+
+    if (indexOfValueInT == -1) return false;
+
+    TasArray.splice(indexOfValueInT, 1);
+  }
+  return true;
+}
