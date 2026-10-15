@@ -43,6 +43,7 @@ import {
   isAnagram,
   isValidPalindrome,
   isValidParentheses,
+  maxProfit,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -598,5 +599,26 @@ describe("Test for isValidParentheses algorithm", () => {
   });
   test("deeply nested -> true", () => {
     expect(isValidParentheses("{[()()]}[]")).toBe(true);
+  });
+});
+
+describe("Test for maxProfit algorithm", () => {
+  test("[7,1,5,3,6,4] -> 5", () => {
+    expect(maxProfit([7, 1, 5, 3, 6, 4])).toBe(5);
+  });
+  test("[7,6,4,3,1] -> 0", () => {
+    expect(maxProfit([7, 6, 4, 3, 1])).toBe(0);
+  });
+  test("single day -> 0", () => {
+    expect(maxProfit([5])).toBe(0);
+  });
+  test("lowest price comes after the best trade: [2,4,1] -> 2", () => {
+    expect(maxProfit([2, 4, 1])).toBe(2);
+  });
+  test("new low later gives a better trade: [3,2,6,5,0,3] -> 4", () => {
+    expect(maxProfit([3, 2, 6, 5, 0, 3])).toBe(4);
+  });
+  test("all the same price -> 0", () => {
+    expect(maxProfit([4, 4, 4, 4])).toBe(0);
   });
 });
