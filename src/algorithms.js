@@ -2241,3 +2241,16 @@ export function chunk(arr, size) {
   if (currentArraySplit.length) response.push(currentArraySplit);
   return response;
 }
+
+// Group Anagrams: words with the same sorted letters go in the same group
+export function groupAnagrams(strs) {
+  const groups = new Map();
+
+  for (const word of strs) {
+    const key = [...word].sort().join("");
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(word);
+  }
+
+  return [...groups.values()];
+}

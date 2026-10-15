@@ -127,6 +127,7 @@ npm test         # run tests
   - ➡️ maxProfit
   - ➡️ flatten
   - ➡️ chunk
+  - ➡️ groupAnagrams
 
 - ➡️ **_DataStructures_**
 
