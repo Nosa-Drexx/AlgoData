@@ -46,6 +46,7 @@ import {
   maxProfit,
   flatten,
   chunk,
+  groupAnagrams,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -694,5 +695,39 @@ describe("Test for chunk algorithm", () => {
     const input = [1, 2, 3, 4];
     chunk(input, 2);
     expect(input).toEqual([1, 2, 3, 4]);
+  });
+});
+
+describe("Test for groupAnagrams algorithm", () => {
+  const normalize = (groups) =>
+    groups
+      .map((group) => [...group].sort())
+      .sort((a, b) => a.join(",").localeCompare(b.join(",")));
+
+  test('["eat","tea","tan","ate","nat","bat"]', () => {
+    expect(
+      normalize(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+    ).toEqual(normalize([["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]));
+  });
+  test('[""] -> [[""]]', () => {
+    expect(normalize(groupAnagrams([""]))).toEqual([[""]]);
+  });
+  test('["a"] -> [["a"]]', () => {
+    expect(normalize(groupAnagrams(["a"]))).toEqual([["a"]]);
+  });
+  test("keeps duplicate words in the same group", () => {
+    expect(normalize(groupAnagrams(["abc", "bca", "abc"]))).toEqual([
+      ["abc", "abc", "bca"],
+    ]);
+  });
+  test("same letters but different counts are not anagrams", () => {
+    expect(normalize(groupAnagrams(["aab", "abb", "bab"]))).toEqual(
+      normalize([["aab"], ["abb", "bab"]])
+    );
+  });
+  test("no anagrams at all -> every word in its own group", () => {
+    expect(normalize(groupAnagrams(["one", "two", "six"]))).toEqual(
+      normalize([["one"], ["two"], ["six"]])
+    );
   });
 });
