@@ -2303,3 +2303,16 @@ export function productExceptSelf(nums) {
 
   return result;
 }
+
+// Maximum Subarray (Kadane's algorithm): largest sum of a contiguous subarray
+export function maxSubArray(nums) {
+  let currentSum = nums[0];
+  let maxSum = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    currentSum = Math.max(nums[i], currentSum + nums[i]);
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return maxSum;
+}

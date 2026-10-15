@@ -131,6 +131,7 @@ npm test         # run tests
   - ➡️ lengthOfLongestSubstring
   - ➡️ containsDuplicate
   - ➡️ productExceptSelf
+  - ➡️ maxSubArray
 
 - ➡️ **_DataStructures_**
 

@@ -50,6 +50,7 @@ import {
   lengthOfLongestSubstring,
   containsDuplicate,
   productExceptSelf,
+  maxSubArray,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -797,5 +798,20 @@ describe("Test for productExceptSelf algorithm", () => {
   });
   test("handles negative numbers", () => {
     expect(productExceptSelf([-1, 2, -3])).toEqual([-6, 3, -2]);
+  });
+});
+
+describe("Test for maxSubArray algorithm", () => {
+  test("[-2,1,-3,4,-1,2,1,-5,4] -> 6", () => {
+    expect(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])).toBe(6);
+  });
+  test("single element", () => {
+    expect(maxSubArray([1])).toBe(1);
+  });
+  test("whole array is the best subarray", () => {
+    expect(maxSubArray([5, 4, -1, 7, 8])).toBe(23);
+  });
+  test("all negative -> the largest single value", () => {
+    expect(maxSubArray([-3, -1, -2])).toBe(-1);
   });
 });
