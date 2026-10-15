@@ -55,6 +55,7 @@ import {
   mergeIntervals,
   topKFrequent,
   numberOfIslands,
+  coinChange,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -950,5 +951,23 @@ describe("Test for numberOfIslands algorithm", () => {
     const grid = [["1", "1"]];
     numberOfIslands(grid);
     expect(grid).toEqual([["1", "1"]]);
+  });
+});
+
+describe("Test for coinChange algorithm", () => {
+  test("[1,2,5], 11 -> 3", () => {
+    expect(coinChange([1, 2, 5], 11)).toBe(3);
+  });
+  test("amount can't be made -> -1", () => {
+    expect(coinChange([2], 3)).toBe(-1);
+  });
+  test("amount 0 -> 0", () => {
+    expect(coinChange([1], 0)).toBe(0);
+  });
+  test("greedy would fail: [1,3,4], 6 -> 2", () => {
+    expect(coinChange([1, 3, 4], 6)).toBe(2);
+  });
+  test("larger amount", () => {
+    expect(coinChange([186, 419, 83, 408], 6249)).toBe(20);
   });
 });

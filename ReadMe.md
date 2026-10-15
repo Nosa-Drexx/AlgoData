@@ -136,6 +136,7 @@ npm test         # run tests
   - ➡️ mergeIntervals
   - ➡️ topKFrequent
   - ➡️ numberOfIslands
+  - ➡️ coinChange
 
 - ➡️ **_DataStructures_**
 
