@@ -2201,3 +2201,21 @@ export function maxProfit(prices) {
 
   return maxProfit;
 }
+
+// Flatten an array nested at any depth without using Array.prototype.flat
+export function flatten(arr) {
+  const flatArrayResponse = [];
+
+  if (arr.length < 1) return flatArrayResponse;
+
+  for (let i = 0; i < arr.length; i++) {
+    const currentValue = arr[i];
+    if (Array.isArray(currentValue)) {
+      const flat = flatten(currentValue);
+      flatArrayResponse.push(...flat);
+    } else {
+      flatArrayResponse.push(currentValue);
+    }
+  }
+  return flatArrayResponse;
+}
