@@ -2397,3 +2397,19 @@ export function numberOfIslands(grid) {
 
   return islands;
 }
+
+// Coin Change: fewest coins to make `amount`, -1 if it can't be made
+export function coinChange(coins, amount) {
+  const minCoins = new Array(amount + 1).fill(Infinity);
+  minCoins[0] = 0;
+
+  for (let total = 1; total <= amount; total++) {
+    for (const coin of coins) {
+      if (coin <= total) {
+        minCoins[total] = Math.min(minCoins[total], minCoins[total - coin] + 1);
+      }
+    }
+  }
+
+  return minCoins[amount] === Infinity ? -1 : minCoins[amount];
+}
