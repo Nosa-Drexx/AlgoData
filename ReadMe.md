@@ -133,6 +133,7 @@ npm test         # run tests
   - ➡️ productExceptSelf
   - ➡️ maxSubArray
   - ➡️ climbStairs
+  - ➡️ mergeIntervals
 
 - ➡️ **_DataStructures_**
 
