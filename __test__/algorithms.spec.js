@@ -53,6 +53,7 @@ import {
   maxSubArray,
   climbStairs,
   mergeIntervals,
+  topKFrequent,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -889,5 +890,22 @@ describe("Test for mergeIntervals algorithm", () => {
       [2, 6],
       [1, 3],
     ]);
+  });
+});
+
+describe("Test for topKFrequent algorithm", () => {
+  const sorted = (arr) => [...arr].sort((a, b) => a - b);
+
+  test("[1,1,1,2,2,3], 2 -> [1,2]", () => {
+    expect(sorted(topKFrequent([1, 1, 1, 2, 2, 3], 2))).toEqual([1, 2]);
+  });
+  test("[1], 1 -> [1]", () => {
+    expect(topKFrequent([1], 1)).toEqual([1]);
+  });
+  test("handles negative numbers", () => {
+    expect(topKFrequent([4, 4, -1, -1, -1, 2], 1)).toEqual([-1]);
+  });
+  test("k equal to the number of unique values", () => {
+    expect(sorted(topKFrequent([3, 1, 2], 3))).toEqual([1, 2, 3]);
   });
 });

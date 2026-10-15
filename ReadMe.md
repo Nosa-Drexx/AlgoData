@@ -134,6 +134,7 @@ npm test         # run tests
   - ➡️ maxSubArray
   - ➡️ climbStairs
   - ➡️ mergeIntervals
+  - ➡️ topKFrequent
 
 - ➡️ **_DataStructures_**
 
