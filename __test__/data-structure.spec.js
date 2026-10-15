@@ -8,6 +8,7 @@ import {
   Stack,
   MinHeap,
   Trie,
+  LRUCache,
 } from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
@@ -298,5 +299,34 @@ describe("Test for Trie", () => {
   });
   test("empty prefix matches everything", () => {
     expect(trie.startsWith("")).toBe(true);
+  });
+});
+
+describe("Test for LRUCache", () => {
+  test("evicts the least recently used key", () => {
+    const cache = new LRUCache(2);
+    cache.put(1, 1);
+    cache.put(2, 2);
+    expect(cache.get(1)).toBe(1);
+    cache.put(3, 3);
+    expect(cache.get(2)).toBe(-1);
+    cache.put(4, 4);
+    expect(cache.get(1)).toBe(-1);
+    expect(cache.get(3)).toBe(3);
+    expect(cache.get(4)).toBe(4);
+  });
+  test("updating a key keeps size the same and marks it recent", () => {
+    const cache = new LRUCache(2);
+    cache.put("a", 1);
+    cache.put("b", 2);
+    cache.put("a", 10);
+    cache.put("c", 3);
+
+    expect(cache.size).toBe(2);
+    expect(cache.get("a")).toBe(10);
+    expect(cache.get("b")).toBe(-1);
+  });
+  test("missing key -> -1", () => {
+    expect(new LRUCache(1).get("x")).toBe(-1);
   });
 });
