@@ -6,6 +6,7 @@ import {
   Linkedlist,
   Queue,
   Stack,
+  MinHeap,
 } from "../src/datastructures";
 
 describe("Test for array data-strucure", () => {
@@ -249,5 +250,30 @@ describe("Test for Stack", () => {
 
   test("Test get", () => {
     expect(stackDS.length).toBe(1);
+  });
+});
+
+describe("Test for MinHeap", () => {
+  test("peek returns the smallest value", () => {
+    const heap = new MinHeap();
+    heap.insert(5);
+    heap.insert(3);
+    heap.insert(8);
+    heap.insert(1);
+
+    expect(heap.peek()).toBe(1);
+    expect(heap.length).toBe(4);
+  });
+  test("extractMin returns values in ascending order", () => {
+    const heap = new MinHeap();
+    [9, 4, 7, 1, 8, 2, 2, 6].forEach((n) => heap.insert(n));
+    const result = [];
+    while (heap.length) result.push(heap.extractMin());
+
+    expect(result).toEqual([1, 2, 2, 4, 6, 7, 8, 9]);
+  });
+  test("extractMin on an empty heap throws", () => {
+    const heap = new MinHeap();
+    expect(() => heap.extractMin()).toThrow();
   });
 });
