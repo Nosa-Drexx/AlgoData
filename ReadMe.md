@@ -151,3 +151,4 @@ npm test         # run tests
   - ➡️ BinaryTree
   - ➡️ Graph
   - ➡️ Stack
+  - ➡️ MinHeap

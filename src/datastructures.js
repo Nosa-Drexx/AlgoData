@@ -522,3 +522,56 @@ const stackDS = new Stack();
 // console.log(stackDS.pop()); //["cool"]
 // console.log(stackDS.pop()); //{ trial: "okay" }
 // console.log(stackDS.pop()); //  "Empty Stack; There is nothing in this Stack, push first"
+
+//MinHeap Datastructure
+
+export class MinHeap {
+  #heap;
+  constructor() {
+    this.#heap = [];
+  }
+  #swap(i, j) {
+    [this.#heap[i], this.#heap[j]] = [this.#heap[j], this.#heap[i]];
+  }
+  insert(value) {
+    this.#heap.push(value);
+    let index = this.#heap.length - 1;
+    while (index > 0) {
+      const parent = Math.floor((index - 1) / 2);
+      if (this.#heap[parent] <= this.#heap[index]) break;
+      this.#swap(parent, index);
+      index = parent;
+    }
+    return value;
+  }
+  peek() {
+    return this.#heap[0];
+  }
+  extractMin() {
+    if (this.#heap.length === 0) {
+      throw new Error("Empty Heap; There is nothing in this Heap, insert first");
+    }
+    const min = this.#heap[0];
+    const last = this.#heap.pop();
+    if (this.#heap.length > 0) {
+      this.#heap[0] = last;
+      let index = 0;
+      while (true) {
+        const left = 2 * index + 1;
+        const right = left + 1;
+        let smallest = index;
+        if (left < this.#heap.length && this.#heap[left] < this.#heap[smallest])
+          smallest = left;
+        if (right < this.#heap.length && this.#heap[right] < this.#heap[smallest])
+          smallest = right;
+        if (smallest === index) break;
+        this.#swap(index, smallest);
+        index = smallest;
+      }
+    }
+    return min;
+  }
+  get length() {
+    return this.#heap.length;
+  }
+}
