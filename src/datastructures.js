@@ -613,3 +613,32 @@ export class Trie {
     return this.#findNode(prefix) !== null;
   }
 }
+
+//LRU Cache Datastructure
+
+export class LRUCache {
+  #capacity;
+  #cache;
+  constructor(capacity) {
+    this.#capacity = capacity;
+    this.#cache = new Map();
+  }
+  get(key) {
+    if (!this.#cache.has(key)) return -1;
+    const value = this.#cache.get(key);
+    this.#cache.delete(key);
+    this.#cache.set(key, value);
+    return value;
+  }
+  put(key, value) {
+    if (this.#cache.has(key)) this.#cache.delete(key);
+    this.#cache.set(key, value);
+    if (this.#cache.size > this.#capacity) {
+      const oldestKey = this.#cache.keys().next().value;
+      this.#cache.delete(oldestKey);
+    }
+  }
+  get size() {
+    return this.#cache.size;
+  }
+}

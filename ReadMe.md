@@ -153,3 +153,4 @@ npm test         # run tests
   - ➡️ Stack
   - ➡️ MinHeap
   - ➡️ Trie
+  - ➡️ LRUCache
