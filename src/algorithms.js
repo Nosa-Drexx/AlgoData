@@ -2272,3 +2272,15 @@ export function lengthOfLongestSubstring(s) {
 
   return longest;
 }
+
+// Contains Duplicate: true if any value appears at least twice
+export function containsDuplicate(nums) {
+  const seen = new Set();
+
+  for (const num of nums) {
+    if (seen.has(num)) return true;
+    seen.add(num);
+  }
+
+  return false;
+}

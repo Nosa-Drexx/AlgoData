@@ -129,6 +129,7 @@ npm test         # run tests
   - ➡️ chunk
   - ➡️ groupAnagrams
   - ➡️ lengthOfLongestSubstring
+  - ➡️ containsDuplicate
 
 - ➡️ **_DataStructures_**
 
