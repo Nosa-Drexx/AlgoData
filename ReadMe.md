@@ -132,6 +132,7 @@ npm test         # run tests
   - ➡️ containsDuplicate
   - ➡️ productExceptSelf
   - ➡️ maxSubArray
+  - ➡️ climbStairs
 
 - ➡️ **_DataStructures_**
 

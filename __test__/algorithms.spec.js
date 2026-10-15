@@ -51,6 +51,7 @@ import {
   containsDuplicate,
   productExceptSelf,
   maxSubArray,
+  climbStairs,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -813,5 +814,20 @@ describe("Test for maxSubArray algorithm", () => {
   });
   test("all negative -> the largest single value", () => {
     expect(maxSubArray([-3, -1, -2])).toBe(-1);
+  });
+});
+
+describe("Test for climbStairs algorithm", () => {
+  test("small values", () => {
+    expect(climbStairs(1)).toBe(1);
+    expect(climbStairs(2)).toBe(2);
+    expect(climbStairs(3)).toBe(3);
+  });
+  test("5 -> 8 and 10 -> 89", () => {
+    expect(climbStairs(5)).toBe(8);
+    expect(climbStairs(10)).toBe(89);
+  });
+  test("large input runs fast", () => {
+    expect(climbStairs(45)).toBe(1836311903);
   });
 });
