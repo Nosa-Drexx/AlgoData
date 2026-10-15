@@ -47,6 +47,7 @@ import {
   flatten,
   chunk,
   groupAnagrams,
+  lengthOfLongestSubstring,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -729,5 +730,32 @@ describe("Test for groupAnagrams algorithm", () => {
     expect(normalize(groupAnagrams(["one", "two", "six"]))).toEqual(
       normalize([["one"], ["two"], ["six"]])
     );
+  });
+});
+
+describe("Test for lengthOfLongestSubstring algorithm", () => {
+  test('"abcabcbb" -> 3', () => {
+    expect(lengthOfLongestSubstring("abcabcbb")).toBe(3);
+  });
+  test('"bbbbb" -> 1', () => {
+    expect(lengthOfLongestSubstring("bbbbb")).toBe(1);
+  });
+  test('"pwwkew" -> 3', () => {
+    expect(lengthOfLongestSubstring("pwwkew")).toBe(3);
+  });
+  test("empty string -> 0", () => {
+    expect(lengthOfLongestSubstring("")).toBe(0);
+  });
+  test("a single space -> 1", () => {
+    expect(lengthOfLongestSubstring(" ")).toBe(1);
+  });
+  test('"dvdf" -> 3', () => {
+    expect(lengthOfLongestSubstring("dvdf")).toBe(3);
+  });
+  test('"abba" -> 2', () => {
+    expect(lengthOfLongestSubstring("abba")).toBe(2);
+  });
+  test("all unique characters -> full length", () => {
+    expect(lengthOfLongestSubstring("abcdef")).toBe(6);
   });
 });

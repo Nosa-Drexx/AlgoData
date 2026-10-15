@@ -128,6 +128,7 @@ npm test         # run tests
   - ➡️ flatten
   - ➡️ chunk
   - ➡️ groupAnagrams
+  - ➡️ lengthOfLongestSubstring
 
 - ➡️ **_DataStructures_**
 
