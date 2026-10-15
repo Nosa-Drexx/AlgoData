@@ -123,6 +123,7 @@ npm test         # run tests
   - ➡️ twoSum
   - ➡️ isAnagram
   - ➡️ isValidPalindrome
+  - ➡️ isValidParentheses
 
 - ➡️ **_DataStructures_**
 

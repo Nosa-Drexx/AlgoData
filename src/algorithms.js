@@ -2151,3 +2151,35 @@ export function isValidPalindrome(s) {
 
   return false;
 }
+
+// Valid Parentheses: every open bracket must be closed by the same type in the correct order
+export function isValidParentheses(s) {
+  const arrayTrack = [];
+  const predefionedOpeningTags = ["(", "{", "["];
+
+  for (let i = 0; i < s.length; i++) {
+    const valueOfS = s[i];
+    // if current value is an opening tag push to array
+    if (predefionedOpeningTags.includes(valueOfS)) {
+      arrayTrack.push(valueOfS);
+    } else {
+      const lastValueInArray = arrayTrack[arrayTrack.length - 1];
+      //if current closing tag doesn't match the last opening tag in the array then order is wrong return an early false
+      if (matchOpeningBracketType(valueOfS) !== lastValueInArray) return false;
+      arrayTrack.pop();
+    }
+  }
+
+  return arrayTrack.length === 0;
+}
+
+const matchOpeningBracketType = (b) => {
+  switch (b) {
+    case ")":
+      return "(";
+    case "}":
+      return "{";
+    default:
+      return "[";
+  }
+};

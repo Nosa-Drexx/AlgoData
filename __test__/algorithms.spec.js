@@ -42,6 +42,7 @@ import {
   twoSum,
   isAnagram,
   isValidPalindrome,
+  isValidParentheses,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -568,5 +569,34 @@ describe("Test for isValidPalindrome algorithm", () => {
   });
   test("single character -> true", () => {
     expect(isValidPalindrome("a")).toBe(true);
+  });
+});
+
+describe("Test for isValidParentheses algorithm", () => {
+  test('"()[]{}" -> true', () => {
+    expect(isValidParentheses("()[]{}")).toBe(true);
+  });
+  test('"(]" -> false', () => {
+    expect(isValidParentheses("(]")).toBe(false);
+  });
+  test('"([)]" -> false', () => {
+    expect(isValidParentheses("([)]")).toBe(false);
+  });
+  test('"{[]}" -> true', () => {
+    expect(isValidParentheses("{[]}")).toBe(true);
+  });
+  test("single pair -> true", () => {
+    expect(isValidParentheses("()")).toBe(true);
+  });
+  test("unclosed open bracket -> false", () => {
+    expect(isValidParentheses("(")).toBe(false);
+    expect(isValidParentheses("(()")).toBe(false);
+  });
+  test("close bracket with nothing open -> false", () => {
+    expect(isValidParentheses(")")).toBe(false);
+    expect(isValidParentheses("())")).toBe(false);
+  });
+  test("deeply nested -> true", () => {
+    expect(isValidParentheses("{[()()]}[]")).toBe(true);
   });
 });
