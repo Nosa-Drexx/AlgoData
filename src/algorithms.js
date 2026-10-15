@@ -2254,3 +2254,21 @@ export function groupAnagrams(strs) {
 
   return [...groups.values()];
 }
+
+// Longest Substring Without Repeating Characters (sliding window)
+export function lengthOfLongestSubstring(s) {
+  const lastSeen = new Map();
+  let start = 0;
+  let longest = 0;
+
+  for (let end = 0; end < s.length; end++) {
+    const char = s[end];
+    if (lastSeen.has(char) && lastSeen.get(char) >= start) {
+      start = lastSeen.get(char) + 1;
+    }
+    lastSeen.set(char, end);
+    longest = Math.max(longest, end - start + 1);
+  }
+
+  return longest;
+}
