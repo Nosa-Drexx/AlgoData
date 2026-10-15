@@ -125,6 +125,7 @@ npm test         # run tests
   - ➡️ isValidPalindrome
   - ➡️ isValidParentheses
   - ➡️ maxProfit
+  - ➡️ flatten
 
 - ➡️ **_DataStructures_**
 

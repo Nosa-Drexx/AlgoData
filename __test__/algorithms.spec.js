@@ -44,6 +44,7 @@ import {
   isValidPalindrome,
   isValidParentheses,
   maxProfit,
+  flatten,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -620,5 +621,51 @@ describe("Test for maxProfit algorithm", () => {
   });
   test("all the same price -> 0", () => {
     expect(maxProfit([4, 4, 4, 4])).toBe(0);
+  });
+});
+
+describe("Test for flatten algorithm", () => {
+  test("[1,[2,3],[4,[5,6]]] -> [1,2,3,4,5,6]", () => {
+    expect(flatten([1, [2, 3], [4, [5, 6]]])).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+  test('[[[["a"]]],"b"] -> ["a","b"]', () => {
+    expect(flatten([[[["a"]]], "b"])).toEqual(["a", "b"]);
+  });
+  test("empty nested arrays are dropped", () => {
+    expect(flatten([1, [], [2, []]])).toEqual([1, 2]);
+  });
+  test("empty array -> empty array", () => {
+    expect(flatten([])).toEqual([]);
+  });
+  test("already flat array is returned as a copy", () => {
+    const input = [1, 2, 3];
+    const result = flatten(input);
+    expect(result).toEqual([1, 2, 3]);
+    expect(result).not.toBe(input);
+  });
+  test("keeps non-array values like objects, null and undefined as-is", () => {
+    const obj = { a: 1 };
+    expect(flatten([obj, [null, [undefined]]])).toEqual([obj, null, undefined]);
+  });
+  test("does not modify the input", () => {
+    const input = [1, [2, [3]]];
+    flatten(input);
+    expect(input).toEqual([1, [2, [3]]]);
+  });
+  test("handles deep nesting", () => {
+    let deep = [42];
+    for (let i = 0; i < 100; i++) deep = [deep];
+    expect(flatten(deep)).toEqual([42]);
+  });
+  test("does not use Array.prototype.flat", () => {
+    const original = Array.prototype.flat;
+    Array.prototype.flat = () => {
+      throw new Error("Array.prototype.flat is not allowed");
+    };
+    try {
+      expect(flatten([1, [2, [3]]])).toEqual([1, 2, 3]);
+    } finally {
+      Array.prototype.flat = original;
+    }
   });
 });
