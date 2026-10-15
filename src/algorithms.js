@@ -2369,3 +2369,31 @@ export function topKFrequent(nums, k) {
 
   return result.slice(0, k);
 }
+
+// Number of Islands: count groups of "1" connected up, down, left or right
+export function numberOfIslands(grid) {
+  const visited = grid.map((row) => row.map(() => false));
+  let islands = 0;
+
+  const explore = (row, col) => {
+    const stack = [[row, col]];
+    while (stack.length) {
+      const [r, c] = stack.pop();
+      if (r < 0 || c < 0 || r >= grid.length || c >= grid[r].length) continue;
+      if (visited[r][c] || grid[r][c] !== "1") continue;
+      visited[r][c] = true;
+      stack.push([r + 1, c], [r - 1, c], [r, c + 1], [r, c - 1]);
+    }
+  };
+
+  for (let r = 0; r < grid.length; r++) {
+    for (let c = 0; c < grid[r].length; c++) {
+      if (grid[r][c] === "1" && !visited[r][c]) {
+        islands++;
+        explore(r, c);
+      }
+    }
+  }
+
+  return islands;
+}
