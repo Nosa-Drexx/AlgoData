@@ -130,6 +130,7 @@ npm test         # run tests
   - ➡️ groupAnagrams
   - ➡️ lengthOfLongestSubstring
   - ➡️ containsDuplicate
+  - ➡️ productExceptSelf
 
 - ➡️ **_DataStructures_**
 
