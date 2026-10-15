@@ -2219,3 +2219,25 @@ export function flatten(arr) {
   }
   return flatArrayResponse;
 }
+
+// Chunk Array: split an array into chunks of `size`, last chunk holds the remainder
+export function chunk(arr, size) {
+  if (arr.length < 1) return [];
+  if (size >= arr.length) return [arr];
+  const response = [];
+  let currentArraySplit = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const currentValue = arr[i];
+    if (currentArraySplit.length !== size) {
+      currentArraySplit.push(currentValue);
+    } else {
+      response.push(currentArraySplit);
+      currentArraySplit = [];
+      currentArraySplit.push(currentValue);
+    }
+  }
+
+  if (currentArraySplit.length) response.push(currentArraySplit);
+  return response;
+}
