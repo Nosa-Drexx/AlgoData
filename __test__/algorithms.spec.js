@@ -52,6 +52,7 @@ import {
   productExceptSelf,
   maxSubArray,
   climbStairs,
+  mergeIntervals,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -829,5 +830,64 @@ describe("Test for climbStairs algorithm", () => {
   });
   test("large input runs fast", () => {
     expect(climbStairs(45)).toBe(1836311903);
+  });
+});
+
+describe("Test for mergeIntervals algorithm", () => {
+  test("[[1,3],[2,6],[8,10],[15,18]] -> [[1,6],[8,10],[15,18]]", () => {
+    expect(
+      mergeIntervals([
+        [1, 3],
+        [2, 6],
+        [8, 10],
+        [15, 18],
+      ])
+    ).toEqual([
+      [1, 6],
+      [8, 10],
+      [15, 18],
+    ]);
+  });
+  test("touching intervals are merged", () => {
+    expect(
+      mergeIntervals([
+        [1, 4],
+        [4, 5],
+      ])
+    ).toEqual([[1, 5]]);
+  });
+  test("unsorted input", () => {
+    expect(
+      mergeIntervals([
+        [8, 10],
+        [1, 3],
+        [2, 6],
+      ])
+    ).toEqual([
+      [1, 6],
+      [8, 10],
+    ]);
+  });
+  test("interval fully inside another", () => {
+    expect(
+      mergeIntervals([
+        [1, 10],
+        [2, 3],
+      ])
+    ).toEqual([[1, 10]]);
+  });
+  test("empty input -> []", () => {
+    expect(mergeIntervals([])).toEqual([]);
+  });
+  test("does not modify the input", () => {
+    const input = [
+      [2, 6],
+      [1, 3],
+    ];
+    mergeIntervals(input);
+    expect(input).toEqual([
+      [2, 6],
+      [1, 3],
+    ]);
   });
 });

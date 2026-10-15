@@ -2332,3 +2332,24 @@ export function climbStairs(n) {
 
   return oneStepBefore;
 }
+
+// Merge Intervals: sort by start, then merge any overlapping intervals
+export function mergeIntervals(intervals) {
+  if (intervals.length === 0) return [];
+
+  const sorted = [...intervals].sort((a, b) => a[0] - b[0]);
+  const merged = [[...sorted[0]]];
+
+  for (let i = 1; i < sorted.length; i++) {
+    const last = merged[merged.length - 1];
+    const [start, end] = sorted[i];
+
+    if (start <= last[1]) {
+      last[1] = Math.max(last[1], end);
+    } else {
+      merged.push([start, end]);
+    }
+  }
+
+  return merged;
+}
