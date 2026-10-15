@@ -39,6 +39,7 @@ import {
   inorder,
   tree,
   breadth,
+  twoSum,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -498,3 +499,26 @@ describe("Test for tree trevarsa algorithms", ()=> {
     expect(breadth([tree], [])).toEqual([8,4,12,3,5,10,2,7,9,11,6])
   })
 })
+
+describe("Test for twoSum algorithm", () => {
+  const sorted = (arr) => [...arr].sort((a, b) => a - b);
+
+  test("[2,7,11,15], 9 -> [0,1]", () => {
+    expect(sorted(twoSum([2, 7, 11, 15], 9))).toEqual([0, 1]);
+  });
+  test("[3,2,4], 6 -> [1,2]", () => {
+    expect(sorted(twoSum([3, 2, 4], 6))).toEqual([1, 2]);
+  });
+  test("[3,3], 6 -> [0,1] (duplicate values)", () => {
+    expect(sorted(twoSum([3, 3], 6))).toEqual([0, 1]);
+  });
+  test("does not use the same element twice", () => {
+    expect(sorted(twoSum([5, 1, 4, 6], 10))).toEqual([2, 3]);
+  });
+  test("handles negative numbers", () => {
+    expect(sorted(twoSum([-1, -2, -3, -4, -5], -8))).toEqual([2, 4]);
+  });
+  test("handles zeros", () => {
+    expect(sorted(twoSum([0, 4, 3, 0], 0))).toEqual([0, 3]);
+  });
+});

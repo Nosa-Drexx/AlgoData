@@ -120,6 +120,7 @@ npm test         # run tests
   - ➡️ prefixCalc
   - ➡️ postfixCalc
   - ➡️ prefixCalc2
+  - ➡️ twoSum
 
 - ➡️ **_DataStructures_**
 

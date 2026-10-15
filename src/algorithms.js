@@ -2109,3 +2109,16 @@ export function prefixCalc2(expression) {
 
 console.log(prefixCalc2("- 3 * 4 5")); //-17
 console.log(prefixCalc2("* + 3 4 5")); //35
+
+// Two Sum: return the indices of the two numbers that add up to target
+export function twoSum(nums, target) {
+  if (nums.length === 2) return [0, 1];
+
+  for (let i = 0; i < nums.length; i++) {
+    for (let k = i + 1; k < nums.length; k++) {
+      if (nums[i] + nums[k] === target) return [i, k];
+    }
+  }
+
+  return [];
+}
