@@ -2316,3 +2316,19 @@ export function maxSubArray(nums) {
 
   return maxSum;
 }
+
+// Climbing Stairs: ways to reach step n taking 1 or 2 steps at a time
+export function climbStairs(n) {
+  if (n <= 2) return n;
+
+  let oneStepBefore = 2;
+  let twoStepsBefore = 1;
+
+  for (let i = 3; i <= n; i++) {
+    const current = oneStepBefore + twoStepsBefore;
+    twoStepsBefore = oneStepBefore;
+    oneStepBefore = current;
+  }
+
+  return oneStepBefore;
+}
