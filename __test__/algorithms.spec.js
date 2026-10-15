@@ -41,6 +41,7 @@ import {
   breadth,
   twoSum,
   isAnagram,
+  isValidPalindrome,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -545,5 +546,27 @@ describe("Test for isAnagram algorithm", () => {
   });
   test('"listen", "silent" -> true', () => {
     expect(isAnagram("listen", "silent")).toBe(true);
+  });
+});
+
+describe("Test for isValidPalindrome algorithm", () => {
+  test('"A man, a plan, a canal: Panama" -> true', () => {
+    expect(isValidPalindrome("A man, a plan, a canal: Panama")).toBe(true);
+  });
+  test('"race a car" -> false', () => {
+    expect(isValidPalindrome("race a car")).toBe(false);
+  });
+  test('" " -> true', () => {
+    expect(isValidPalindrome(" ")).toBe(true);
+  });
+  test("digits count as characters", () => {
+    expect(isValidPalindrome("0P")).toBe(false);
+    expect(isValidPalindrome("12321")).toBe(true);
+  });
+  test("ignores case and punctuation", () => {
+    expect(isValidPalindrome("No 'x' in Nixon")).toBe(true);
+  });
+  test("single character -> true", () => {
+    expect(isValidPalindrome("a")).toBe(true);
   });
 });
