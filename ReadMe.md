@@ -124,6 +124,7 @@ npm test         # run tests
   - ➡️ isAnagram
   - ➡️ isValidPalindrome
   - ➡️ isValidParentheses
+  - ➡️ maxProfit
 
 - ➡️ **_DataStructures_**
 

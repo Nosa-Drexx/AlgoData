@@ -2183,3 +2183,21 @@ const matchOpeningBracketType = (b) => {
       return "[";
   }
 };
+
+// Best Time to Buy and Sell Stock: max profit from one buy and a later sell, 0 if none
+export function maxProfit(prices) {
+  let maxProfit = 0;
+  if (prices.length <= 1) return maxProfit;
+
+  for (let i = 0; i < prices.length; i++) {
+    const buyPrice = prices[i];
+    for (let k = i + 1; k < prices.length; k++) {
+      const sellPrice = prices[k];
+      const gainOrLoss = sellPrice - buyPrice;
+
+      if (gainOrLoss > maxProfit) maxProfit = gainOrLoss;
+    }
+  }
+
+  return maxProfit;
+}
