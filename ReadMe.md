@@ -135,6 +135,7 @@ npm test         # run tests
   - ➡️ climbStairs
   - ➡️ mergeIntervals
   - ➡️ topKFrequent
+  - ➡️ numberOfIslands
 
 - ➡️ **_DataStructures_**
 

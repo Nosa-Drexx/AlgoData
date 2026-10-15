@@ -54,6 +54,7 @@ import {
   climbStairs,
   mergeIntervals,
   topKFrequent,
+  numberOfIslands,
 } from "../src/algorithms";
 
 describe("Test map function", () => {
@@ -907,5 +908,47 @@ describe("Test for topKFrequent algorithm", () => {
   });
   test("k equal to the number of unique values", () => {
     expect(sorted(topKFrequent([3, 1, 2], 3))).toEqual([1, 2, 3]);
+  });
+});
+
+describe("Test for numberOfIslands algorithm", () => {
+  test("one large island -> 1", () => {
+    const grid = [
+      ["1", "1", "1", "1", "0"],
+      ["1", "1", "0", "1", "0"],
+      ["1", "1", "0", "0", "0"],
+      ["0", "0", "0", "0", "0"],
+    ];
+    expect(numberOfIslands(grid)).toBe(1);
+  });
+  test("three separate islands -> 3", () => {
+    const grid = [
+      ["1", "1", "0", "0", "0"],
+      ["1", "1", "0", "0", "0"],
+      ["0", "0", "1", "0", "0"],
+      ["0", "0", "0", "1", "1"],
+    ];
+    expect(numberOfIslands(grid)).toBe(3);
+  });
+  test("all water -> 0", () => {
+    expect(
+      numberOfIslands([
+        ["0", "0"],
+        ["0", "0"],
+      ])
+    ).toBe(0);
+  });
+  test("diagonal land is not connected", () => {
+    expect(
+      numberOfIslands([
+        ["1", "0"],
+        ["0", "1"],
+      ])
+    ).toBe(2);
+  });
+  test("does not modify the grid", () => {
+    const grid = [["1", "1"]];
+    numberOfIslands(grid);
+    expect(grid).toEqual([["1", "1"]]);
   });
 });
