@@ -2140,3 +2140,14 @@ export function isAnagram(s, t) {
   }
   return true;
 }
+
+// Valid Palindrome: ignores case and any character that is not a letter or digit
+export function isValidPalindrome(s) {
+  const reformatedS = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+
+  const revertedReformatedS = [...reformatedS].reverse().join("");
+
+  if (reformatedS === revertedReformatedS) return true;
+
+  return false;
+}

@@ -122,6 +122,7 @@ npm test         # run tests
   - ➡️ prefixCalc2
   - ➡️ twoSum
   - ➡️ isAnagram
+  - ➡️ isValidPalindrome
 
 - ➡️ **_DataStructures_**
 
